@@ -1,0 +1,13 @@
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisReadisOperation.exe.config
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisReadisOperation.exe
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisReadisOperation.pdb
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisPool.dll
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisReadisCore.dll
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisExtend.dll
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\Newtonsoft.Json.dll
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisPool.pdb
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisReadisCore.pdb
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisExtend.pdb
+F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\LantisRedisOperation.csprojResolveAssemblyReference.cache
+F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\LantisReadisOperation.exe
+F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\LantisReadisOperation.pdb

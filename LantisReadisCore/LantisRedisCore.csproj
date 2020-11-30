@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D1FEB386-04E7-40D1-AE72-B1358F36852A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LantisReadisCore</RootNamespace>
+    <AssemblyName>LantisReadisCore</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>.\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Framework\Debuger\Logger.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\RedisSerializable\RedisSerializable.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\Condition\LantisRedisConditionGroup.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\Condition\LantisRedisCondition.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\Message\RequestRedisGetPage.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\Message\RequestRedisGet.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\Message\RequestRedisSet.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\DbExecuteInfo.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\RedisConst.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\RedisCore.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\RedisSerializable\RedisSerializableData.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\RedisSerializable\RedisSerializableField.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\RedisTable\RedisAttribute\RedisTableDefineAttribute.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\RedisTable\RedisTable.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\RedisTable\RedisTableData.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\RedisTable\RedisTableFieldDefine.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\RedisTable\RedisTableField.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\SqlValueTypeByType.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\DbExecuteType.cs" />
+    <Compile Include="Framework\LantisRedis\MemoryRedis.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\RedisState.cs" />
+    <Compile Include="obj\RedisBase.cs" />
+    <Compile Include="Framework\LantisRedis\ParamarResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LantisExtend\LantisExtend.csproj">
+      <Project>{9ef40a9b-fc9d-4738-b0cf-a4555546cdbc}</Project>
+      <Name>LantisExtend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LantisPool\LantisPool.csproj">
+      <Project>{e484323f-e665-48dc-b814-f749696b56d5}</Project>
+      <Name>LantisPool</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
