@@ -19,11 +19,11 @@ namespace LantisRedisCore
             fieldValue = string.Empty;
         }
 
-        public void OnEnable()
+        public void OnPoolSpawn()
         {
         }
 
-        public void OnDisable()
+        public void OnPoolDespawn()
         {
             fieldName = string.Empty;
             operation = string.Empty;

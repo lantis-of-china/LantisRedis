@@ -4,3 +4,5 @@ F:\Gits\LantisReadis\LantisExtend\bin\Debug\LantisExtend.pdb
 F:\Gits\LantisReadis\LantisExtend\obj\Debug\LantisExtend.dll
 F:\Gits\LantisReadis\LantisExtend\obj\Debug\LantisExtend.pdb
 F:\Gits\LantisReadis\LantisExtend\obj\Debug\LantisExtend.csprojResolveAssemblyReference.cache
+F:\Gits\LantisReadis\LantisExtend\bin\Debug\LantisPool.dll
+F:\Gits\LantisReadis\LantisExtend\bin\Debug\LantisPool.pdb

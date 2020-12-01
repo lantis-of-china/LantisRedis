@@ -32,7 +32,6 @@ namespace LantisPool
         public T CreateObject()
         {
             var newObject = new T();
-            newObject.OnCreate();
 
             return newObject;
         }
@@ -45,21 +44,21 @@ namespace LantisPool
                 {
                     var targetObject = poolList[0];
                     poolList.RemoveAt(0);
-                    targetObject.OnEnable();
+                    targetObject.OnPoolSpawn();
 
                     return targetObject;
                 }
             }
 
             var newObject = CreateObject();
-            newObject.OnEnable();
+            newObject.OnPoolSpawn();
 
             return newObject;
         }
 
         public void DisposeObject(T targetObject)
         {
-            targetObject.OnDisable();
+            targetObject.OnPoolDespawn();
 
             lock (lockObject)
             {
@@ -79,7 +78,6 @@ namespace LantisPool
                         {
                             var targetData = poolList[0];
                             poolList.RemoveAt(0);
-                            targetData.OnDestroy();
 
                             if (poolList.Count <= generalCount)
                             {

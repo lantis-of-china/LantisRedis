@@ -14,20 +14,18 @@ namespace LantisRedisCore
         public string fieldType;
         public object fieldValue;
 
-        public void OnCreate()
+        public void OnPoolSpawn()
         {
+            fieldName = string.Empty;
+            fieldType = string.Empty;
+            fieldValue = null;
         }
 
-        public void OnEnable()
+        public void OnPoolDespawn()
         {
-        }
-
-        public void OnDisable()
-        {
-        }
-
-        public void OnDestroy()
-        {
+            fieldName = string.Empty;
+            fieldType = string.Empty;
+            fieldValue = null;
         }
     }
 }

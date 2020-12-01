@@ -15,18 +15,18 @@ namespace LantisRedisCore
         private LantisDictronaryList<string, RedisTableFieldDefine> redisFieldCollects;
         private LantisDictronaryList<string, RedisTableData> redisDataCollects;
 
-        public void OnCreate()
+        public RedisTable()
         {
-            lockObject = new object();
-            redisFieldCollects = new LantisDictronaryList<string, RedisTableFieldDefine>();
-            redisDataCollects = new LantisDictronaryList<string, RedisTableData>();
+            lockObject = new object();            
         }
 
-        public void OnEnable()
+        public void OnPoolSpawn()
         {
+            redisFieldCollects = LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableFieldDefine>>().NewObject();
+            redisDataCollects = LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableData>>().NewObject();
         }
 
-        public void OnDisable()
+        public void OnPoolDespawn()
         {
             lock (lockObject)
             {
@@ -54,6 +54,10 @@ namespace LantisRedisCore
 
             redisDataCollects.Clear();
             redisFieldCollects.Clear();
+            LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableFieldDefine>>().DisposeObject(redisFieldCollects);
+            LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableData>>().DisposeObject(redisDataCollects);
+            redisDataCollects = null;
+            redisFieldCollects = null;
         }
 
         public void OnDestroy()

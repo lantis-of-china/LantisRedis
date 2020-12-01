@@ -15,11 +15,11 @@ namespace LantisRedisCore
             conditionList = new List<LantisRedisCondition>();
         }
 
-        public void OnEnable()
+        public void OnPoolSpawn()
         {            
         }
 
-        public void OnDisable()
+        public void OnPoolDespawn()
         {
             for (var i = 0; i < conditionList.Count; ++i)
             {

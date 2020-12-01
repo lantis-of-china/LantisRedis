@@ -138,87 +138,6 @@ namespace LantisRedisCore
         }
 
         /// <summary>
-        /// execute info translate to sql string
-        /// </summary>
-        /// <param name="executeInfo"></param>
-        /// <returns></returns>
-
-        public static string ExecuteInfoToSqlString(DbExecuteInfo executeInfo)
-        {
-            var fieldList = executeInfo.type.GetFields();
-            var tableName = executeInfo.type.Name;
-            string sqlString = "";
-
-            if (executeInfo.executeType == DbExecuteType.Insert)
-            {
-                string keys = "(";
-                string values = "(";
-
-                for (var i = 0; i < fieldList.Length; ++i)
-                {
-                    var field = fieldList[i];
-                    var value = GetStringValue(executeInfo.type, field, executeInfo.data.data);
-
-                    if (i != 0)
-                    {
-                        keys += ",";
-                        values += ",";
-                    }
-
-                    keys += field.Name;
-                    values += value;
-                }
-
-                keys += ")";
-                values += ")";
-                sqlString = $"INSERT INTO {tableName} {keys} VALUES{values}";
-            }
-            else if (executeInfo.executeType == DbExecuteType.Update)
-            {
-                string fields = "";
-
-                for (var i = 0; i < fieldList.Length; ++i)
-                {
-                    var field = fieldList[i];
-                    var value = GetStringValue(executeInfo.type, field, executeInfo.data.data);
-
-                    if (i != 0)
-                    {
-                        fields += ",";
-                    }
-
-                    fields += $"{field.Name} = {value}";
-                }
-
-                string whereString = "";
-
-                if (executeInfo.whereField.Count > 0)
-                {
-                    for (var i = 0; i < executeInfo.whereField.Count; ++i)
-                    {
-                        if (i != 0)
-                        {
-                            whereString += "AND";
-                        }
-
-                        whereString += $"{executeInfo.whereField[i]} {executeInfo.whereOperator[i]} {executeInfo.whereValue[i]}";
-                    }
-                }
-
-                if (string.IsNullOrEmpty(whereString))
-                {
-                    sqlString = $"UPDATE {tableName} SET {fields}";
-                }
-                else
-                {
-                    sqlString = $"UPDATE {tableName} SET {fields} WHERE {whereString}";
-                }
-            }
-
-            return sqlString;
-        }
-
-        /// <summary>
         /// memory redis base data translate to string data
         /// </summary>
         /// <param name="memoryRedisdata"></param>
@@ -310,20 +229,27 @@ namespace LantisRedisCore
                 }
                 else
                 {
-                    var fieldList = genericType.Assembly.CreateInstance(genericType.FullName, false);
+                    var fieldList = new List<RedisTableData>();
                     redisField.fieldValue = fieldList;
-                    var serializableField = redisSerializableField.fieldValue as IList;
-                    var poolHandle = LantisPoolSystem.GetPool<RedisTableField>();
+                    var serializableData = redisSerializableField.fieldValue as IList;
+                    var poolHandle = LantisPoolSystem.GetPool<RedisTableData>();
 
-                    //for (var i = 0; i < serializableField.Count; ++i)
-                    //{
-                    //    var redisSerializable = serializableField[i];
-                    //    var redisTableField = poolHandle.NewObject();
-                    //    redisTableField.fieldName = redisSerializable.fieldName;
-                    //    redisTableField.fieldType = redisSerializable.fieldType;
-                    //    redisTableField.fieldValue = redisSerializable.fieldValue;
-                    //    fieldList.Add(redisTableField);
-                    //}
+                    for (var i = 0; i < serializableData.Count; ++i)
+                    {
+                        var redisSerializable = serializableData[i] as RedisSerializableData;
+                        var redisTableField = poolHandle.NewObject();
+                        redisTableField.databaseName = redisSerializable.databaseName;
+                        var dataFields = redisSerializable.fields;
+
+                        for (var j = 0; j < dataFields.Count; ++j)
+                        {
+                            var serializableField = dataFields[j];
+                            var tableField = DataToRedisTableField(serializableField);
+                            redisTableField.AddField(tableField);
+                        }
+
+                        fieldList.Add(redisTableField);
+                    }
                 }
             }
             else
@@ -348,7 +274,7 @@ namespace LantisRedisCore
                 redisSerializableData.AddFieldData(redisSerializableField);
             });
 
-            var datas = RedisSerializable.SerializableToBytes(redisSerializableData);
+            var datas = RedisSerializable.Serialize(redisSerializableData);
             LantisPoolSystem.GetPool<RedisSerializableData>().DisposeObject(redisSerializableData);
 
             return datas;
@@ -395,12 +321,13 @@ namespace LantisRedisCore
             {
                 var type = redisTableField.fieldValue.GetType();
                 var genericType = type.GetGenericArguments()[0];
-                redisField.fieldValue = type.Assembly.CreateInstance(type.FullName, false);
                 var listField = redisTableField.fieldValue as IList;
-                var listHandle = redisField.fieldValue as IList;
 
                 if (IsGeneralType(genericType.Name))
                 {
+                    redisField.fieldValue = type.Assembly.CreateInstance(type.FullName, false);
+                    var listHandle = redisField.fieldValue as IList;
+
                     for (var i = 0; i < listField.Count; ++i)
                     {
                         listHandle.Add(listField[i]);
@@ -408,6 +335,9 @@ namespace LantisRedisCore
                 }
                 else if (IsStringType(genericType.Name))
                 {
+                    redisField.fieldValue = type.Assembly.CreateInstance(type.FullName, false);
+                    var listHandle = redisField.fieldValue as IList;
+
                     for (var i = 0; i < listField.Count; ++i)
                     {
                         listHandle.Add(listField[i]);
@@ -415,7 +345,14 @@ namespace LantisRedisCore
                 }
                 else
                 {
-                    Console.ReadKey();
+                    redisField.fieldValue = new List<RedisSerializableData>();
+                    var listHandle = redisField.fieldValue as IList;
+
+                    for (var i = 0; i < listField.Count; ++i)
+                    {
+                        var tableFieldData = listField[i];
+                        listHandle.Add(RedisTableDataToRedisSerializableData(tableFieldData as RedisTableData));
+                    };
                 }
             }
             else
@@ -494,13 +431,14 @@ namespace LantisRedisCore
             else if (IsList(fieldType.Name))
             {
                 var listValue = fieldData as IList;
-                redisSerializField.fieldValue = fieldType.Assembly.CreateInstance(fieldType.FullName, false);
-                var listField = redisSerializField.fieldValue as IList;
                 var genericTypeArry = fieldType.GetGenericArguments();
                 var genericType = genericTypeArry[0];
 
                 if (IsGeneralType(genericType.Name))
                 {
+                    redisSerializField.fieldValue = fieldType.Assembly.CreateInstance(fieldType.FullName, false);
+                    var listField = redisSerializField.fieldValue as IList;
+
                     for (var i = 0; i < listValue.Count; ++i)
                     {
                         var listItem = listValue[i];
@@ -509,6 +447,9 @@ namespace LantisRedisCore
                 }
                 else if (IsStringType(genericType.Name))
                 {
+                    redisSerializField.fieldValue = fieldType.Assembly.CreateInstance(fieldType.FullName, false);
+                    var listField = redisSerializField.fieldValue as IList;
+
                     for (var i = 0; i < listValue.Count; ++i)
                     {
                         var listItem = listValue[i];
@@ -517,10 +458,14 @@ namespace LantisRedisCore
                 }
                 else
                 {
+                    redisSerializField.fieldValue = new List<RedisSerializableData>();
+                    var listField = redisSerializField.fieldValue as IList;
+
                     for (var i = 0; i < listValue.Count; ++i)
                     {
                         var listItem = listValue[i];
-                        listField.Add(listItem);
+                        var serializData = ExternTableDataToRedisSerializData(string.Empty, listItem);
+                        listField.Add(serializData);
                     }
                 }
             }

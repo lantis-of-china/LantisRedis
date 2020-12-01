@@ -57,6 +57,10 @@
       <Project>{9ef40a9b-fc9d-4738-b0cf-a4555546cdbc}</Project>
       <Name>LantisExtend</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LantisNetwork\LantisNetwork.csproj">
+      <Project>{96076960-5123-446b-b353-501b121f7572}</Project>
+      <Name>LantisNetwork</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LantisPool\LantisPool.csproj">
       <Project>{e484323f-e665-48dc-b814-f749696b56d5}</Project>
       <Name>LantisPool</Name>

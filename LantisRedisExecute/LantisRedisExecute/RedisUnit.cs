@@ -21,11 +21,11 @@ namespace LantisRedisExecute
             tableCollects = new LantisDictronaryList<string, RedisTable>();
         }
 
-        public void OnEnable()
+        public void OnPoolSpawn()
         {
         }
 
-        public void OnDisable()
+        public void OnPoolDespawn()
         {
             tableCollects.Clear();
         }

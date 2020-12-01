@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace LantisExtend
 {
     [Serializable]
-    public class LantisDictronaryList<K, V>
+    public class LantisDictronaryList<K, V> : LantisPool.LantisPoolInterface
     {
         private object lockObject;
         private Dictionary<K, V> dictionary;
@@ -20,6 +20,14 @@ namespace LantisExtend
             dictionary = new Dictionary<K, V>();
             listKey = new List<K>();
             listValue = new List<V>();
+        }
+
+        public void OnPoolSpawn()
+        {
+        }
+
+        public void OnPoolDespawn()
+        {
         }
 
         public bool HasKey(K key)

@@ -20,12 +20,12 @@ namespace LantisRedisCore.Message
             data = null;
         }
 
-        public void OnEnable()
+        public void OnPoolSpawn()
         {
             conditionGroup = LantisPool.LantisPoolSystem.GetPool<LantisRedisConditionGroup>().NewObject();
         }
 
-        public void OnDisable()
+        public void OnPoolDespawn()
         {
             databaseName = string.Empty;
             tableName = string.Empty;

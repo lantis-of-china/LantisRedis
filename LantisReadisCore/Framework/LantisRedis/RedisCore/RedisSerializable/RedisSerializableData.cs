@@ -14,18 +14,18 @@ namespace LantisRedisCore
         public string tableName;
         public List<RedisSerializableField> fields;
 
-        public void OnCreate()
+        public RedisSerializableData()
         {
-            databaseName = string.Empty;
-            tableName = string.Empty;
             fields = new List<RedisSerializableField>();
         }
 
-        public void OnEnable()
+        public void OnPoolSpawn()
         {
+            databaseName = string.Empty;
+            tableName = string.Empty;
         }
 
-        public void OnDisable()
+        public void OnPoolDespawn()
         {
             databaseName = string.Empty;
             tableName = string.Empty;
@@ -37,13 +37,6 @@ namespace LantisRedisCore
             }
 
             fields.Clear();
-        }
-
-        public void OnDestroy()
-        {
-            fields = null;
-            databaseName = null;
-            tableName = null;
         }
 
         public void AddFieldData(RedisSerializableField fieldData)

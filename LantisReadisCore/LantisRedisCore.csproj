@@ -57,7 +57,6 @@
     <Compile Include="Framework\LantisRedis\RedisCore\Message\RequestRedisGetPage.cs" />
     <Compile Include="Framework\LantisRedis\RedisCore\Message\RequestRedisGet.cs" />
     <Compile Include="Framework\LantisRedis\RedisCore\Message\RequestRedisSet.cs" />
-    <Compile Include="Framework\LantisRedis\RedisCore\DbExecuteInfo.cs" />
     <Compile Include="Framework\LantisRedis\RedisCore\RedisConst.cs" />
     <Compile Include="Framework\LantisRedis\RedisCore\RedisCore.cs" />
     <Compile Include="Framework\LantisRedis\RedisCore\RedisSerializable\RedisSerializableData.cs" />
@@ -68,11 +67,8 @@
     <Compile Include="Framework\LantisRedis\RedisCore\RedisTable\RedisTableFieldDefine.cs" />
     <Compile Include="Framework\LantisRedis\RedisCore\RedisTable\RedisTableField.cs" />
     <Compile Include="Framework\LantisRedis\RedisCore\SqlValueTypeByType.cs" />
-    <Compile Include="Framework\LantisRedis\RedisCore\DbExecuteType.cs" />
     <Compile Include="Framework\LantisRedis\MemoryRedis.cs" />
-    <Compile Include="Framework\LantisRedis\RedisCore\RedisState.cs" />
     <Compile Include="obj\RedisBase.cs" />
-    <Compile Include="Framework\LantisRedis\ParamarResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

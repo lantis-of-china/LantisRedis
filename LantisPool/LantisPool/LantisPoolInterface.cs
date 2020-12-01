@@ -8,12 +8,8 @@ namespace LantisPool
 {
     public interface LantisPoolInterface
     {
-        void OnCreate();
+        void OnPoolSpawn();
 
-        void OnEnable();
-
-        void OnDisable();
-
-        void OnDestroy();
+        void OnPoolDespawn();
     }
 }

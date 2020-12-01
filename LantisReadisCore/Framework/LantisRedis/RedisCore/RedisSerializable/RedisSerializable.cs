@@ -69,9 +69,9 @@ namespace LantisRedisCore
             return bytes;
         }
 
-        public static RedisTableData BytesToSerializable(byte[] datas)
+        public static RedisSerializableData BytesToSerializable(byte[] datas)
         {
-            return DeSerialize<RedisTableData>(datas);
+            return DeSerialize<RedisSerializableData>(datas);
         }
     }
 }

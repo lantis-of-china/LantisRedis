@@ -14,22 +14,16 @@ namespace LantisRedisCore
         public string databaseName;
         private LantisDictronaryList<string, RedisTableField> fieldCollects;
 
-        public void OnCreate()
+        public void OnPoolSpawn()
         {
-            fieldCollects = new LantisDictronaryList<string, RedisTableField>();
+            databaseName = string.Empty;
+            fieldCollects = LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableField>>().NewObject();
         }
 
-        public void OnEnable()
-        {
-        }
-
-        public void OnDisable()
+        public void OnPoolDespawn()
         {
             ClearFields();
-        }
-
-        public void OnDestroy()
-        {
+            LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableField>>().DisposeObject(fieldCollects);
             fieldCollects = null;
         }
 

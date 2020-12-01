@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisPool", "LantisPool\La
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisExtend", "LantisExtend\LantisExtend.csproj", "{9EF40A9B-FC9D-4738-B0CF-A4555546CDBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisNetwork", "LantisNetwork\LantisNetwork.csproj", "{96076960-5123-446B-B353-501B121F7572}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9EF40A9B-FC9D-4738-B0CF-A4555546CDBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EF40A9B-FC9D-4738-B0CF-A4555546CDBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EF40A9B-FC9D-4738-B0CF-A4555546CDBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96076960-5123-446B-B353-501B121F7572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96076960-5123-446B-B353-501B121F7572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96076960-5123-446B-B353-501B121F7572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96076960-5123-446B-B353-501B121F7572}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
