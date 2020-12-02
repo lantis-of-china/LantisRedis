@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LantisExtend;
-using LantisPool;
+using Lantis.Extend;
+using Lantis.Pool;
 
-namespace LantisRedisCore
+namespace Lantis.RedisCore
 {
     [Serializable]
-    public class RedisTableData : LantisPool.LantisPoolInterface
+    public class RedisTableData : LantisPoolInterface
     {
         public string databaseName;
         private LantisDictronaryList<string, RedisTableField> fieldCollects;

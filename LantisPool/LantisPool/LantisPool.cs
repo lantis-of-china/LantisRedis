@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace LantisPool
+namespace Lantis.Pool
 {
     public class LantisPool<T> where T : LantisPoolInterface, new()
     {

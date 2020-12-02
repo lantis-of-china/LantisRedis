@@ -1,14 +1,14 @@
-﻿using LantisExtend;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LantisPool;
+using Lantis.Pool;
+using Lantis.Extend;
 
-namespace LantisRedisCore
+namespace Lantis.RedisCore
 {
-    public class RedisTable : LantisPool.LantisPoolInterface
+    public class RedisTable : LantisPoolInterface
     {
         private object lockObject;
         private string tableName;

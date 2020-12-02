@@ -1,17 +1,19 @@
-﻿using System;
+﻿using Lantis.Extend;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lantis.Pool;
 
-namespace EntityComponentSystem
+namespace Lantis.EntityComponentSystem
 {
-    public class Entity
+    public class Entity : LantisPoolInterface
     {
         private bool entityIdLock = false;
         private int entityId;
         private bool selfActive;
-        private LantisDictronaryList<int,ComponentEntity> entityList = new LantisDictronaryList<int,ComponentEntity>();
+        private LantisDictronaryList<int,ComponentEntity> entityList;
 
         public Entity()
         { }
@@ -30,6 +32,22 @@ namespace EntityComponentSystem
         public int GetEntityId()
         {
             return entityId;
+        }
+
+        public virtual void OnPoolSpawn()
+        {
+            entityList = LantisPoolSystem.GetPool<LantisDictronaryList<int, ComponentEntity>>().NewObject();
+        }
+
+        public virtual void OnPoolDespawn()
+        {
+            LantisPoolSystem.GetPool<LantisDictronaryList<int, ComponentEntity>>().DisposeObject(entityList);
+            entityList = null;
+        }
+
+        public virtual void BackPoolSelf()
+        {
+            LantisPoolSystem.GetPool<Entity>().DisposeObject(this);
         }
 
         public virtual void OnAwake()

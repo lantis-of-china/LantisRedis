@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LantisExtend;
-using LantisRedisCore;
-using LantisPool;
+using Lantis.Pool;
+using Lantis.Extend;
+using Lantis.RedisCore;
 
-namespace LantisRedisExecute
+namespace Lantis.RedisExecute
 {
     public class RedisUnit : LantisPoolInterface
     {

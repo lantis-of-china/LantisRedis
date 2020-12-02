@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lantis.Pool;
 
-namespace LantisRedisCore
+namespace Lantis.RedisCore
 {
-    public class LantisRedisConditionGroup : LantisPool.LantisPoolInterface
+    public class LantisRedisConditionGroup : LantisPoolInterface
     {
         public List<LantisRedisCondition> conditionList;
 
@@ -23,7 +24,7 @@ namespace LantisRedisCore
         {
             for (var i = 0; i < conditionList.Count; ++i)
             {
-                LantisPool.LantisPoolSystem.GetPool<LantisRedisCondition>().DisposeObject(conditionList[i]);
+                LantisPoolSystem.GetPool<LantisRedisCondition>().DisposeObject(conditionList[i]);
             }
 
             conditionList.Clear();

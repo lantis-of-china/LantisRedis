@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LantisRedisCore;
+using Lantis.RedisCore;
+using Lantis.Pool;
 
 namespace LantisReadisOperation
 {
@@ -30,10 +31,10 @@ namespace LantisReadisOperation
             var netBytes = RedisSerializable.SerializableToBytes(testData);
             var serializable = RedisSerializable.BytesToSerializable(netBytes);
 
-            var redisTableData = LantisPool.LantisPoolSystem.GetPool<RedisTableData>().NewObject();
+            var redisTableData = LantisPoolSystem.GetPool<RedisTableData>().NewObject();
             RedisCore.DataToRedisTableData(netBytes, redisTableData);
             netBytes = RedisCore.RedisTableDataToData(redisTableData);
-            var redisTableDataOut = LantisPool.LantisPoolSystem.GetPool<RedisTableData>().NewObject();
+            var redisTableDataOut = LantisPoolSystem.GetPool<RedisTableData>().NewObject();
             RedisCore.DataToRedisTableData(netBytes, redisTableDataOut);
 
             Console.ReadKey();

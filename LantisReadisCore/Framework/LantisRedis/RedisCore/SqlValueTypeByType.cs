@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LantisRedisCore
+namespace Lantis.RedisCore
 {
     public class SqlValueTypeByType
     {

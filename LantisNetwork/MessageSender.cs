@@ -5,24 +5,29 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Lantis.Pool;
 
-namespace LantisNetwork
+namespace Lantis.Network
 {
 	public delegate void ExceCall(string call);
 
-    public class MessageSender
+    public class MessageSender : LantisPoolInterface
     {
 		public SenderState bindSenderState;
-
 		public bool write;
-
 		public Socket clientSocket; 
-
         public byte[] sendBuffer;
-
         public int sendRecord;
-
         public ExceCall exceCall;
+
+        public void OnPoolSpawn()
+        {
+        }
+
+        public void OnPoolDespawn()
+        {
+        }
+
 
         public MessageSender()
         {
@@ -37,11 +42,8 @@ namespace LantisNetwork
         public void SenderStar(Socket client, byte[] buffer)
         {
             exceCall = ReceiveException;
-
             clientSocket = client;
-
             sendBuffer = buffer;
-
             sendRecord = 0;
         }
 

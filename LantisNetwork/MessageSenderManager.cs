@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
+using Lantis.Pool;
 
-namespace LantisNetwork
+namespace Lantis.Network
 {
     public class MessageSenderManager
     {
@@ -28,7 +29,7 @@ namespace LantisNetwork
                 }
                 else
                 {
-                    senderQueue = new SenderState();
+                    senderQueue = LantisPoolSystem.GetPool<SenderState>().NewObject();
                     sendMap.Add(sender.clientSocket, senderQueue);
                 }
             }
@@ -49,8 +50,9 @@ namespace LantisNetwork
                 if (sendMap.ContainsKey(socket))
                 {
                     SenderState senderState = sendMap[socket];
-                    senderState.Close();
                     sendMap.Remove(socket);
+                    senderState.Close();
+                    LantisPoolSystem.GetPool<SenderState>().DisposeObject(senderState);
                 }
             }
         }

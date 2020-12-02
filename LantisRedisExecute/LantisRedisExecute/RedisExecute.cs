@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LantisExtend;
-using LantisPool;
-using LantisRedisCore;
-using LantisRedisCore.Message;
+using Lantis.RedisCore;
+using Lantis.RedisCore.Message;
+using Lantis.Extend;
+using Lantis.Pool;
 
-namespace LantisRedisExecute.LantisRedisExecute
+namespace Lantis.RedisExecute.LantisRedisExecute
 {
     public class RedisExecute
     {

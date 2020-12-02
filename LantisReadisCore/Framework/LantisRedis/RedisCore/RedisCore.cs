@@ -1,14 +1,15 @@
-﻿using LantisPool;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using LantisExtend;
 using System.Collections;
+using Lantis.Extend;
+using Lantis.Pool;
 
-namespace LantisRedisCore
+
+namespace Lantis.RedisCore
 {
     /// <summary>
     /// memory readis core function define

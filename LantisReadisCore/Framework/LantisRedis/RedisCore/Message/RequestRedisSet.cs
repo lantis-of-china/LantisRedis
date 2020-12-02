@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lantis.Pool;
 
-namespace LantisRedisCore.Message
+namespace Lantis.RedisCore.Message
 {
-    public class RequestRedisSet : LantisPool.LantisPoolInterface
+    public class RequestRedisSet : LantisPoolInterface
     {
         public string databaseName;
         public string tableName;
@@ -22,7 +23,7 @@ namespace LantisRedisCore.Message
 
         public void OnPoolSpawn()
         {
-            conditionGroup = LantisPool.LantisPoolSystem.GetPool<LantisRedisConditionGroup>().NewObject();
+            conditionGroup = LantisPoolSystem.GetPool<LantisRedisConditionGroup>().NewObject();
         }
 
         public void OnPoolDespawn()
@@ -30,7 +31,7 @@ namespace LantisRedisCore.Message
             databaseName = string.Empty;
             tableName = string.Empty;
             data = null;
-            LantisPool.LantisPoolSystem.GetPool<LantisRedisConditionGroup>().DisposeObject(conditionGroup);
+            LantisPoolSystem.GetPool<LantisRedisConditionGroup>().DisposeObject(conditionGroup);
             conditionGroup = null;
         }
 

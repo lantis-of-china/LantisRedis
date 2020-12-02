@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LantisPool
+namespace Lantis.Pool
 {
     public interface LantisPoolInterface
     {

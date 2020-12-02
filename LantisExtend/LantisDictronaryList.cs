@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lantis.Pool;
 
-namespace LantisExtend
+namespace Lantis.Extend
 {
     [Serializable]
-    public class LantisDictronaryList<K, V> : LantisPool.LantisPoolInterface
+    public class LantisDictronaryList<K, V> : LantisPoolInterface
     {
         private object lockObject;
         private Dictionary<K, V> dictionary;
@@ -28,6 +29,7 @@ namespace LantisExtend
 
         public void OnPoolDespawn()
         {
+            Clear();
         }
 
         public bool HasKey(K key)

@@ -3,20 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lantis.Pool;
 
-namespace LantisNetwork
+namespace Lantis.Network
 {
     /// <summary>
     /// 发送状态
     /// </summary>
-    public class SenderState
+    public class SenderState : LantisPoolInterface
     {
         public object lockSelf = new object();
-
         public bool close = false;
         public bool sending = false;
-
         public Queue<MessageSender> sendQueue = new Queue<MessageSender>();
+
+        public void OnPoolSpawn()
+        {
+            close = false;
+            sending = false;
+            sendQueue.Clear();
+        }
+
+        public void OnPoolDespawn()
+        {
+            close = false;
+            sending = false;
+            sendQueue.Clear();
+        }
 
         /// <summary>
         /// 加入队列

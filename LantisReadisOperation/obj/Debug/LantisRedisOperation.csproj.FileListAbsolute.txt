@@ -11,3 +11,5 @@ F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisExtend.pdb
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\LantisRedisOperation.csprojResolveAssemblyReference.cache
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\LantisReadisOperation.exe
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\LantisReadisOperation.pdb
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisNetwork.dll
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisNetwork.pdb

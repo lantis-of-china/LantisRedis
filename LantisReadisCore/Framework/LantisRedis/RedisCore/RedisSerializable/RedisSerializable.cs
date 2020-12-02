@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LantisRedisCore;
-using LantisPool;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Lantis.RedisCore;
+using Lantis.Pool;
 
-namespace LantisRedisCore
+
+namespace Lantis.RedisCore
 {
     public class RedisSerializable
     {

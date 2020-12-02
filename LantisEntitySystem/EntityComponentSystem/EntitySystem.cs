@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Lantis.Extend;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEngine;
+using Lantis.Pool;
 
-namespace EntityComponentSystem
+namespace Lantis.EntityComponentSystem
 {
     public class EntitySystem
     {
@@ -61,11 +62,11 @@ namespace EntityComponentSystem
             return null;
         }
 
-        public static T CreateGameObject<T>(GameObject gameObject) where T : GameObjectEntity,new()
+        public static T CreateObject<T>(T objectInstance) where T : ObjectEntity<T>,new()
         {
-            var entity = new T();
+            var entity = LantisPoolSystem.GetPool<T>().NewObject();
             SetEntityId(entity);
-            entity.gameObject = gameObject;
+            entity.objectInstance = objectInstance;
             AddEntity<T>(entity);
 
             return entity;
@@ -73,7 +74,7 @@ namespace EntityComponentSystem
 
         public static T CreateComponent<T>(Entity baseEntity) where T : ComponentEntity, new()
         {
-            var entity = new T();
+            var entity = LantisPoolSystem.GetPool<T>().NewObject();
             SetEntityId(entity);
             entity.SetEntity(baseEntity);
             var components = baseEntity.GetComponentsContenter();
@@ -83,7 +84,7 @@ namespace EntityComponentSystem
             return entity;
         }
 
-        public static void Destroy<T>(T entity) where T : Entity
+        public static void Destroy<T>(T entity) where T : Entity, new()
         {
             if (GetEntity(entity.GetEntityId()) != null)
             {
@@ -94,6 +95,7 @@ namespace EntityComponentSystem
 
                 entity.OnDestroy();
                 RemoveEntity(entity.GetEntityId());
+                LantisPoolSystem.GetPool<T>().DisposeObject(entity);
             }
         }
 

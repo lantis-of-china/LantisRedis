@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lantis.Pool;
 
-namespace LantisRedisCore
+namespace Lantis.RedisCore
 {
-    public class LantisRedisCondition : LantisPool.LantisPoolInterface
+    public class LantisRedisCondition : LantisPoolInterface
     {
         public string fieldName;
         public string operation;

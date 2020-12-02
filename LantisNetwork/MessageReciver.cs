@@ -6,10 +6,11 @@ using System.Text;
 using System.IO;
 using System.Threading;
 using System.Net;
+using Lantis.Pool;
 
-namespace LantisNetwork
+namespace Lantis.Network
 {
-    public class MessageReciver
+    public class MessageReciver : LantisPoolInterface
     {
 		public bool write;
         /// <summary>
@@ -44,15 +45,38 @@ namespace LantisNetwork
         /// 消息回调
         /// </summary>
         private Action<byte[], Socket, string, int> messageDriverCall;
+        private Action reciverExeceptionCall;
 
+        public void OnPoolSpawn()
+        {
+        }
 
-        public MessageReciver(Socket client, Action<byte[], Socket, string, int> messageCall)
+        public void OnPoolDespawn()
+        {
+        }
+
+        public MessageReciver(Socket client, Action<byte[], Socket, string, int> messageCall,Action execeptionCall)
         {
             messageDriverCall = messageCall;
+            reciverExeceptionCall = execeptionCall;
             bufLength = 2048;
             clientSocket = client;
-            lengthBuf = new byte[4];
-            msgBufer = new byte[bufLength];
+
+            if (reciveStream == null)
+            {
+                reciveStream = new MemoryStream();
+            }
+
+            if (lengthBuf == null)
+            {
+                lengthBuf = new byte[4];
+            }
+
+            if (msgBufer == null)
+            {
+                msgBufer = new byte[bufLength];
+            }
+
             ThreadPool.QueueUserWorkItem(new WaitCallback(BeginReceiveMsgHead));
         }
 
@@ -81,12 +105,13 @@ namespace LantisNetwork
         public void BeginReciveMsgBody(object paramar)
         {
             msgHead = false;
+
             try
             {
 				int reciveCount = msgBufer.Length;
 
-				if (reciveStream != null)
-				{
+				//if (reciveStream != null)
+				//{
 					int needRecive = (int)messageLength - (int)reciveStream.Length;
 
 					if (needRecive >= msgBufer.Length)
@@ -97,7 +122,7 @@ namespace LantisNetwork
 					{
 						reciveCount = needRecive;
 					}
-				}
+				//}
 
 				clientSocket.BeginReceive(msgBufer, 0, reciveCount, SocketFlags.None, ReceiveCallback, null);
             }
@@ -130,15 +155,7 @@ namespace LantisNetwork
                     {
                     }
 
-                    if (reciveStream == null)
-                    {
-                        reciveStream = new MemoryStream();
-                    }
-                    else
-                    {
-                        reciveStream.Seek(0, SeekOrigin.Begin);
-                    }
-
+                    reciveStream.Seek(0, SeekOrigin.Begin);  
                     messageLength = System.BitConverter.ToInt32(lengthBuf, 0);
                     BeginReciveMsgBody(null);
                 }
@@ -149,6 +166,7 @@ namespace LantisNetwork
                     if (reciveStream.Length >= messageLength)
                     {
                         byte[] msgBuf = reciveStream.ToArray();
+                        reciveStream.Seek(0, SeekOrigin.Begin);
                         //reciveStream.Dispose();
                         //reciveStream.Close();
                         //reciveStream = null;
@@ -179,6 +197,10 @@ namespace LantisNetwork
 
         public void ReceiveException()
         {
+            if (reciverExeceptionCall != null)
+            {
+                reciverExeceptionCall();
+            }
 		}
     }
 }

@@ -1,0 +1,5 @@
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisNetwork.dll.config
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisNetwork.dll
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisNetwork.pdb
+F:\Gits\LantisReadis\LantisNetwork\obj\Debug\LantisNetwork.dll
+F:\Gits\LantisReadis\LantisNetwork\obj\Debug\LantisNetwork.pdb
