@@ -36,10 +36,10 @@ namespace Lantis.Network
 
         public MessageSender(Socket client, byte[] buffer)
         {
-            SenderStar(client, buffer);
+            SetSender(client, buffer);
         }
 
-        public void SenderStar(Socket client, byte[] buffer)
+        public void SetSender(Socket client, byte[] buffer)
         {
             exceCall = ReceiveException;
             clientSocket = client;

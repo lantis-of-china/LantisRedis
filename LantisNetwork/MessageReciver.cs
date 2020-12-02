@@ -55,7 +55,11 @@ namespace Lantis.Network
         {
         }
 
-        public MessageReciver(Socket client, Action<byte[], Socket, string, int> messageCall,Action execeptionCall)
+        public MessageReciver()
+        {
+        }
+
+        public void Start(Socket client, Action<byte[], Socket, string, int> messageCall, Action execeptionCall)
         {
             messageDriverCall = messageCall;
             reciverExeceptionCall = execeptionCall;
