@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lantis.Pool;
+using Lantis.Locker;
 
 namespace Lantis.EntityComponentSystem
 {
-    public class Entity : LantisPoolInterface
+    public class Entity : SafeLocker, LantisPoolInterface
     {
         private bool entityIdLock = false;
         private int entityId;

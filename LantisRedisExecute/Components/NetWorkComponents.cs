@@ -20,30 +20,42 @@ namespace Lantis.RedisExecute.Components
         public override void OnPoolSpawn()
         {
             base.OnPoolSpawn();
-            messageReciverMap = LantisPoolSystem.GetPool<LantisDictronaryList<Socket, MessageReciver>>().NewObject();
+
+            SafeRun(delegate
+            {
+                messageReciverMap = LantisPoolSystem.GetPool<LantisDictronaryList<Socket, MessageReciver>>().NewObject();
+            });
         }
 
         public override void OnPoolDespawn()
         {
             base.OnPoolDespawn();
-            LantisPoolSystem.GetPool<LantisDictronaryList<Socket, MessageReciver>>().DisposeObject(messageReciverMap);
-            messageReciverMap = null;
+
+            SafeRun(delegate
+            {
+                LantisPoolSystem.GetPool<LantisDictronaryList<Socket, MessageReciver>>().DisposeObject(messageReciverMap);
+                messageReciverMap = null;
+            });
         }
 
         public override void OnAwake()
         {
             base.OnAwake();
-            serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-            try
+            SafeRun(delegate
             {
-                serverSocket.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9990));
-                serverSocket.Listen(50);
-                serverSocket.BeginAccept(OnAccept, serverSocket);
-            }
-            catch
-            {
-            }
+                serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+                try
+                {
+                    serverSocket.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9990));
+                    serverSocket.Listen(50);
+                    serverSocket.BeginAccept(OnAccept, serverSocket);
+                }
+                catch
+                {
+                }
+            });
         }
 
         public override void OnEnable()
@@ -63,22 +75,25 @@ namespace Lantis.RedisExecute.Components
 
         private void OnAccept(IAsyncResult ar)
         {
-            var myServer = ar.AsyncState as Socket;
+            SafeRun(delegate 
+            {
+                var myServer = ar.AsyncState as Socket;
 
-            try
-            {
-                var client = myServer.EndAccept(ar);
-                var messageReciver = LantisPoolSystem.GetPool<MessageReciver>().NewObject();
-                messageReciver.Start(client, OnReciveMessage, OnExeception);
-                messageReciverMap.AddValue(client, messageReciver);
-            }
-            catch
-            {
-            }
-            finally
-            {
-                myServer.BeginAccept(OnAccept, myServer);
-            }
+                try
+                {
+                    var client = myServer.EndAccept(ar);
+                    var messageReciver = LantisPoolSystem.GetPool<MessageReciver>().NewObject();
+                    messageReciver.Start(client, OnReciveMessage, OnExeception);
+                    messageReciverMap.AddValue(client, messageReciver);
+                }
+                catch
+                {
+                }
+                finally
+                {
+                    myServer.BeginAccept(OnAccept, myServer);
+                }
+            });
         }
 
         private void OnReciveMessage(byte[] datas, Socket socket, string ip, int port)
@@ -89,12 +104,15 @@ namespace Lantis.RedisExecute.Components
 
         public void SendMessage(byte[] datas, Socket remoteSocket)
         {
-            if (messageReciverMap.HasKey(remoteSocket))
+            SafeRun(delegate
             {
-                var messageSender = LantisPoolSystem.GetPool<MessageSender>().NewObject();
-                messageSender.SetSender(remoteSocket, datas);
-                MessageSenderManager.AddSender(messageSender);
-            }
+                if (messageReciverMap.HasKey(remoteSocket))
+                {
+                    var messageSender = LantisPoolSystem.GetPool<MessageSender>().NewObject();
+                    messageSender.SetSender(remoteSocket, datas);
+                    MessageSenderManager.AddSender(messageSender);
+                }
+            });
         }
     }
 }

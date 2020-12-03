@@ -7,56 +7,110 @@ using Lantis.RedisCore;
 using Lantis.RedisCore.Message;
 using Lantis.Extend;
 using Lantis.Pool;
+using Lantis.RedisExecute;
+using Lantis.Locker;
+using Lantis.EntityComponentSystem;
 
 namespace Lantis.RedisExecute.LantisRedisExecute
 {
-    public class RedisExecute
+    public class RedisExecute : Entity
     {
-        private static object lockObject;
-        private static LantisDictronaryList<string, RedisUnit> redisUnitCollects;
+        private LantisDictronaryList<string, RedisUnit> redisUnitCollects;
 
-        public static void Init()
+        public override void OnPoolSpawn()
         {
-            lockObject = new object();
-            redisUnitCollects = new LantisDictronaryList<string, RedisUnit>();
+            base.OnPoolSpawn();
+
+            SafeRun(delegate
+            {
+                redisUnitCollects = LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisUnit>>().NewObject();
+            });
         }
 
-        public static void Close()
+        public override void OnPoolDespawn()
         {
-            lock (lockObject)
+            base.OnPoolDespawn();
+
+            SafeRun(delegate
             {
-                var redisUnitList = redisUnitCollects.ValueToList();
-                var dataCount = redisUnitList.Count;
-
-                for (var i = 0; i < dataCount; ++i)
-                {
-                    var unitItem = redisUnitList[i];
-                    LantisPoolSystem.GetPool<RedisUnit>().DisposeObject(unitItem);
-                }
-
-                redisUnitCollects.Clear();
+                LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisUnit>>().DisposeObject(redisUnitCollects);
                 redisUnitCollects = null;
-            }
-
-            lockObject = null;
+            });
         }
 
-        public static RedisUnit FindRedisUnit(string databaseName)
+        public RedisUnit FindRedisUnit(string databaseName)
         {
-            lock (lockObject)
+            return SafeRunFunction<RedisUnit>(new Func<RedisUnit>(() => 
             {
-                if(redisUnitCollects.HasKey(databaseName))
+                if (redisUnitCollects.HasKey(databaseName))
                 {
                     return redisUnitCollects[databaseName];
                 }
-            }
 
-            return null;
+                return null;
+            }));
         }
 
-        public static void SetData(RequestRedisSet requestData)
+        public void SetData(RequestRedisSet requestData)
         {
-            if (requestData.data != null && requestData.data.Length > 0)
+            SafeRun(delegate 
+            {
+                if (requestData.data != null && requestData.data.Length > 0)
+                {
+                    if (!string.IsNullOrEmpty(requestData.databaseName) && !string.IsNullOrEmpty(requestData.tableName))
+                    {
+                        var redisUnit = FindRedisUnit(requestData.databaseName);
+
+                        if (redisUnit != null)
+                        {
+                            var redisTable = redisUnit.GetRedisTable(requestData.tableName);
+
+                            if (redisTable != null)
+                            {
+                                var operationCondition = requestData.conditionGroup.conditionList[0];
+
+                                if (operationCondition.fieldName == RedisConst.id)
+                                {
+                                    var redisTableData = redisTable.GetDataById(operationCondition.fieldValue);
+
+                                    if (redisTableData == null)
+                                    {
+                                        redisTableData = LantisPoolSystem.GetPool<RedisTableData>().NewObject();
+                                        redisTable.AddDataById(operationCondition.fieldValue, redisTableData);
+                                    }
+
+                                    redisTableData.FieldDataFromString(requestData.data);
+                                }
+                                else
+                                {
+                                    Logger.Error($"can't find redis table data by id,the id field name is not:{RedisConst.id}");
+                                }
+                            }
+                            else
+                            {
+                                Logger.Error($"can't find redisTable by talbeName:{requestData.tableName}");
+                            }
+                        }
+                        else
+                        {
+                            Logger.Error($"con't find redisUnit by databaseName:{requestData.databaseName}");
+                        }
+                    }
+                    else
+                    {
+                        Logger.Error($"databaseName or tableName null,databaseName:{requestData.databaseName} tableName:{requestData.tableName}");
+                    }
+                }
+                else
+                {
+                    Logger.Error("can't set data,becuse is null data");
+                }
+            });
+        }
+
+        public void GetData(RequestRedisGet requestData)
+        {
+            SafeRun(delegate 
             {
                 if (!string.IsNullOrEmpty(requestData.databaseName) && !string.IsNullOrEmpty(requestData.tableName))
                 {
@@ -64,32 +118,39 @@ namespace Lantis.RedisExecute.LantisRedisExecute
 
                     if (redisUnit != null)
                     {
-                        var redisTable = redisUnit.GetRedisTable(requestData.tableName);
-
-                        if (redisTable != null)
+                        if (redisUnit != null)
                         {
-                            var operationCondition = requestData.conditionGroup.conditionList[0];
+                            var redisTable = redisUnit.GetRedisTable(requestData.tableName);
 
-                            if (operationCondition.fieldName == RedisConst.id)
+                            if (redisTable != null)
                             {
-                                var redisTableData = redisTable.GetDataById(operationCondition.fieldValue);
+                                var operationCondition = requestData.conditionGroup.conditionList[0];
 
-                                if (redisTableData == null)
+                                if (operationCondition.fieldName == RedisConst.id)
                                 {
-                                    redisTableData = LantisPoolSystem.GetPool<RedisTableData>().NewObject();
-                                    redisTable.AddDataById(operationCondition.fieldValue, redisTableData);
-                                }
+                                    var redisTableData = redisTable.GetDataById(operationCondition.fieldValue);
 
-                                redisTableData.FieldDataFromString(requestData.data);
+                                    if (redisTableData != null)
+                                    {
+                                    }
+                                    else
+                                    {
+                                        Logger.Log("todo redis table data null,should be write logic");
+                                    }
+                                }
+                                else
+                                {
+                                    Logger.Error($"can't find redis table data by id,the id field name is not:{RedisConst.id}");
+                                }
                             }
                             else
                             {
-                                Logger.Error($"can't find redis table data by id,the id field name is not:{RedisConst.id}");
+                                Logger.Error($"can't find redisTable by talbeName:{requestData.tableName}");
                             }
                         }
                         else
                         {
-                            Logger.Error($"can't find redisTable by talbeName:{requestData.tableName}");
+                            Logger.Error($"con't find redisUnit by databaseName:{requestData.databaseName}");
                         }
                     }
                     else
@@ -101,65 +162,7 @@ namespace Lantis.RedisExecute.LantisRedisExecute
                 {
                     Logger.Error($"databaseName or tableName null,databaseName:{requestData.databaseName} tableName:{requestData.tableName}");
                 }
-            }
-            else
-            {
-                Logger.Error("can't set data,becuse is null data");
-            }
-        }
-
-        public static void GetData(RequestRedisGet requestData)
-        {
-            if (!string.IsNullOrEmpty(requestData.databaseName) && !string.IsNullOrEmpty(requestData.tableName))
-            {
-                var redisUnit = FindRedisUnit(requestData.databaseName);
-
-                if (redisUnit != null)
-                {
-                    if (redisUnit != null)
-                    {
-                        var redisTable = redisUnit.GetRedisTable(requestData.tableName);
-
-                        if (redisTable != null)
-                        {
-                            var operationCondition = requestData.conditionGroup.conditionList[0];
-
-                            if (operationCondition.fieldName == RedisConst.id)
-                            {
-                                var redisTableData = redisTable.GetDataById(operationCondition.fieldValue);
-
-                                if (redisTableData != null)
-                                {
-                                }
-                                else
-                                {
-                                    Logger.Log("todo redis table data null,should be write logic");
-                                }
-                            }
-                            else
-                            {
-                                Logger.Error($"can't find redis table data by id,the id field name is not:{RedisConst.id}");
-                            }
-                        }
-                        else
-                        {
-                            Logger.Error($"can't find redisTable by talbeName:{requestData.tableName}");
-                        }
-                    }
-                    else
-                    {
-                        Logger.Error($"con't find redisUnit by databaseName:{requestData.databaseName}");
-                    }
-                }
-                else
-                {
-                    Logger.Error($"con't find redisUnit by databaseName:{requestData.databaseName}");
-                }
-            }
-            else
-            {
-                Logger.Error($"databaseName or tableName null,databaseName:{requestData.databaseName} tableName:{requestData.tableName}");
-            }
+            });
         }
     }
 }
