@@ -52,6 +52,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LantisEntitySystem\LantisEntitySystem.csproj">
+      <Project>{4d732180-2529-44e6-90e4-8f873513baf2}</Project>
+      <Name>LantisEntitySystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LantisExtend\LantisExtend.csproj">
+      <Project>{9ef40a9b-fc9d-4738-b0cf-a4555546cdbc}</Project>
+      <Name>LantisExtend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LantisLocker\LantisLocker.csproj">
+      <Project>{0d490cca-e47d-401f-a0af-be5d5cb51be3}</Project>
+      <Name>LantisLocker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LantisNetwork\LantisNetwork.csproj">
       <Project>{96076960-5123-446b-b353-501b121f7572}</Project>
       <Name>LantisNetwork</Name>

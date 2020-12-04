@@ -51,7 +51,7 @@ namespace Lantis.EntityComponentSystem
             LantisPoolSystem.GetPool<Entity>().DisposeObject(this);
         }
 
-        public virtual void OnAwake()
+        public virtual void OnAwake(params object[] paramsData)
         { }
 
         public virtual void OnEnable()
@@ -88,9 +88,9 @@ namespace Lantis.EntityComponentSystem
             return selfActive;
         }
 
-        public virtual void AddComponentEntity<T>() where T : ComponentEntity, new()
+        public virtual T AddComponentEntity<T>(params object[] paramsData) where T : ComponentEntity, new()
         {
-            EntitySystem.CreateComponent<T>(this);
+            return EntitySystem.CreateComponent<T>(this, paramsData);
         }
 
         public virtual void RemoveComponentEntity<T>(T component) where T : ComponentEntity, new()
@@ -117,6 +117,23 @@ namespace Lantis.EntityComponentSystem
         public LantisDictronaryList<int, ComponentEntity> GetComponentsContenter()
         {
             return entityList;
+        }
+
+        public T GetComponent<T>() where T : ComponentEntity
+        {
+            var getComponent = default(T);
+
+            entityList.SafeWhileBreak(new Func<int, ComponentEntity, bool>(delegate(int id, ComponentEntity compoent)
+            {
+                if (compoent.GetType() is T)
+                {
+                    getComponent = compoent as T;
+                    return false;
+                }
+                return true;
+            }));
+
+            return getComponent;
         }
     }
 }

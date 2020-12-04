@@ -39,10 +39,10 @@ namespace Lantis.EntityComponentSystem
             entity.SetEntityId(GetId());
         }
 
-        private static void AddEntity<T>(T entity) where T : Entity
+        private static void AddEntity<T>(T entity,params object[] paramsData) where T : Entity
         {
             entityList.AddValue(entity.GetEntityId(), entity);
-            entity.OnAwake();
+            entity.OnAwake(paramsData);
             entity.OnEnable();
         }
 
@@ -62,24 +62,32 @@ namespace Lantis.EntityComponentSystem
             return null;
         }
 
-        public static T CreateObject<T>(T objectInstance) where T : ObjectEntity<T>,new()
+        public static T CreateEntity<T>(params object[] paramsData) where T :Entity,new()
+        {
+            var entity = LantisPoolSystem.GetPool<T>().NewObject();
+            SetEntityId(entity);
+            AddEntity<T>(entity, paramsData);
+            return entity;
+        }
+
+        public static T CreateObject<T>(T objectInstance,params object[] paramsData) where T : ObjectEntity<T>,new()
         {
             var entity = LantisPoolSystem.GetPool<T>().NewObject();
             SetEntityId(entity);
             entity.objectInstance = objectInstance;
-            AddEntity<T>(entity);
+            AddEntity<T>(entity, paramsData);
 
             return entity;
         }
 
-        public static T CreateComponent<T>(Entity baseEntity) where T : ComponentEntity, new()
+        public static T CreateComponent<T>(Entity baseEntity,params object[] paramsData) where T : ComponentEntity, new()
         {
             var entity = LantisPoolSystem.GetPool<T>().NewObject();
             SetEntityId(entity);
             entity.SetEntity(baseEntity);
             var components = baseEntity.GetComponentsContenter();
             components.AddValue(entity.GetEntityId(), entity);
-            AddEntity<T>(entity);
+            AddEntity<T>(entity, paramsData);
 
             return entity;
         }

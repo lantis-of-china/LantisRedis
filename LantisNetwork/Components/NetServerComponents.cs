@@ -10,11 +10,13 @@ using Lantis.Extend;
 using Lantis.Pool;
 using Lantis.Network;
 
-namespace Lantis.RedisExecute.Components
+namespace Lantis.Network
 {
-    public class NetWorkComponents : Entity
+    public class NetServerComponents : ComponentEntity
     {
         private Socket serverSocket;
+        private Action<byte[], Socket, string, int> reciveMessageCall;
+        private Action exceptionCall;
         private LantisDictronaryList<Socket,MessageReciver> messageReciverMap;
 
         public override void OnPoolSpawn()
@@ -38,22 +40,40 @@ namespace Lantis.RedisExecute.Components
             });
         }
 
-        public override void OnAwake()
+        public override void OnAwake(params object[] paramsData)
         {
-            base.OnAwake();
-
+            base.OnAwake(paramsData);
+            
             SafeRun(delegate
             {
+                var ip = paramsData[0] as string;
+                var port = (int)paramsData[1];
+                reciveMessageCall = (Action<byte[], Socket, string, int>)paramsData[2];
+                exceptionCall = (Action)paramsData[3];
                 serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                var entity = GetEntity<Entity>();
+                var messageDriver = entity.GetComponent<NetMessageDriverComponents>();
+
+                if (reciveMessageCall == null)
+                {
+                    if (messageDriver != null)
+                    {
+                        reciveMessageCall = messageDriver.OnReciveMessage;
+                    }
+                    else
+                    {
+                    }
+                }
 
                 try
                 {
-                    serverSocket.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9990));
+                    serverSocket.Bind(new IPEndPoint(IPAddress.Parse(ip), port));
                     serverSocket.Listen(50);
                     serverSocket.BeginAccept(OnAccept, serverSocket);
                 }
                 catch
                 {
+                    
                 }
             });
         }
@@ -97,10 +117,26 @@ namespace Lantis.RedisExecute.Components
         }
 
         private void OnReciveMessage(byte[] datas, Socket socket, string ip, int port)
-        { }
+        {
+            SafeRun(delegate
+            {
+                if (reciveMessageCall != null)
+                {
+                    reciveMessageCall(datas, socket, ip, port);
+                }
+            });
+        }
 
         private void OnExeception()
-        { }
+        {
+            SafeRun(delegate
+            {
+                if (exceptionCall != null)
+                {
+                    exceptionCall();
+                }
+            });
+        }
 
         public void SendMessage(byte[] datas, Socket remoteSocket)
         {

@@ -111,5 +111,22 @@ namespace Lantis.Extend
                 }
             }
         }
+
+        public void SafeWhileBreak(Func<K, V, bool> callfun)
+        {
+            lock (lockObject)
+            {
+                for (var i = 0; i < listKey.Count; ++i)
+                {
+                    var key = listKey[i];
+                    var value = listValue[i];
+
+                    if (!callfun(key, value))
+                    {
+                        return;
+                    }
+                }
+            }
+        }
     }
 }

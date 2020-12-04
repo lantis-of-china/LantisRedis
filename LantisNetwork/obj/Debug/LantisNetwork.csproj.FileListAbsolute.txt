@@ -3,3 +3,8 @@ F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisNetwork.dll
 F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisNetwork.pdb
 F:\Gits\LantisReadis\LantisNetwork\obj\Debug\LantisNetwork.dll
 F:\Gits\LantisReadis\LantisNetwork\obj\Debug\LantisNetwork.pdb
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisLocker.dll
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisPool.dll
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisLocker.pdb
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisPool.pdb
+F:\Gits\LantisReadis\LantisNetwork\obj\Debug\LantisNetwork.csprojResolveAssemblyReference.cache
