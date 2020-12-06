@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\NetMessageDriverComponents.cs" />
+    <Compile Include="Components\NetClientComponents.cs" />
+    <Compile Include="Components\NetServerComponents.cs" />
+    <Compile Include="MessageContent.cs" />
+    <Compile Include="MessageProcess.cs" />
     <Compile Include="MessageReciver.cs" />
     <Compile Include="MessageSender.cs" />
     <Compile Include="MessageSenderManager.cs" />
@@ -56,9 +61,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LantisEntitySystem\LantisEntitySystem.csproj">
+      <Project>{4d732180-2529-44e6-90e4-8f873513baf2}</Project>
+      <Name>LantisEntitySystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LantisExtend\LantisExtend.csproj">
+      <Project>{9ef40a9b-fc9d-4738-b0cf-a4555546cdbc}</Project>
+      <Name>LantisExtend</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LantisLocker\LantisLocker.csproj">
       <Project>{0d490cca-e47d-401f-a0af-be5d5cb51be3}</Project>
       <Name>LantisLocker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LantisLogger\LantisLogger.csproj">
+      <Project>{e8e1caf0-c20b-4264-9a5e-1b66dcf77f0c}</Project>
+      <Name>LantisLogger</Name>
     </ProjectReference>
     <ProjectReference Include="..\LantisPool\LantisPool.csproj">
       <Project>{e484323f-e665-48dc-b814-f749696b56d5}</Project>

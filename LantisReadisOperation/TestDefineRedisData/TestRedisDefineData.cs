@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Lantis.RedisCore;
+using Lantis.Redis;
 
-namespace LantisReadisOperation
+namespace Lantis.ReadisOperation
 {
     [Serializable]
     [RedisTableDefineAttribute("LoginDatabase")]

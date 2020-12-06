@@ -8,3 +8,9 @@ F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisPool.dll
 F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisLocker.pdb
 F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisPool.pdb
 F:\Gits\LantisReadis\LantisNetwork\obj\Debug\LantisNetwork.csprojResolveAssemblyReference.cache
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisEntitySystem.dll
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisExtend.dll
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisEntitySystem.pdb
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisExtend.pdb
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisLogger.dll
+F:\Gits\LantisReadis\LantisNetwork\bin\Debug\LantisLogger.pdb

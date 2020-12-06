@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Lantis.RedisCore;
+using Lantis.Redis;
 using Lantis.Pool;
 
-namespace LantisReadisOperation
+namespace Lantis.ReadisOperation
 {
     class Program
     {

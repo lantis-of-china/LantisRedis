@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Lantis.Pool;
 using Lantis.Extend;
 
-namespace Lantis.RedisCore
+namespace Lantis.Redis
 {
     public class RedisTable : LantisPoolInterface
     {

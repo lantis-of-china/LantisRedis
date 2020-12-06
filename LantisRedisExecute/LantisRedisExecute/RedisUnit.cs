@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Lantis.Pool;
 using Lantis.Extend;
-using Lantis.RedisCore;
+using Lantis.Redis;
 
 namespace Lantis.RedisExecute
 {

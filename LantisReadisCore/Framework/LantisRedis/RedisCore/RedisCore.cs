@@ -9,7 +9,7 @@ using Lantis.Extend;
 using Lantis.Pool;
 
 
-namespace Lantis.RedisCore
+namespace Lantis.Redis
 {
     /// <summary>
     /// memory readis core function define

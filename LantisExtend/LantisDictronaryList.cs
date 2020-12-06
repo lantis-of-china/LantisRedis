@@ -10,14 +10,14 @@ namespace Lantis.Extend
     [Serializable]
     public class LantisDictronaryList<K, V> : LantisPoolInterface
     {
-        private object lockObject;
+        private object lockHandle;
         private Dictionary<K, V> dictionary;
         private List<K> listKey;
         private List<V> listValue;
 
         public LantisDictronaryList()
         {
-            lockObject = new object();
+            lockHandle = new object();
             dictionary = new Dictionary<K, V>();
             listKey = new List<K>();
             listValue = new List<V>();
@@ -34,7 +34,7 @@ namespace Lantis.Extend
 
         public bool HasKey(K key)
         {
-            lock (lockObject)
+            lock (lockHandle)
             {
                 return dictionary.ContainsKey(key);
             }
@@ -44,7 +44,7 @@ namespace Lantis.Extend
         {
             if (!HasKey(key))
             {
-                lock (lockObject)
+                lock (lockHandle)
                 {
                     dictionary.Add(key, value);
                     listKey.Add(key);
@@ -59,7 +59,7 @@ namespace Lantis.Extend
         {
             if (HasKey(key))
             {
-                lock (lockObject)
+                lock (lockHandle)
                 {
                     listKey.Remove(key);
                     listValue.Remove(dictionary[key]);
@@ -82,7 +82,7 @@ namespace Lantis.Extend
         {
             get
             {
-                lock (lockObject)
+                lock (lockHandle)
                 {
                     return dictionary[key];
                 }
@@ -91,7 +91,7 @@ namespace Lantis.Extend
 
         public void Clear()
         {
-            lock (lockObject)
+            lock (lockHandle)
             {
                 dictionary.Clear();
                 listKey.Clear();
@@ -101,7 +101,7 @@ namespace Lantis.Extend
 
         public void SafeWhile(Action<K,V> callfun)
         {
-            lock (lockObject)
+            lock (lockHandle)
             {
                 for (var i = 0; i < listKey.Count; ++i)
                 {
@@ -114,7 +114,7 @@ namespace Lantis.Extend
 
         public void SafeWhileBreak(Func<K, V, bool> callfun)
         {
-            lock (lockObject)
+            lock (lockHandle)
             {
                 for (var i = 0; i < listKey.Count; ++i)
                 {

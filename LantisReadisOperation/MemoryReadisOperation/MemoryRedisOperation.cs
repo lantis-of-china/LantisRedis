@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Lantis.Pool;
-using Lantis.RedisCore;
-using Lantis.RedisCore.Message;
+using Lantis.Redis;
+using Lantis.Redis.Message;
 
 namespace LantisRedis
 {

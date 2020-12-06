@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\NetWorkComponents.cs" />
+    <Compile Include="Branchs\NetBranch\MessageIdDefine\MessageIdDefine.cs" />
+    <Compile Include="Branchs\NetBranch\NetBranch.cs" />
     <Compile Include="LantisRedisExecute\RedisExecute.cs" />
     <Compile Include="LantisRedisExecute\RedisUnit.cs" />
     <Compile Include="Program.cs" />
@@ -52,7 +53,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Branchs\DatabaseBranch\" />
+    <Folder Include="Branchs\NetBranch\Process\" />
+    <Folder Include="Branchs\NetBranch\Protocal\" />
+    <Folder Include="Components\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LantisEntitySystem\LantisEntitySystem.csproj">
       <Project>{4d732180-2529-44e6-90e4-8f873513baf2}</Project>

@@ -46,10 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityComponentSystem\ComponentEntity.cs" />
-    <Compile Include="EntityComponentSystem\Entity.cs" />
-    <Compile Include="EntityComponentSystem\EntitySystem.cs" />
-    <Compile Include="EntityComponentSystem\ObjectEntity.cs" />
+    <Compile Include="EntityComponentSystem\Entity\ComponentEntity.cs" />
+    <Compile Include="EntityComponentSystem\EntityCore\Entity.cs" />
+    <Compile Include="EntityComponentSystem\EntityCore\EntitySystem.cs" />
+    <Compile Include="EntityComponentSystem\Entity\LogicTrunkEntity.cs" />
+    <Compile Include="EntityComponentSystem\Entity\BranchEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

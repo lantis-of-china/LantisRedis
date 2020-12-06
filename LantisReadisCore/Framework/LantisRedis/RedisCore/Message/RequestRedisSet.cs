@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Lantis.Pool;
 
-namespace Lantis.RedisCore.Message
+namespace Lantis.Redis.Message
 {
     public class RequestRedisSet : LantisPoolInterface
     {

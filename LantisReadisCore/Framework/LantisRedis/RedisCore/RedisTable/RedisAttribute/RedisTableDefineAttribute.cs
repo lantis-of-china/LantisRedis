@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lantis.RedisCore
+namespace Lantis.Redis
 {
     [System.Serializable]
     public class RedisTableDefineAttribute : Attribute

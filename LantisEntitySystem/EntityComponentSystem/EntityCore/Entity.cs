@@ -20,7 +20,7 @@ namespace Lantis.EntityComponentSystem
         { }
 
         public void SetEntityId(int id)
-        {
+        {            
             if (entityIdLock)
             {
                 return;
@@ -125,7 +125,7 @@ namespace Lantis.EntityComponentSystem
 
             entityList.SafeWhileBreak(new Func<int, ComponentEntity, bool>(delegate(int id, ComponentEntity compoent)
             {
-                if (compoent.GetType() is T)
+                if (compoent is T)
                 {
                     getComponent = compoent as T;
                     return false;

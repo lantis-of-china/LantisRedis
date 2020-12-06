@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using Lantis.RedisCore;
+using Lantis.Redis;
 using Lantis.Pool;
 
 
-namespace Lantis.RedisCore
+namespace Lantis.Redis
 {
     public class RedisSerializable
     {

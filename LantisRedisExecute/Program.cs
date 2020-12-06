@@ -5,15 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Lantis;
 using Lantis.Network;
+using System.Threading;
+using Lantis.EntityComponentSystem;
 
-namespace LantisRedisExecute
+namespace Lantis.RedisExecute
 {
     class Program
     {
         static void Main(string[] args)
         {
-            LogicTrunkEntity.Instance.AddComponentEntity<NetMessageDriverComponents>();
-            LogicTrunkEntity.Instance.AddComponentEntity<NetServerComponents>("127.0.0.1",1897,null,null);
+            LogicTrunkEntity.Instance.AddComponentEntity<BranchEntity>();
+            Console.ReadLine();
+
+
         }
     }
 }

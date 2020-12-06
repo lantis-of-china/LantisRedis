@@ -62,21 +62,11 @@ namespace Lantis.EntityComponentSystem
             return null;
         }
 
-        public static T CreateEntity<T>(params object[] paramsData) where T :Entity,new()
+        public static T CreateEntity<T>(params object[] paramsData) where T : Entity,new()
         {
             var entity = LantisPoolSystem.GetPool<T>().NewObject();
             SetEntityId(entity);
             AddEntity<T>(entity, paramsData);
-            return entity;
-        }
-
-        public static T CreateObject<T>(T objectInstance,params object[] paramsData) where T : ObjectEntity<T>,new()
-        {
-            var entity = LantisPoolSystem.GetPool<T>().NewObject();
-            SetEntityId(entity);
-            entity.objectInstance = objectInstance;
-            AddEntity<T>(entity, paramsData);
-
             return entity;
         }
 

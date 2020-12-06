@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Lantis.Pool;
 
-namespace Lantis.RedisCore
+namespace Lantis.Redis
 {
     [Serializable]
     public class RedisSerializableData : LantisPoolInterface

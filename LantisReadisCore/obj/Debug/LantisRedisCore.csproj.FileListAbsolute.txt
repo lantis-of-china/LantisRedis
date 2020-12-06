@@ -9,3 +9,5 @@ F:\Gits\LantisReadis\LantisReadisCore\bin\Debug\LantisExtend.pdb
 F:\Gits\LantisReadis\LantisReadisCore\bin\Debug\LantisPool.pdb
 F:\Gits\LantisReadis\LantisReadisCore\obj\Debug\LantisReadisCore.dll
 F:\Gits\LantisReadis\LantisReadisCore\obj\Debug\LantisReadisCore.pdb
+F:\Gits\LantisReadis\LantisReadisCore\bin\Debug\LantisLocker.dll
+F:\Gits\LantisReadis\LantisReadisCore\bin\Debug\LantisLocker.pdb

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lantis.RedisCore
+namespace Lantis.Redis
 {
     public class Logger
     {
