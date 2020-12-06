@@ -9,7 +9,7 @@ namespace Lantis.Network
 {
     public abstract class MessageProcess
     {
-        public int id = 0;
+        public int ID = 0;
 
         public abstract void Process(byte[] dates,Socket socket, string ip, int port);
     }

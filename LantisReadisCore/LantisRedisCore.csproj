@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Framework\Debuger\Logger.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\Message\RedisCheckDatabase.cs" />
+    <Compile Include="Framework\LantisRedis\RedisCore\Message\RequestRedisCheckDatabase.cs" />
     <Compile Include="Framework\LantisRedis\RedisCore\RedisSerializable\RedisSerializable.cs" />
     <Compile Include="Framework\LantisRedis\RedisCore\Condition\LantisRedisConditionGroup.cs" />
     <Compile Include="Framework\LantisRedis\RedisCore\Condition\LantisRedisCondition.cs" />

@@ -8,7 +8,8 @@ namespace Lantis.RedisExecute
 {
     public class MessageIdDefine
     {
-        public const int SetData = 1000001;
-        public const int GetData = 1000002;
+        public const int CheckDatabase  = 1000000;
+        public const int SetData        = 1000001;
+        public const int GetData        = 1000002;
     }
 }

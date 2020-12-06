@@ -11,9 +11,9 @@ using Lantis.RedisExecute;
 using Lantis.Locker;
 using Lantis.EntityComponentSystem;
 
-namespace Lantis.RedisExecute.LantisRedisExecute
+namespace Lantis.RedisExecute
 {
-    public class RedisExecute : Entity
+    public class RedisExecuteBranch : BranchEntity
     {
         private LantisDictronaryList<string, RedisUnit> redisUnitCollects;
 

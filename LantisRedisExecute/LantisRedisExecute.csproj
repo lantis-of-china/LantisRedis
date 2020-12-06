@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="Branchs\NetBranch\MessageIdDefine\MessageIdDefine.cs" />
     <Compile Include="Branchs\NetBranch\NetBranch.cs" />
+    <Compile Include="Branchs\NetBranch\Process\CheckDatabaseProcess.cs" />
+    <Compile Include="Branchs\NetBranch\Process\SetDataProcess.cs" />
+    <Compile Include="Branchs\NetBranch\Process\GetDataProcess.cs" />
     <Compile Include="LantisRedisExecute\RedisExecute.cs" />
     <Compile Include="LantisRedisExecute\RedisUnit.cs" />
     <Compile Include="Program.cs" />
@@ -55,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Branchs\DatabaseBranch\" />
-    <Folder Include="Branchs\NetBranch\Process\" />
     <Folder Include="Branchs\NetBranch\Protocal\" />
     <Folder Include="Components\" />
   </ItemGroup>
@@ -71,6 +73,10 @@
     <ProjectReference Include="..\LantisLocker\LantisLocker.csproj">
       <Project>{0d490cca-e47d-401f-a0af-be5d5cb51be3}</Project>
       <Name>LantisLocker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LantisLogger\LantisLogger.csproj">
+      <Project>{e8e1caf0-c20b-4264-9a5e-1b66dcf77f0c}</Project>
+      <Name>LantisLogger</Name>
     </ProjectReference>
     <ProjectReference Include="..\LantisNetwork\LantisNetwork.csproj">
       <Project>{96076960-5123-446b-b353-501b121f7572}</Project>

@@ -5,19 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Lantis.Pool;
 using Lantis.Extend;
+using Lantis.Locker;
 
 namespace Lantis.Redis
 {
-    public class RedisTable : LantisPoolInterface
+    public class RedisTable : SafeLocker,LantisPoolInterface
     {
-        private object lockObject;
         private string tableName;
         private LantisDictronaryList<string, RedisTableFieldDefine> redisFieldCollects;
         private LantisDictronaryList<string, RedisTableData> redisDataCollects;
 
         public RedisTable()
         {
-            lockObject = new object();            
         }
 
         public void OnPoolSpawn()
@@ -28,7 +27,7 @@ namespace Lantis.Redis
 
         public void OnPoolDespawn()
         {
-            lock (lockObject)
+            SafeRun(delegate
             {
                 var valueList = redisDataCollects.ValueToList();
                 var poolHandle = LantisPoolSystem.GetPool<RedisTableData>();
@@ -38,51 +37,51 @@ namespace Lantis.Redis
                     var valueItem = valueList[i];
                     poolHandle.DisposeObject(valueItem);
                 }
-            }
 
-            lock (lockObject)
-            {
-                var valueList = redisFieldCollects.ValueToList();
-                var poolHandle = LantisPoolSystem.GetPool<RedisTableFieldDefine>();
+                var valueList2 = redisFieldCollects.ValueToList();
+                var poolHandle2 = LantisPoolSystem.GetPool<RedisTableFieldDefine>();
 
-                for (var i = 0; i < valueList.Count; ++i)
+                for (var i = 0; i < valueList2.Count; ++i)
                 {
-                    var valueItem = valueList[i];
-                    poolHandle.DisposeObject(valueItem);
+                    var valueItem = valueList2[i];
+                    poolHandle2.DisposeObject(valueItem);
                 }
-            }
 
-            redisDataCollects.Clear();
-            redisFieldCollects.Clear();
-            LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableFieldDefine>>().DisposeObject(redisFieldCollects);
-            LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableData>>().DisposeObject(redisDataCollects);
-            redisDataCollects = null;
-            redisFieldCollects = null;
+                redisDataCollects.Clear();
+                redisFieldCollects.Clear();
+                LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableFieldDefine>>().DisposeObject(redisFieldCollects);
+                LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableData>>().DisposeObject(redisDataCollects);
+                redisDataCollects = null;
+                redisFieldCollects = null;
+            });
         }
 
         public void OnDestroy()
         {
-            redisDataCollects = null;
-            redisFieldCollects = null;
-            lockObject = null;
+            SafeRun(delegate 
+            {
+                redisDataCollects = null;
+                redisFieldCollects = null;
+            });
         }
 
         public RedisTableData GetDataById(string id)
         {
-            lock (lockObject)
+            return SafeRunFunction(new Func<RedisTableData>(delegate
             {
                 if (redisDataCollects.HasKey(id))
                 {
                     return redisDataCollects[id];
                 }
-            }
 
-            return null;
+                return null;
+            }));
+
         }
 
         public void AddDataById(string id, RedisTableData data)
         {
-            lock (lockObject)
+            SafeRun(delegate 
             {
                 if (!redisDataCollects.HasKey(id))
                 {
@@ -90,9 +89,9 @@ namespace Lantis.Redis
 
                     return;
                 }
-            }
 
-            Logger.Error($"the data is has in table:{tableName} by id:{id}");
+                Logger.Error($"the data is has in table:{tableName} by id:{id}");
+            });
         }
     }
 }

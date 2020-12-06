@@ -6,47 +6,61 @@ using System.Threading.Tasks;
 using Lantis.Pool;
 using Lantis.Extend;
 using Lantis.Redis;
-
+using Lantis.Locker;
 namespace Lantis.RedisExecute
 {
-    public class RedisUnit : LantisPoolInterface
+    public class RedisUnit :SafeLocker ,LantisPoolInterface
     {
-        private object lockObject;
         private string databaseName;
         private static LantisDictronaryList<string, RedisTable> tableCollects;
 
         public void OnCreate()
         {
-            lockObject = new object();
-            tableCollects = new LantisDictronaryList<string, RedisTable>();
         }
 
         public void OnPoolSpawn()
         {
+            SafeRun(delegate
+            {
+                tableCollects = LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTable>>().NewObject();
+            });
         }
 
         public void OnPoolDespawn()
         {
-            tableCollects.Clear();
+            SafeRun(delegate
+            {
+                var poolHandle = LantisPoolSystem.GetPool<RedisTable>();
+
+                tableCollects.SafeWhile(delegate (string tableName, RedisTable table)
+                {
+                    poolHandle.DisposeObject(table);
+                });
+
+                tableCollects.Clear();
+                tableCollects = null;
+            });
         }
 
         public void OnDestroy()
         {
-            tableCollects = null;
-            lockObject = null;
+            SafeRun(delegate
+            {
+                tableCollects = null;
+            });
         }
 
         public RedisTable GetRedisTable(string tableName)
         {
-            lock (lockObject)
+            return SafeRunFunction(delegate()
             {
                 if (tableCollects.HasKey(tableName))
                 {
                     return tableCollects[tableName];
                 }
-            }
 
-            return null;
+                return null;
+            });
         }
     }
 }

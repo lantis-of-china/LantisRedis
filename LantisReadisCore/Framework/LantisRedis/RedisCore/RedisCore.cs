@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using Lantis.Extend;
 using Lantis.Pool;
-
+using Lantis.Redis.Message;
 
 namespace Lantis.Redis
 {
@@ -94,6 +94,38 @@ namespace Lantis.Redis
             }
 
             return false;
+        }
+
+        public static RedisCheckDatabase GetTypeField(Type type)
+        {
+            var attribute = type.GetCustomAttribute<RedisTableDefineAttribute>();
+
+            if (attribute != null)
+            {
+                var requestRedisCheck = LantisPoolSystem.GetPool<RedisCheckDatabase>().NewObject();
+                requestRedisCheck.databaseName = attribute.GetDatabaseName();
+                requestRedisCheck.tableName = type.Name;
+                requestRedisCheck.tableInfos = new List<RedisTableFieldDefine>();
+                var poolHandle = LantisPoolSystem.GetPool<RedisTableFieldDefine>();
+                var fields = type.GetFields();
+
+                for (var i = 0; i < fields.Length; ++i)
+                {
+                    var field = fields[i];
+                    var fieldDefine = poolHandle.NewObject();
+                    fieldDefine.fieldName = field.Name;
+                    fieldDefine.fieldType = SqlValueTypeByType.GetSqlType(field.FieldType);
+                    requestRedisCheck.tableInfos.Add(fieldDefine);
+                }
+
+                return requestRedisCheck;
+            }
+            else
+            {
+                Logger.Error($"can't find attribute at {type.Name}");
+
+                return null;
+            }
         }
 
         /// <summary>

@@ -56,14 +56,26 @@ namespace Lantis.EntityComponentSystem
 
         public override T AddComponentEntity<T>(params object[] paramsData)
         {
-            var component = base.AddComponentEntity<T>(paramsData);
-
-            return SafeRunFunction<T>(new Func<T>(delegate
+            try
             {
-                components.AddValue(typeof(T), component);
+                var component = base.AddComponentEntity<T>(paramsData);
 
-                return component;
-            }));
+                return SafeRunFunction<T>(new Func<T>(delegate
+                {
+                    components.AddValue(typeof(T), component);
+
+                    return component;
+                }));
+            }
+            catch(Exception e)
+            {
+                Logger.Error(e.ToString());
+            }
+            finally
+            {
+            }
+
+            return default(T);
         }
 
         public override void RemoveComponentEntity<T>(T component)

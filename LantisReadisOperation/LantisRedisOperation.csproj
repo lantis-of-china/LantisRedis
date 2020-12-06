@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Branchs\MessageIdDefine\MessageIdDefine.cs" />
+    <Compile Include="Branchs\NetBranch\NetBranch.cs" />
     <Compile Include="MemoryReadisOperation\MemoryRedisOperation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

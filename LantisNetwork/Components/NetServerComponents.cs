@@ -17,6 +17,7 @@ namespace Lantis.Network
         private Socket serverSocket;
         private Action<byte[], Socket, string, int> reciveMessageCall;
         private Func<int, byte[], byte[]> sendMessageDataGetCall;
+        private Action sucessCall;
         private Action exceptionCall;
         private LantisDictronaryList<Socket,MessageReciver> messageReciverMap;
 
@@ -51,9 +52,9 @@ namespace Lantis.Network
         /// <param name="getSendMessageCall"></param>
         /// <param name="exceptionCall"></param>
         /// <returns></returns>
-        public static object[] ParamCreate(string ip, int port, Action<byte[], Socket, string, int> reciveMessageCall, Func<int, byte[], byte[]> getSendMessageCall, Action exceptionCall)
+        public static object[] ParamCreate(string ip, int port, Action<byte[], Socket, string, int> reciveMessageCall, Func<int, byte[], byte[]> getSendMessageCall, Action sucessCall,Action exceptionCall)
         {
-            return new object[] { ip, port, reciveMessageCall, getSendMessageCall, exceptionCall };
+            return new object[] { ip, port, reciveMessageCall, getSendMessageCall, sucessCall,exceptionCall };
         }
 
         public override void OnAwake(params object[] paramsData)
@@ -66,7 +67,8 @@ namespace Lantis.Network
                 var port = (int)paramsData[1];
                 reciveMessageCall = (Action<byte[], Socket, string, int>)paramsData[2];
                 sendMessageDataGetCall = (Func<int,byte[],byte[]>)paramsData[3];
-                exceptionCall = (Action)paramsData[4];
+                sucessCall = (Action)paramsData[4];
+                exceptionCall = (Action)paramsData[5];
 
                 serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 var entity = GetEntity<Entity>();
@@ -112,6 +114,7 @@ namespace Lantis.Network
                 {
                     serverSocket.Bind(new IPEndPoint(IPAddress.Parse(ip), port));
                     serverSocket.Listen(100);
+                    OnSucessCall();
                     BeginAccept();
                 }
                 catch (Exception e)
@@ -174,6 +177,17 @@ namespace Lantis.Network
             });
         }
 
+        private void OnSucessCall()
+        {
+            SafeRun(delegate
+            {
+                if (sucessCall != null)
+                {
+                    sucessCall();
+                }
+            });
+        }
+
         private void OnExeception()
         {
             SafeRun(delegate
@@ -185,14 +199,14 @@ namespace Lantis.Network
             });
         }
 
-        public void SendMessage(byte[] datas, Socket remoteSocket)
+        public void SendMessage(int id,byte[] datas, Socket remoteSocket)
         {
             SafeRun(delegate
             {
                 if (messageReciverMap.HasKey(remoteSocket))
                 {
                     var messageSender = LantisPoolSystem.GetPool<MessageSender>().NewObject();
-                    messageSender.SetSender(remoteSocket, datas);
+                    messageSender.SetSender(remoteSocket, sendMessageDataGetCall(id, datas));
                     MessageSenderManager.AddSender(messageSender);
                 }
             });

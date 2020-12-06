@@ -7,6 +7,7 @@ using Lantis.Pool;
 
 namespace Lantis.Redis.Message
 {
+    [Serializable]
     public class RequestRedisGetPage : LantisPoolInterface
     {
         public string tableName;

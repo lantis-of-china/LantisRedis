@@ -42,7 +42,14 @@ namespace Lantis.Extend
         {
             lock (lockHandle)
             {
-                return listValue.Exists(item => item as object == value as object);
+                if (value is string)
+                {
+                    return listValue.Exists(item => item as string == value as string);
+                }
+                else
+                {
+                    return listValue.Exists(item => item as object == value as object);
+                }
             }
         }
 

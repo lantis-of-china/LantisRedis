@@ -13,3 +13,9 @@ F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\LantisReadisOperation.exe
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\LantisReadisOperation.pdb
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisNetwork.dll
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisNetwork.pdb
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisEntitySystem.dll
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisLocker.dll
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisLogger.dll
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisEntitySystem.pdb
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisLocker.pdb
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\LantisLogger.pdb

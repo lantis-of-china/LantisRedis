@@ -10,3 +10,5 @@ F:\Gits\LantisReadis\LantisEntitySystem\bin\Debug\LantisPool.pdb
 F:\Gits\LantisReadis\LantisEntitySystem\obj\Debug\LantisEntitySystem.csprojResolveAssemblyReference.cache
 F:\Gits\LantisReadis\LantisEntitySystem\obj\Debug\LantisEntitySystem.dll
 F:\Gits\LantisReadis\LantisEntitySystem\obj\Debug\LantisEntitySystem.pdb
+F:\Gits\LantisReadis\LantisEntitySystem\bin\Debug\LantisLogger.dll
+F:\Gits\LantisReadis\LantisEntitySystem\bin\Debug\LantisLogger.pdb

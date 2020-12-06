@@ -7,17 +7,18 @@ using Lantis.Pool;
 
 namespace Lantis.Redis
 {
+    [Serializable]
     public class LantisRedisConditionGroup : LantisPoolInterface
     {
         public List<LantisRedisCondition> conditionList;
 
-        public void OnCreate()
+        public LantisRedisConditionGroup()
         {
             conditionList = new List<LantisRedisCondition>();
         }
 
         public void OnPoolSpawn()
-        {            
+        {
         }
 
         public void OnPoolDespawn()

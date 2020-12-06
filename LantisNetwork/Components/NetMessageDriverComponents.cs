@@ -21,6 +21,7 @@ namespace Lantis.Network
         private LantisQueue<MessageContent> msgQueue;
         private LantisDictronaryList<int, Action<byte[], Socket, string, int>> netProcessMap;
         private LantisList<string> processNameSpaceList;
+        private Assembly bindAssembly;
 
         public NetMessageDriverComponents()
         {
@@ -61,15 +62,23 @@ namespace Lantis.Network
             });
         }
 
+        public static object[] ParamCreate(Assembly assembly, string[] nameSpaces)
+        {
+            return new object[] { assembly, nameSpaces };
+        }
+
         public override void OnAwake(params object[] paramsData)
         {
             base.OnAwake(paramsData);
 
             SafeRun(delegate
             {
-                for (var i = 0; i < paramsData.Length; ++i)
+                bindAssembly = paramsData[0] as Assembly;
+                var nameSpaces = paramsData[1] as string[];
+
+                for (var i = 0; i < nameSpaces.Length; ++i)
                 {
-                    processNameSpaceList.AddValue(paramsData[i] as string);
+                    processNameSpaceList.AddValue(nameSpaces[i] as string);
                 }
 
                 threadTimer.Interval = 10.0f;
@@ -103,24 +112,27 @@ namespace Lantis.Network
 
         public byte[] OnGetSenderMessage(int msgId, byte[] datas)
         {
-            var idData = System.BitConverter.GetBytes((int)msgId);
-            var lenght = idData.Length + datas.Length;
-            byte[] sendBuffer = null;
-
-            using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
+            return SafeRunFunction<byte[]>(new Func<byte[]>(delegate ()
             {
-                using (System.IO.BinaryWriter bs = new System.IO.BinaryWriter(ms))
+                var idData = System.BitConverter.GetBytes((int)msgId);
+                var lenght = idData.Length + datas.Length;
+                byte[] sendBuffer = null;
+
+                using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
                 {
-                    bs.Write(lenght);
-                    bs.Write(idData);
-                    bs.Write(datas);
+                    using (System.IO.BinaryWriter bs = new System.IO.BinaryWriter(ms))
+                    {
+                        bs.Write(lenght);
+                        bs.Write(idData);
+                        bs.Write(datas);
+                    }
+
+                    ms.Flush();
+                    sendBuffer = ms.ToArray();
                 }
 
-                ms.Flush();
-                sendBuffer = ms.ToArray();
-            }
-
-            return sendBuffer;
+                return sendBuffer;
+            }));
         }
 
         public void OnReciveMessage(byte[] datas, Socket socket, string ip, int port)
@@ -162,7 +174,7 @@ namespace Lantis.Network
         {
             SafeRun(delegate
             {
-                var assembly = Assembly.GetExecutingAssembly();
+                var assembly = bindAssembly;
                 var assemblyTypes = assembly.GetTypes();
 
                 for (int indexType = 0; indexType < assemblyTypes.Length; indexType++)

@@ -7,6 +7,7 @@ using Lantis.Pool;
 
 namespace Lantis.Redis
 {
+    [Serializable]
     public class LantisRedisCondition : LantisPoolInterface
     {
         public string fieldName;

@@ -4,10 +4,29 @@ using Lantis.Pool;
 using Lantis.Redis;
 using Lantis.Redis.Message;
 
-namespace LantisRedis
+namespace Lantis.ReadisOperation
 {
     public static class MemoryReadisOperation
     {
+        private static List<Type> tableList = new List<Type>
+        {
+           typeof(TestRedisDefineData)
+        };
+
+        public static void CheckTable()
+        {
+            var checkDb = LantisPoolSystem.GetPool<RequestRedisCheckDatabase>().NewObject();
+
+            for (var i = 0; i < tableList.Count; ++i)
+            {
+                var type = tableList[i];
+                checkDb.redisTableFieldDefine.Add(RedisCore.GetTypeField(type));
+            }
+
+            SubmitRequestRedisCheck(checkDb,null);
+            LantisPoolSystem.GetPool<RequestRedisCheckDatabase>().DisposeObject(checkDb);
+        }
+
         /// <summary>
         /// set data to redis
         /// </summary>
@@ -62,12 +81,22 @@ namespace LantisRedis
             SubmitRequestRedisGetPage(redisRequest, finisCallBack);
         }
 
-        public static void SubmitRequestRedisSet(RequestRedisSet requestRedisSet,Action<object> finisCallBack)
+        public static void SubmitRequestRedisCheck(RequestRedisCheckDatabase request, Action<object> finisCallBack)
         {
+            var data = RedisSerializable.Serialize(request);
+            Program.NetBranchHandle.NetClientComponentHandle.SendMessage(MessageIdDefine.CheckDatabase, data);
         }
 
-        public static void SubmitRequestRedisGet(RequestRedisGet requestRedisSet, Action<object> finisCallBack)
+        public static void SubmitRequestRedisSet(RequestRedisSet requestRedisSet,Action<object> finisCallBack)
         {
+            var data = RedisSerializable.Serialize(requestRedisSet);
+            Program.NetBranchHandle.NetClientComponentHandle.SendMessage(MessageIdDefine.SetData,data);
+        }
+
+        public static void SubmitRequestRedisGet(RequestRedisGet request, Action<object> finisCallBack)
+        {
+            var data = RedisSerializable.SerializableToBytes(request);
+            Program.NetBranchHandle.NetClientComponentHandle.SendMessage(MessageIdDefine.GetData, data);
         }
 
         public static void SubmitRequestRedisGetPage(RequestRedisGetPage requestRedisGetPage, Action<object> finishCallBack)

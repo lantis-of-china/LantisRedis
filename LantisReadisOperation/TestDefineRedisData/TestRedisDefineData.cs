@@ -9,7 +9,7 @@ namespace Lantis.ReadisOperation
 {
     [Serializable]
     [RedisTableDefineAttribute("LoginDatabase")]
-    public class TestRedisDefineData
+    public class TestRedisDefineData : RedisBase
     {
         public string token;
         public string account;

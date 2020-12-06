@@ -14,10 +14,17 @@ namespace Lantis.RedisExecute
     {
         static void Main(string[] args)
         {
-            LogicTrunkEntity.Instance.AddComponentEntity<BranchEntity>();
+            LogicTrunkEntity.Instance.AddComponentEntity<NetBranch>(NetBranch.ParamCreate(
+            ()=> 
+            {
+                Logger.Log("server run sucess");
+                LogicTrunkEntity.Instance.AddComponentEntity<RedisExecuteBranch>();
+            },
+            ()=> 
+            {
+                Logger.Error("server run exception");
+            }));
             Console.ReadLine();
-
-
         }
     }
 }

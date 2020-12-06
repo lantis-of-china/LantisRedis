@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lantis.EntityComponentSystem
 {
-    public class BranchEntity<T> : ComponentEntity
+    public class BranchEntity : ComponentEntity
     {
         public override void OnPoolSpawn()
         {
@@ -21,7 +21,7 @@ namespace Lantis.EntityComponentSystem
 
         public override void BackPoolSelf()
         {
-            LantisPoolSystem.GetPool<BranchEntity<T>>().DisposeObject(this);
+            LantisPoolSystem.GetPool<BranchEntity>().DisposeObject(this);
         }
     }
 }
