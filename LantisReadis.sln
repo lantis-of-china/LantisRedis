@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1300
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisRedisCore", "LantisReadisCore\LantisRedisCore.csproj", "{D1FEB386-04E7-40D1-AE72-B1358F36852A}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisLocker", "LantisLocker\LantisLocker.csproj", "{0D490CCA-E47D-401F-A0AF-BE5D5CB51BE3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisLogger", "LantisLogger\LantisLogger.csproj", "{E8E1CAF0-C20B-4264-9A5E-1B66DCF77F0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisDatabaseLinks", "LantisDatabaseLinks\LantisDatabaseLinks.csproj", "{B1B9831D-4217-414B-A6BE-802EA9A16FDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,8 +65,15 @@ Global
 		{E8E1CAF0-C20B-4264-9A5E-1B66DCF77F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8E1CAF0-C20B-4264-9A5E-1B66DCF77F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8E1CAF0-C20B-4264-9A5E-1B66DCF77F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1B9831D-4217-414B-A6BE-802EA9A16FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B9831D-4217-414B-A6BE-802EA9A16FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B9831D-4217-414B-A6BE-802EA9A16FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B9831D-4217-414B-A6BE-802EA9A16FDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3FB33533-7C06-4685-B434-A26705DAC130}
 	EndGlobalSection
 EndGlobal
