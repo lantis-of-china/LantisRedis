@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LantisDatabaseLinks\LantisDatabaseLinks.csproj" />
+    <ProjectReference Include="..\LantisEntitySystem\LantisEntitySystem.csproj" />
+    <ProjectReference Include="..\LantisExtend\LantisExtend.csproj" />
+    <ProjectReference Include="..\LantisLocker\LantisLocker.csproj" />
+    <ProjectReference Include="..\LantisLogger\LantisLogger.csproj" />
+    <ProjectReference Include="..\LantisNetwork\LantisNetwork.csproj" />
+    <ProjectReference Include="..\LantisPool\LantisPool.csproj" />
+    <ProjectReference Include="..\LantisReadisCore\LantisReadisCore.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,6 +1,0 @@
-F:\Gits\LantisReadis\LantisPool\bin\Debug\LantisPool.dll.config
-F:\Gits\LantisReadis\LantisPool\bin\Debug\LantisPool.dll
-F:\Gits\LantisReadis\LantisPool\bin\Debug\LantisPool.pdb
-F:\Gits\LantisReadis\LantisPool\obj\Debug\LantisPool.dll
-F:\Gits\LantisReadis\LantisPool\obj\Debug\LantisPool.pdb
-F:\Gits\LantisReadis\LantisPool\obj\Debug\LantisPool.csprojResolveAssemblyReference.cache

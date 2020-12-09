@@ -1,6 +1,0 @@
-F:\Gits\LantisReadis\LantisLogger\bin\Debug\LantisLogger.dll.config
-F:\Gits\LantisReadis\LantisLogger\bin\Debug\LantisLogger.dll
-F:\Gits\LantisReadis\LantisLogger\bin\Debug\LantisLogger.pdb
-F:\Gits\LantisReadis\LantisLogger\obj\Debug\LantisLogger.csprojResolveAssemblyReference.cache
-F:\Gits\LantisReadis\LantisLogger\obj\Debug\LantisLogger.dll
-F:\Gits\LantisReadis\LantisLogger\obj\Debug\LantisLogger.pdb

@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "LantisPool/1.0.0": {
+        "dependencies": {
+          "LantisLocker": "1.0.0",
+          "LantisLogger": "1.0.0"
+        },
+        "runtime": {
+          "LantisPool.dll": {}
+        }
+      },
+      "LantisLocker/1.0.0": {
+        "runtime": {
+          "LantisLocker.dll": {}
+        }
+      },
+      "LantisLogger/1.0.0": {
+        "runtime": {
+          "LantisLogger.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LantisPool/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LantisLocker/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LantisLogger/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

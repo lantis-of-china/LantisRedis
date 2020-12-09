@@ -1,6 +1,0 @@
-F:\Gits\LantisReadis\LantisLocker\bin\Debug\LantisLocker.dll.config
-F:\Gits\LantisReadis\LantisLocker\bin\Debug\LantisLocker.dll
-F:\Gits\LantisReadis\LantisLocker\bin\Debug\LantisLocker.pdb
-F:\Gits\LantisReadis\LantisLocker\obj\Debug\LantisLocker.csprojResolveAssemblyReference.cache
-F:\Gits\LantisReadis\LantisLocker\obj\Debug\LantisLocker.dll
-F:\Gits\LantisReadis\LantisLocker\obj\Debug\LantisLocker.pdb

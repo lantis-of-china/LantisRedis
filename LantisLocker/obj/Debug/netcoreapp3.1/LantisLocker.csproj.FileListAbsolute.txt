@@ -1,0 +1,8 @@
+F:\Gits\LantisReadis\LantisLocker\bin\Debug\netcoreapp3.1\LantisLocker.deps.json
+F:\Gits\LantisReadis\LantisLocker\bin\Debug\netcoreapp3.1\LantisLocker.dll
+F:\Gits\LantisReadis\LantisLocker\bin\Debug\netcoreapp3.1\LantisLocker.pdb
+F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.AssemblyInfoInputs.cache
+F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.AssemblyInfo.cs
+F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.csproj.CoreCompileInputs.cache
+F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.dll
+F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.pdb

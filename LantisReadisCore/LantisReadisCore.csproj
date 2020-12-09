@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LantisEntitySystem\LantisEntitySystem.csproj" />
+    <ProjectReference Include="..\LantisExtend\LantisExtend.csproj" />
+    <ProjectReference Include="..\LantisLocker\LantisLocker.csproj" />
+    <ProjectReference Include="..\LantisLogger\LantisLogger.csproj" />
+    <ProjectReference Include="..\LantisNetwork\LantisNetwork.csproj" />
+    <ProjectReference Include="..\LantisPool\LantisPool.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

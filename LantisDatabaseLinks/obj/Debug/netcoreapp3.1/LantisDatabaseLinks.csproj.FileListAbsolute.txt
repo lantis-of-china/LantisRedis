@@ -1,0 +1,12 @@
+F:\Gits\LantisReadis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.csprojAssemblyReference.cache
+F:\Gits\LantisReadis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.AssemblyInfoInputs.cache
+F:\Gits\LantisReadis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.AssemblyInfo.cs
+F:\Gits\LantisReadis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.csproj.CoreCompileInputs.cache
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisDatabaseLinks.deps.json
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisDatabaseLinks.dll
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisDatabaseLinks.pdb
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisLogger.dll
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisLogger.pdb
+F:\Gits\LantisReadis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.csproj.CopyComplete
+F:\Gits\LantisReadis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.dll
+F:\Gits\LantisReadis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.pdb

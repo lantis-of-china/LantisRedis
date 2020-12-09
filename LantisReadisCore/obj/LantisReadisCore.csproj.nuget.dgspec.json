@@ -1,0 +1,463 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\Gits\\LantisReadis\\LantisReadisCore\\LantisReadisCore.csproj": {}
+  },
+  "projects": {
+    "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj",
+        "projectName": "LantisEntitySystem",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj",
+        "projectName": "LantisExtend",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisExtend\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj",
+        "projectName": "LantisLocker",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisLocker\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj",
+        "projectName": "LantisLogger",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisLogger\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Gits\\LantisReadis\\LantisNetwork\\LantisNetwork.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisNetwork\\LantisNetwork.csproj",
+        "projectName": "LantisNetwork",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisNetwork\\LantisNetwork.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisNetwork\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj",
+        "projectName": "LantisPool",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisPool\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Gits\\LantisReadis\\LantisReadisCore\\LantisReadisCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisReadisCore\\LantisReadisCore.csproj",
+        "projectName": "LantisReadisCore",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisReadisCore\\LantisReadisCore.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisReadisCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisNetwork\\LantisNetwork.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisNetwork\\LantisNetwork.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

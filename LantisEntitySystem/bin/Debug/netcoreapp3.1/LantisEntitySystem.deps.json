@@ -1,0 +1,76 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "LantisEntitySystem/1.0.0": {
+        "dependencies": {
+          "LantisExtend": "1.0.0",
+          "LantisLocker": "1.0.0",
+          "LantisLogger": "1.0.0",
+          "LantisPool": "1.0.0"
+        },
+        "runtime": {
+          "LantisEntitySystem.dll": {}
+        }
+      },
+      "LantisExtend/1.0.0": {
+        "dependencies": {
+          "LantisPool": "1.0.0"
+        },
+        "runtime": {
+          "LantisExtend.dll": {}
+        }
+      },
+      "LantisLocker/1.0.0": {
+        "runtime": {
+          "LantisLocker.dll": {}
+        }
+      },
+      "LantisLogger/1.0.0": {
+        "runtime": {
+          "LantisLogger.dll": {}
+        }
+      },
+      "LantisPool/1.0.0": {
+        "dependencies": {
+          "LantisLocker": "1.0.0",
+          "LantisLogger": "1.0.0"
+        },
+        "runtime": {
+          "LantisPool.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LantisEntitySystem/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LantisExtend/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LantisLocker/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LantisLogger/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LantisPool/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

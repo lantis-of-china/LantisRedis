@@ -1,0 +1,8 @@
+F:\Gits\LantisReadis\LantisLogger\bin\Debug\netcoreapp3.1\LantisLogger.deps.json
+F:\Gits\LantisReadis\LantisLogger\bin\Debug\netcoreapp3.1\LantisLogger.dll
+F:\Gits\LantisReadis\LantisLogger\bin\Debug\netcoreapp3.1\LantisLogger.pdb
+F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.AssemblyInfoInputs.cache
+F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.AssemblyInfo.cs
+F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.csproj.CoreCompileInputs.cache
+F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.dll
+F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.pdb
