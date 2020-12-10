@@ -7,6 +7,7 @@ using Lantis;
 using Lantis.Network;
 using System.Threading;
 using Lantis.EntityComponentSystem;
+using Lantis.DatabaseLinks;
 
 namespace Lantis.RedisExecute
 {
@@ -14,6 +15,7 @@ namespace Lantis.RedisExecute
     {
         static void Main(string[] args)
         {
+            LogicTrunkEntity.Instance.AddComponentEntity<DatabaseBranch>(DatabaseBranch.ParamCreate("link string"));
             LogicTrunkEntity.Instance.AddComponentEntity<NetBranch>(NetBranch.ParamCreate(
             ()=> 
             {

@@ -6,24 +6,51 @@ using System.Data.SqlClient;
 using System.Collections;
 using System.Data.Common;
 using System.Data;
+using Lantis.EntityComponentSystem;
+using Lantis.Extend;
+using Lantis.Pool;
+using Lantis.Locker;
 
 namespace Lantis.DatabaseLinks
 {
 	/// <summary>
 	/// 数据库连接池
 	/// </summary>
-	public class DatabaseLinksPool
+	public class DatabaseLinksPool : SafeLocker, LantisPoolInterface
     {
 		public string linkPoolStr;
 		public int maxCount;
 		public int minCount;
 		public int curUseCount;
-		public List<DatabaseLinkState> sqlLinkPoolInstance = new List<DatabaseLinkState>();
+		public LantisList<DatabaseLinkState> sqlLinkPoolInstance;
 
-		/// <summary>
-		/// 实例化数据
-		/// </summary>
-		public void Instance(string linkStr)
+		public void OnPoolSpawn()
+		{
+			SafeRun(delegate
+			{
+				linkPoolStr = string.Empty;
+				maxCount = 0;
+				minCount = 0;
+				curUseCount = 0;
+				sqlLinkPoolInstance = LantisPoolSystem.GetPool<LantisList<DatabaseLinkState>>().NewObject();
+			});
+		}
+
+		public void OnPoolDespawn()
+        {
+			SafeRun(delegate
+			{
+				sqlLinkPoolInstance.SafeWhile(delegate (DatabaseLinkState state)
+				{
+					LantisPoolSystem.GetPool<DatabaseLinkState>().DisposeObject(state);
+				});
+
+				LantisPoolSystem.GetPool<LantisList<DatabaseLinkState>>().DisposeObject(sqlLinkPoolInstance);
+				sqlLinkPoolInstance = null;
+			});
+		}
+
+        public void Instance(string linkStr)
 		{
 			linkPoolStr = linkStr;
 			curUseCount = 0;
@@ -40,24 +67,24 @@ namespace Lantis.DatabaseLinks
 
 		public DatabaseLinkState CreateInstance(string linkStr)
 		{
-			DatabaseLinkState item = new DatabaseLinkState(linkStr);
-
-			item.isUsed = false;
-
-			lock (((ICollection)sqlLinkPoolInstance).SyncRoot)
+			return SafeRunFunction(delegate
 			{
-				sqlLinkPoolInstance.Add(item);
-			}
-			return item;
+				DatabaseLinkState item = LantisPoolSystem.GetPool<DatabaseLinkState>().NewObject();
+				item.SetLink(linkStr);
+				item.isUsed = false;
+				sqlLinkPoolInstance.AddValue(item);
+
+				return item;
+			});
 		}
 
 		public DatabaseLinkState SpawnInstance()
 		{
-			CheckClear();
-
-			lock (((ICollection)sqlLinkPoolInstance).SyncRoot)
+			return SafeRunFunction(delegate
 			{
-				for (int i = sqlLinkPoolInstance.Count - 1; i >= 0; --i)
+				CheckClear();
+
+				for (int i = sqlLinkPoolInstance.GetCount() - 1; i >= 0; --i)
 				{
 					if (!sqlLinkPoolInstance[i].isUsed
 						&& sqlLinkPoolInstance[i].sqlConnectInstance.State != ConnectionState.Closed
@@ -68,56 +95,50 @@ namespace Lantis.DatabaseLinks
 						return sqlLinkPoolInstance[i];
 					}
 				}
-			}
 
-			//这里没有找到
-			if (sqlLinkPoolInstance.Count < maxCount)
-			{
-				//这里可以创建
-				DatabaseLinkState curItem = CreateInstance(linkPoolStr);
-
-				curItem.isUsed = true;
-				curUseCount++;
-				return curItem;
-			}
-			else
-			{
-				System.Threading.Thread.Sleep(1);
-				DatabaseLinkState curItem = SpawnInstance();
-
-				return curItem;
-			}
+				if (sqlLinkPoolInstance.GetCount() < maxCount)
+				{
+					var curItem = CreateInstance(linkPoolStr);
+					curItem.isUsed = true;
+					curUseCount++;
+					return curItem;
+				}
+				else
+				{
+					System.Threading.Thread.Sleep(10);
+					var curItem = SpawnInstance();
+					return curItem;
+				}
+			});
 		}
 
 		public void Despawn(DatabaseLinkState desItem)
 		{
-			if (desItem.isUsed)
+			SafeRun(delegate
 			{
-				curUseCount--;
-				desItem.isUsed = false;
-
-				Console.WriteLine("当前线程池 使用中:" + curUseCount);
-			}
+				if (desItem.isUsed)
+				{
+					curUseCount--;
+					desItem.isUsed = false;
+					Console.WriteLine("当前线程池 使用中:" + curUseCount);
+				}
+			});
 		}
 
-		/// <summary>
-		/// 检测清理池
-		/// </summary>
 		public void CheckClear()
 		{
-			lock (((ICollection)sqlLinkPoolInstance).SyncRoot)
+			SafeRun(delegate
 			{
-				for (int i = sqlLinkPoolInstance.Count - 1; i >= 0; --i)
+				for (int i = sqlLinkPoolInstance.GetCount() - 1; i >= 0; --i)
 				{
 					if (sqlLinkPoolInstance[i].sqlConnectInstance.State == ConnectionState.Closed
 						|| sqlLinkPoolInstance[i].sqlConnectInstance.State == ConnectionState.Broken)
 					{
 						sqlLinkPoolInstance[i].Dispose();
-
 						sqlLinkPoolInstance.RemoveAt(i);
 					}
 				}
-			}
+			});
 		}
-	}
+    }
 }

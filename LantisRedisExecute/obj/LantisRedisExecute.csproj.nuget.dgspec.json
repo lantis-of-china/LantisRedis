@@ -31,8 +31,20 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
+              "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj"
+              },
               "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
                 "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
+              },
+              "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
               }
             }
           }

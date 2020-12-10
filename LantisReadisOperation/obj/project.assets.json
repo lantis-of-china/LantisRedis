@@ -135,7 +135,11 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "LantisEntitySystem": "1.0.0",
+          "LantisExtend": "1.0.0",
+          "LantisLocker": "1.0.0",
           "LantisLogger": "1.0.0",
+          "LantisPool": "1.0.0",
           "System.Data.SqlClient": "4.8.2"
         },
         "compile": {

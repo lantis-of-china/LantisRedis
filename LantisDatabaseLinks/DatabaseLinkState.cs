@@ -4,15 +4,17 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lantis.Locker;
+using Lantis.Pool;
 
 namespace Lantis.DatabaseLinks
 {
-    public class DatabaseLinkState
+    public class DatabaseLinkState : SafeLocker,LantisPoolInterface
     {
         /// <summary>
         /// 连接字符串
         /// </summary>
-        public string connectStr;
+        public string connectString;
         /// <summary>
         /// 连接实例
         /// </summary>
@@ -22,10 +24,34 @@ namespace Lantis.DatabaseLinks
         /// </summary>
         public bool isUsed;
 
-        public DatabaseLinkState(string conStr)
+        public void OnPoolSpawn()
         {
-            connectStr = conStr;
-            sqlConnectInstance = SqlFactorWarp.CreateConnection(connectStr);
+            throw new NotImplementedException();
+
+            SafeRun(delegate
+            {
+                connectString = string.Empty;
+                sqlConnectInstance = null;
+                isUsed = false;
+            });
+        }
+
+        public void OnPoolDespawn()
+        {
+            throw new NotImplementedException();
+
+            SafeRun(delegate
+            {
+                connectString = string.Empty;
+                sqlConnectInstance = null;
+                isUsed = false;
+            });
+        }
+
+        public void SetLink(string conStr)
+        {
+            connectString = conStr;
+            sqlConnectInstance = SqlFactorWarp.CreateConnection(connectString);
             sqlConnectInstance.Open();
         }
 

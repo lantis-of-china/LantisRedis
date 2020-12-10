@@ -131,6 +131,45 @@
           }
         }
       },
+      "LantisEntitySystem/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "LantisExtend": "1.0.0",
+          "LantisLocker": "1.0.0",
+          "LantisLogger": "1.0.0",
+          "LantisPool": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LantisEntitySystem.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LantisEntitySystem.dll": {}
+        }
+      },
+      "LantisExtend/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "LantisPool": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LantisExtend.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LantisExtend.dll": {}
+        }
+      },
+      "LantisLocker/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/LantisLocker.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LantisLocker.dll": {}
+        }
+      },
       "LantisLogger/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -139,6 +178,20 @@
         },
         "runtime": {
           "bin/placeholder/LantisLogger.dll": {}
+        }
+      },
+      "LantisPool/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "LantisLocker": "1.0.0",
+          "LantisLogger": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LantisPool.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LantisPool.dll": {}
         }
       }
     }
@@ -454,15 +507,39 @@
         "version.txt"
       ]
     },
+    "LantisEntitySystem/1.0.0": {
+      "type": "project",
+      "path": "../LantisEntitySystem/LantisEntitySystem.csproj",
+      "msbuildProject": "../LantisEntitySystem/LantisEntitySystem.csproj"
+    },
+    "LantisExtend/1.0.0": {
+      "type": "project",
+      "path": "../LantisExtend/LantisExtend.csproj",
+      "msbuildProject": "../LantisExtend/LantisExtend.csproj"
+    },
+    "LantisLocker/1.0.0": {
+      "type": "project",
+      "path": "../LantisLocker/LantisLocker.csproj",
+      "msbuildProject": "../LantisLocker/LantisLocker.csproj"
+    },
     "LantisLogger/1.0.0": {
       "type": "project",
       "path": "../LantisLogger/LantisLogger.csproj",
       "msbuildProject": "../LantisLogger/LantisLogger.csproj"
+    },
+    "LantisPool/1.0.0": {
+      "type": "project",
+      "path": "../LantisPool/LantisPool.csproj",
+      "msbuildProject": "../LantisPool/LantisPool.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "LantisEntitySystem >= 1.0.0",
+      "LantisExtend >= 1.0.0",
+      "LantisLocker >= 1.0.0",
       "LantisLogger >= 1.0.0",
+      "LantisPool >= 1.0.0",
       "System.Data.SqlClient >= 4.8.2"
     ]
   },
@@ -497,8 +574,20 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
+              "projectPath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj"
+            },
+            "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj": {
+              "projectPath": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj"
+            },
+            "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
+              "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj"
+            },
             "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
               "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
+            },
+            "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+              "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
             }
           }
         }

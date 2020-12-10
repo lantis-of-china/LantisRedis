@@ -92,6 +92,14 @@ namespace Lantis.Extend
             }
         }
 
+        public int GetCount()
+        {
+            lock(lockHandle)
+            {
+                return listValue.Count;
+            }
+        }
+
         public void SafeWhile(Action<T> callfun)
         {
             lock (lockHandle)
