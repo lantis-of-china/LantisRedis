@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YiRLL3kGVrvLACwBGUepsAXiAQCJB554lb4lZMGCa6MqUbdQ6Ptnb6Q5NtttJfw2/YiTQhx/MnaYDuCaH4+NGw==",
+  "dgSpecHash": "6yap2yaYD44WD/BHh6PAM8+Ii0jVn5gZU4o2N6VXFUHUsL6fUF6f2z7FdJfQlJjPX1P5ZgtOXt+Eo0oTV4bAWQ==",
   "success": true,
-  "projectFilePath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj",
+  "projectFilePath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

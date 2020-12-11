@@ -15,9 +15,11 @@ namespace Lantis.DatabaseLinks
 
         public static void Init()
         {
-
-            DbProviderFactories.RegisterFactory(sqlClassName, SqlClientFactory.Instance);
-            factory = DbProviderFactories.GetFactory(sqlClassName);
+            if (factory == null)
+            {
+                DbProviderFactories.RegisterFactory(sqlClassName, SqlClientFactory.Instance);
+                factory = DbProviderFactories.GetFactory(sqlClassName);
+            }
         }
 
         public static DbConnection CreateConnection(string connectionString)
