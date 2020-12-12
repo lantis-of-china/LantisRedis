@@ -62,7 +62,7 @@ namespace Lantis.DatabaseLinks
 				CreateInstance(linkStr);
 			}
 
-            Logger.Log("数据持久化连接池初始化完成!");
+            Logger.Log("sucess for database links!");
 		}
 
 		public DatabaseLinkState CreateInstance(string linkStr)

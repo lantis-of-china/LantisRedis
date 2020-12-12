@@ -6,3 +6,11 @@ F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.AssemblyI
 F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.csproj.CoreCompileInputs.cache
 F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.dll
 F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.pdb
+C:\Users\lantis\Documents\LantisRedis\LantisLocker\bin\Debug\netcoreapp3.1\LantisLocker.deps.json
+C:\Users\lantis\Documents\LantisRedis\LantisLocker\bin\Debug\netcoreapp3.1\LantisLocker.dll
+C:\Users\lantis\Documents\LantisRedis\LantisLocker\bin\Debug\netcoreapp3.1\LantisLocker.pdb
+C:\Users\lantis\Documents\LantisRedis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.AssemblyInfoInputs.cache
+C:\Users\lantis\Documents\LantisRedis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.AssemblyInfo.cs
+C:\Users\lantis\Documents\LantisRedis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.csproj.CoreCompileInputs.cache
+C:\Users\lantis\Documents\LantisRedis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.dll
+C:\Users\lantis\Documents\LantisRedis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.pdb

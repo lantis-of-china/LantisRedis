@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5qzMRylScC5StIheha6iaSGgk4Dp6sygIiDbp6N8JNZTlzAI6o3XkbcSR2bOb+ooOQa5bncyqtpdpwH6MWPewA==",
+  "dgSpecHash": "ziqeq/XK6fuK23Sfu9v7LkXDHZD+GXcn/ESvX5HXAf7VhIENHoSxEsA0jqBWBaN/uWQ/AptYTz1X+r1mnSLvEA==",
   "success": true,
-  "projectFilePath": "F:\\Gits\\LantisReadis\\LantisReadisCore\\LantisReadisCore.csproj",
+  "projectFilePath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisReadisCore\\LantisReadisCore.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -6,3 +6,11 @@ F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.AssemblyI
 F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.csproj.CoreCompileInputs.cache
 F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.dll
 F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.pdb
+C:\Users\lantis\Documents\LantisRedis\LantisLogger\bin\Debug\netcoreapp3.1\LantisLogger.deps.json
+C:\Users\lantis\Documents\LantisRedis\LantisLogger\bin\Debug\netcoreapp3.1\LantisLogger.dll
+C:\Users\lantis\Documents\LantisRedis\LantisLogger\bin\Debug\netcoreapp3.1\LantisLogger.pdb
+C:\Users\lantis\Documents\LantisRedis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.AssemblyInfoInputs.cache
+C:\Users\lantis\Documents\LantisRedis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.AssemblyInfo.cs
+C:\Users\lantis\Documents\LantisRedis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.csproj.CoreCompileInputs.cache
+C:\Users\lantis\Documents\LantisRedis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.dll
+C:\Users\lantis\Documents\LantisRedis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.pdb
