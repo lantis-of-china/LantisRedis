@@ -14,3 +14,4 @@ C:\Users\lantis\Documents\LantisRedis\LantisLocker\obj\Debug\netcoreapp3.1\Lanti
 C:\Users\lantis\Documents\LantisRedis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.csproj.CoreCompileInputs.cache
 C:\Users\lantis\Documents\LantisRedis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.dll
 C:\Users\lantis\Documents\LantisRedis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.pdb
+F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.csprojAssemblyReference.cache

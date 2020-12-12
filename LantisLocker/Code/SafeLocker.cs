@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lantis.Locker
 {
+    [Serializable]
     public class SafeLocker
     {
         private const bool safeRun = true;

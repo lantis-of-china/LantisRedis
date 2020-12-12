@@ -90,7 +90,28 @@ namespace Lantis.Redis
                     return;
                 }
 
-                Logger.Error($"the data is has in table:{tableName} by id:{id}");
+                redisDataCollects.RemoveKey(id);
+                redisDataCollects.AddValue(id, data);
+            });
+        }
+
+        public void OverData(string id,RedisTableData data)
+        {
+            SafeRun(delegate
+            {
+                if (!redisDataCollects.HasKey(id))
+                {
+                    var redisTableData = redisDataCollects[id];
+                    redisTableData.ClearFields();
+                    var fields = data.GetFieldCollects();
+
+                    fields.SafeWhile(delegate(string fieldName,RedisTableField redisTableField)
+                    {
+                        redisTableData.AddField(redisTableField);
+                    });
+
+                    data.RemoveAllFields();
+                }
             });
         }
 
@@ -107,6 +128,56 @@ namespace Lantis.Redis
             return SafeRunFunction(delegate
             {
                 return redisFieldCollects.ValueToList();
+            });
+        }
+
+        public RedisTableData GetData(LantisRedisConditionGroup redisConditions)
+        {
+            return SafeRunFunction(delegate
+            {
+                for (var i = 0; i < redisConditions.conditionList.Count; ++i)
+                {
+                    var condition = redisConditions.conditionList[i];
+
+                    if (condition.fieldName == RedisConst.id && condition.operation == "=")
+                    {
+                        if (redisDataCollects.HasKey(condition.fieldValue))
+                        {
+                            return redisDataCollects[condition.fieldValue];
+                        }
+                    }
+                    else
+                    {
+                    }
+                }
+
+                return null;
+            });
+        }
+
+        public string SetData(LantisRedisConditionGroup redisConditions,RedisSerializableData data)
+        {
+            return SafeRunFunction(delegate
+            {
+                string command = "";
+                var newTableData = RedisCore.RedisSerializableToRedisTableData(data);
+                var id = newTableData.GetFieldObject(RedisConst.id).fieldValue as string;
+                var tableData = GetDataById(id);
+
+                if (tableData == null)
+                {
+                    AddDataById(id, newTableData);
+                    command = RedisCore.GetInsertCommand(tableName, newTableData);
+                }
+                else 
+                {
+                    OverData(id, newTableData);
+                    command = RedisCore.GetUpdataCommand(tableName, newTableData,redisConditions);
+                }
+
+                LantisPoolSystem.GetPool<RedisTableData>().DisposeObject(newTableData);
+
+                return command;
             });
         }
     }

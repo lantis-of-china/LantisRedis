@@ -34,9 +34,9 @@ namespace Lantis.RedisExecute.NetProcess
                 var requestMsg = RedisSerializable.DeSerialize<RequestRedisSet>(data);
                 Program.RedisMemoryBranch.SetMemory(requestMsg);
             }
-            catch
+            catch(Exception e)
             {
-                Logger.Error("request get exception!");
+                Logger.Error($"request get exception!{e.ToString()}");
                 return;
             }           
         }

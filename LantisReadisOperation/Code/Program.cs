@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Lantis.Redis;
 using Lantis.Pool;
 using Lantis.EntityComponentSystem;
+using System.Threading;
 
 namespace Lantis.ReadisOperation
 {
@@ -27,8 +28,10 @@ namespace Lantis.ReadisOperation
             {
                 Logger.Error("socket connect finish");
                 MemoryReadisOperation.CheckTable();
-                var testData = new TestRedisDefineData();
-                MemoryReadisOperation.SetData(0,testData, null);
+                Thread.Sleep(1000);
+                var testData = new TestRedisDataSleep3();
+                testData.id = "12";
+                MemoryReadisOperation.SetData(testData.id,testData, null);
             },
             () =>
             {

@@ -9,6 +9,7 @@ using Lantis.Extend;
 using Lantis.Pool;
 using Lantis.Redis.Message;
 using System.Data;
+using System.Text;
 
 namespace Lantis.Redis
 {
@@ -44,7 +45,12 @@ namespace Lantis.Redis
                 return typeCollects[type];
             }
 
-            return "";
+            if (IsList(type.Name))
+            {
+                return "List`1";
+            }
+
+            return type.Name;
         }
 
         public static void AddTypeCollect(Type type)
@@ -95,6 +101,18 @@ namespace Lantis.Redis
             }
 
             return false;
+        }
+
+        public static string GetDatabaseNameFromData(object data)
+        {
+            var attribute = data.GetType().GetCustomAttribute<RedisTableDefineAttribute>();
+
+            if (attribute != null)
+            {
+                return attribute.GetDatabaseName();
+            }
+
+            return "";
         }
 
         public static RedisCheckDatabase GetTypeField(Type type)
@@ -536,7 +554,104 @@ namespace Lantis.Redis
 
         public static string GetCheckTableString(string tableName)
         {
-            return $"if object_id( '{tableName}') is not null select 1 else select 0";
+            return $"if object_id('{tableName}','u') is not null select 1 else select 0";
+        }
+
+        public static string GetUpdataCommand(string tableName, RedisTableData redisTableData, LantisRedisConditionGroup conditionGroup)
+        {
+            var fieldList = redisTableData.GetFieldCollects().ValueToList();
+            string sqlString = "";
+            string fields = "";
+
+            for (var i = 0; i < fieldList.Count; ++i)
+            {
+                var field = fieldList[i];
+                var value = GetSingleValue(field.fieldType, field.fieldValue);
+
+                if (i != 0)
+                {
+                    fields += ",";
+                }
+
+                fields += $"{field.fieldName} = {value}";
+            }
+
+            string whereString = "";
+
+            for (var i = 0; i < conditionGroup.conditionList.Count; ++i)
+            {
+                var condition = conditionGroup.conditionList[i];
+
+                if (i != 0)
+                {
+                    whereString += "AND";
+                }
+
+                whereString += $"{condition.fieldName} {condition.operation} {condition.fieldValue}";
+            }
+            
+
+            if (string.IsNullOrEmpty(whereString))
+            {
+                sqlString = $"UPDATE {tableName} SET {fields}";
+            }
+            else
+            {
+                sqlString = $"UPDATE {tableName} SET {fields} WHERE {whereString}";
+            }
+
+            return sqlString;
+        }
+
+        public static string GetInsertCommand(string tableName,RedisTableData redisTableData)
+        {
+            var fieldList = redisTableData.GetFieldCollects().ValueToList();
+            string sqlString = "";
+            string keys = "(";
+            string values = "(";
+
+            for (var i = 0; i < fieldList.Count; ++i)
+            {
+                var field = fieldList[i];
+                var value = GetSingleValue(field.fieldType, field.fieldValue);
+
+                if (i != 0)
+                {
+                    keys += ",";
+                    values += ",";
+                }
+
+                keys += field.fieldName;
+                values += value;
+            }
+
+            keys += ")";
+            values += ")";
+            sqlString = $"INSERT INTO {tableName} {keys} VALUES{values}";
+
+            return sqlString;
+
+
+            //			if ((int)SqlHelp.ExecuteNonQuery(sqlString) == 1)
+            //			{
+            //				Logger.Log("sql执行成功");
+            //				StartExecuteAsync();
+            //			}
+            //			else
+            //			{
+            //				failedTimes++;
+            //				Logger.Error($"sql执行失败次数{failedTimes}");
+
+            //				if (failedTimes > 3)
+            //				{
+            //					Execute(executeInfo, failedTimes);
+            //				}
+            //				else
+            //				{
+            //					Logger.Error("sql执行失败次数过多 忽略当前数据");
+            //					StartExecuteAsync();
+            //				}
+            //			}
         }
 
         public static void DataTableToMemory(RedisTable redisTable,DataTable dataTable)
@@ -554,6 +669,9 @@ namespace Lantis.Redis
                         var fieldInfo = tableFields[j];
                         SetDataRowToRedisTableData(fieldInfo, oneData, oneDataRow);
                     }
+
+                    var fieldObject = oneData.GetFieldObject(RedisConst.id);
+                    redisTable.AddDataById(fieldObject.fieldValue as string, oneData);
                 }
             }
         }
@@ -561,9 +679,9 @@ namespace Lantis.Redis
         public static RedisTableData SetDataRowToRedisTableData(RedisTableFieldDefine fieldDefine,RedisTableData redisTableData, DataRow dataRow)
         {
             var oneField = LantisPoolSystem.GetPool<RedisTableField>().NewObject();
-            redisTableData.AddField(oneField);
             oneField.fieldName = fieldDefine.fieldName;
             oneField.fieldType = fieldDefine.fieldType;
+            redisTableData.AddField(oneField);
             var type = fieldDefine.fieldType;
 
             if (type == GetTypeName(typeof(Boolean)))
@@ -618,14 +736,129 @@ namespace Lantis.Redis
             {
                 oneField.fieldValue = dataRow[fieldDefine.fieldName].ToString();
             }
+            else if (IsList(type))
+            {
+                var base64String = dataRow[fieldDefine.fieldName].ToString();
+                var bytes = Convert.FromBase64String(base64String);
+                var typeLenght = BitConverter.ToInt32(bytes,0);
+                var valueType = Encoding.UTF8.GetString(bytes, 4, typeLenght);
+                byte[] datas = new byte[bytes.Length - 4 - typeLenght];
+                Array.Copy(bytes, 4 + typeLenght, datas, 0, datas.Length);
+
+                if (valueType == GetTypeName(typeof(Boolean)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<Boolean>>(datas);
+                }
+                else if (valueType == GetTypeName(typeof(Byte)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<Byte>>(datas);
+                }
+                else if (valueType == GetTypeName(typeof(SByte)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<SByte>>(datas);
+                }
+                else if (valueType == GetTypeName(typeof(Int16)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<Int16>>(datas);
+                }
+                else if (valueType == GetTypeName(typeof(UInt16)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<UInt16>>(datas);
+                }
+                else if (valueType == GetTypeName(typeof(Int32)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<Int32>>(datas);
+                }
+                else if (valueType == GetTypeName(typeof(UInt32)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<UInt32>>(datas);
+                }
+                else if (valueType == GetTypeName(typeof(Int64)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<Int64>>(datas);
+                }
+                else if (valueType == GetTypeName(typeof(UInt64)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<UInt64>>(datas);
+                }
+                else if (valueType == GetTypeName(typeof(Single)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<Single>>(datas);
+                }
+                else if (valueType == GetTypeName(typeof(Double)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<Double>>(datas);
+                }
+                else if (valueType == GetTypeName(typeof(Decimal)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<Decimal>>(datas);
+                }
+                else if (valueType == GetTypeName(typeof(String)))
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<String>>(datas);
+                }
+                else
+                {
+                    oneField.fieldValue = RedisSerializable.DeSerialize<List<RedisTableData>>(datas);
+                }
+            }
             else
             {
-                var oneData = LantisPoolSystem.GetPool<RedisTableData>().NewObject();
-                DataToRedisTableData((byte[])dataRow[fieldDefine.fieldName], oneData);
-                oneField.fieldValue = oneData;
+                var newTableData = LantisPoolSystem.GetPool<RedisTableData>().NewObject();
+                var base64String = dataRow[fieldDefine.fieldName].ToString();
+                var bytes = Convert.FromBase64String(base64String);
+                DataToRedisTableData(bytes, redisTableData);
+                oneField.fieldValue = newTableData;
             }
 
             return redisTableData;
+        }
+
+        public static string GetSingleValue(string type, object value)
+        {
+            if (IsGeneralType(type))
+            {
+                return value.ToString();
+            }
+            if (IsStringType(type))
+            {
+                return $"'{value as string}'";
+            }
+            else if (IsList(type))
+            {
+                var dataType = value.GetType();
+                var genericTypeArry = dataType.GetGenericArguments();
+                var genericType = genericTypeArry[0];
+                byte[] typeData = Encoding.UTF8.GetBytes(genericType.Name);
+                byte[] typeLenght = BitConverter.GetBytes(typeData.Length);
+                byte[] bytes = null;
+
+                if (IsGeneralType(genericType.Name))
+                {
+                    bytes = RedisSerializable.Serialize(value);
+                }
+                else if (IsStringType(genericType.Name))
+                {
+                    bytes = RedisSerializable.Serialize(value);
+                }
+                else 
+                {
+                    bytes = RedisSerializable.Serialize(value);
+                }
+
+                var dataBuff = new byte[4 + typeData.Length + bytes.Length];
+                Array.Copy(typeLenght, 0, dataBuff, 0, typeLenght.Length);
+                Array.Copy(typeData, 0, dataBuff, 4, typeData.Length);
+                Array.Copy(bytes, 0, dataBuff, 4 + typeData.Length, bytes.Length);
+
+                return $"'{Convert.ToBase64String(dataBuff)}'";
+            }
+            else
+            {
+                var bytes = RedisTableDataToData((RedisTableData)value);
+
+                return $"'{Convert.ToBase64String(bytes)}'";
+            }
         }
     }
 }

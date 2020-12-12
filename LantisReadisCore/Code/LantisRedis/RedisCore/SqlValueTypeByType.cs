@@ -21,7 +21,7 @@ namespace Lantis.Redis
             { typeof(Int64).Name,"BIGINT"},
             { typeof(Single).Name,"FLOAT"},
             { typeof(Double).Name,"FLOAT"},
-            { typeof(String).Name,"Text"},
+            { typeof(String).Name,"nvarchar(max)"},
         };
 
         public static string GetSqlType(Type type)
@@ -36,7 +36,7 @@ namespace Lantis.Redis
                 return sqlTypeDictionary[type];
             }
 
-            return "VARBINARY(MAX)";
+            return "Text";
         }
     }
 

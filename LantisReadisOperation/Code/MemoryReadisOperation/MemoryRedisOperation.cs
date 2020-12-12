@@ -12,7 +12,7 @@ namespace Lantis.ReadisOperation
     {
         private static List<Type> tableList = new List<Type>
         {
-           typeof(TestRedisDefineData)
+           typeof(TestRedisDataSleep3)
         };
 
         public static void CheckTable()
@@ -37,6 +37,7 @@ namespace Lantis.ReadisOperation
         public static void SetData<T>(object id, T data, Action<object> finisCallBack) where T : RedisBase
         {
             var redisRequest = LantisPoolSystem.GetPool<RequestRedisSet>().NewObject();
+            redisRequest.databaseName = RedisCore.GetDatabaseNameFromData(data);
             redisRequest.tableName = RedisCore.GetMemoryRedisDataTypeName(data);
             redisRequest.data = RedisSerializable.SerializableToBytes(data);
             var condition = LantisPoolSystem.GetPool<LantisRedisCondition>().NewObject();
@@ -93,7 +94,8 @@ namespace Lantis.ReadisOperation
         public static void SubmitRequestRedisSet(RequestRedisSet requestRedisSet,Action<object> finisCallBack)
         {
             var data = RedisSerializable.Serialize(requestRedisSet);
-            Program.NetBranchHandle.NetClientComponentHandle.SendMessage(MessageIdDefine.SetData,data);
+            LogicTrunkEntity.Instance.GetComponent<NetBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.SetData, data);
+            //Program.NetBranchHandle.NetClientComponentHandle.SendMessage(MessageIdDefine.SetData,data);
         }
 
         public static void SubmitRequestRedisGet(RequestRedisGet request, Action<object> finisCallBack)

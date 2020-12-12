@@ -14,3 +14,4 @@ C:\Users\lantis\Documents\LantisRedis\LantisLogger\obj\Debug\netcoreapp3.1\Lanti
 C:\Users\lantis\Documents\LantisRedis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.csproj.CoreCompileInputs.cache
 C:\Users\lantis\Documents\LantisRedis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.dll
 C:\Users\lantis\Documents\LantisRedis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.pdb
+F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.csprojAssemblyReference.cache

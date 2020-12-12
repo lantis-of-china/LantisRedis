@@ -51,8 +51,9 @@ namespace Lantis.RedisExecute
                     {
                         redisMemoryComponent.AddByRedisTab(item);
                         var sqlCheck = RedisCore.GetCheckTableString(tableName);
+                        var resultValue = (int)Program.DatabaseBranch.DatabaseCoreComponent.ExecuteScalar(sqlCheck);
 
-                        if (Program.DatabaseBranch.DatabaseCoreComponent.ExecuteNonQuery(sqlCheck) == 0)
+                        if (resultValue == 0)
                         {
                             var sqlCreateTable = RedisCore.GetCreateTableString(tableName, item.tableInfos);
                             Program.DatabaseBranch.DatabaseCoreComponent.ExecuteNonQuery(sqlCreateTable);
@@ -83,8 +84,10 @@ namespace Lantis.RedisExecute
 
                     if (table != null)
                     {
-
                         var serializableData = RedisSerializable.BytesToSerializable(requestMsg.data);
+                        var sqlCommand = table.SetData(requestMsg.conditionGroup, serializableData);
+                        Logger.Log(sqlCommand);
+                        LogicTrunkEntity.Instance.GetComponent<DatabaseCommandBranch>().AddCommand(sqlCommand);
                     }
                 }
             });

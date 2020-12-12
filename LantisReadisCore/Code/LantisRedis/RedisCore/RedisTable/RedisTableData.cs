@@ -5,26 +5,41 @@ using System.Text;
 using System.Threading.Tasks;
 using Lantis.Extend;
 using Lantis.Pool;
+using Lantis.Locker;
 
 namespace Lantis.Redis
 {
     [Serializable]
-    public class RedisTableData : LantisPoolInterface
+    public class RedisTableData : SafeLocker,LantisPoolInterface
     {
         public string databaseName;
         private LantisDictronaryList<string, RedisTableField> fieldCollects;
 
         public void OnPoolSpawn()
         {
-            databaseName = string.Empty;
-            fieldCollects = LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableField>>().NewObject();
+            SafeRun(delegate
+            {
+                databaseName = string.Empty;
+                fieldCollects = LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableField>>().NewObject();
+            });
         }
 
         public void OnPoolDespawn()
         {
-            ClearFields();
-            LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableField>>().DisposeObject(fieldCollects);
-            fieldCollects = null;
+            SafeRun(delegate
+            {
+                ClearFields();
+                LantisPoolSystem.GetPool<LantisDictronaryList<string, RedisTableField>>().DisposeObject(fieldCollects);
+                fieldCollects = null;
+            });
+        }
+
+        public void RemoveAllFields()
+        {
+            SafeRun(delegate
+            {
+                fieldCollects.Clear();
+            });
         }
 
         public LantisDictronaryList<string, RedisTableField> GetFieldCollects()
@@ -34,26 +49,48 @@ namespace Lantis.Redis
 
         public void ClearFields()
         {
-            var valueList = fieldCollects.ValueToList();
-            var poolHandle = LantisPoolSystem.GetPool<RedisTableField>();
-
-            for (var i = 0; i < valueList.Count; ++i)
+            SafeRun(delegate
             {
-                poolHandle.DisposeObject(valueList[i]);
-            }
+                var valueList = fieldCollects.ValueToList();
+                var poolHandle = LantisPoolSystem.GetPool<RedisTableField>();
 
-            fieldCollects.Clear();
+                for (var i = 0; i < valueList.Count; ++i)
+                {
+                    poolHandle.DisposeObject(valueList[i]);
+                }
+
+                fieldCollects.Clear();
+            });
         }
 
         public void AddField(RedisTableField field)
         {
-            fieldCollects.AddValue(field.fieldName,field);
+            SafeRun(delegate
+            {
+                fieldCollects.AddValue(field.fieldName, field);
+            });
+        }
+
+        public RedisTableField GetFieldObject(string fieldName)
+        {
+            return SafeRunFunction(delegate 
+            {
+                if (fieldCollects.HasKey(fieldName))
+                {
+                    return fieldCollects[fieldName];
+                }
+
+                return null;
+            });
         }
 
         public void FieldDataFromString(byte[] data)
         {
-            ClearFields();
-            RedisCore.DataToRedisTableData(data, this);
+            SafeRun(delegate
+            {
+                ClearFields();
+                RedisCore.DataToRedisTableData(data, this);
+            });
         }
     }
 }

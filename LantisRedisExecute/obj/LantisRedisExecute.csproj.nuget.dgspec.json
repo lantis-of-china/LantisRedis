@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisRedisExecute\\LantisRedisExecute.csproj": {}
+    "F:\\Gits\\LantisReadis\\LantisRedisExecute\\LantisRedisExecute.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisDatabaseLinks\\LantisDatabaseLinks.csproj": {
+    "F:\\Gits\\LantisReadis\\LantisDatabaseLinks\\LantisDatabaseLinks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisDatabaseLinks\\LantisDatabaseLinks.csproj",
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisDatabaseLinks\\LantisDatabaseLinks.csproj",
         "projectName": "LantisDatabaseLinks",
-        "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisDatabaseLinks\\LantisDatabaseLinks.csproj",
-        "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisDatabaseLinks\\obj\\",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisDatabaseLinks\\LantisDatabaseLinks.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisDatabaseLinks\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,20 +31,20 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\LantisEntitySystem.csproj"
+              "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj"
+              "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj"
+              "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj"
+              "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj"
+              "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
               }
             }
           }
@@ -80,17 +83,20 @@
         }
       }
     },
-    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
+    "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\LantisEntitySystem.csproj",
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj",
         "projectName": "LantisEntitySystem",
-        "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\LantisEntitySystem.csproj",
-        "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\obj\\",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -104,17 +110,17 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj"
+              "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj"
+              "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj"
+              "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj"
+              "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
               }
             }
           }
@@ -147,17 +153,20 @@
         }
       }
     },
-    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj": {
+    "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj",
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj",
         "projectName": "LantisExtend",
-        "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj",
-        "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\obj\\",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisExtend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -171,8 +180,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj"
+              "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
               }
             }
           }
@@ -205,17 +214,20 @@
         }
       }
     },
-    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj": {
+    "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj",
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj",
         "projectName": "LantisLocker",
-        "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj",
-        "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\obj\\",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisLocker\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -259,17 +271,20 @@
         }
       }
     },
-    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj": {
+    "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj",
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj",
         "projectName": "LantisLogger",
-        "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj",
-        "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\obj\\",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisLogger\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -313,17 +328,20 @@
         }
       }
     },
-    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisNetwork\\LantisNetwork.csproj": {
+    "F:\\Gits\\LantisReadis\\LantisNetwork\\LantisNetwork.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisNetwork\\LantisNetwork.csproj",
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisNetwork\\LantisNetwork.csproj",
         "projectName": "LantisNetwork",
-        "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisNetwork\\LantisNetwork.csproj",
-        "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisNetwork\\obj\\",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisNetwork\\LantisNetwork.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisNetwork\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -337,17 +355,17 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\LantisEntitySystem.csproj"
+              "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj"
+              "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj"
+              "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj"
+              "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
               }
             }
           }
@@ -380,17 +398,20 @@
         }
       }
     },
-    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj": {
+    "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj",
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj",
         "projectName": "LantisPool",
-        "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj",
-        "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\obj\\",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisPool\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -404,11 +425,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj"
+              "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj"
+              "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
               }
             }
           }
@@ -441,17 +462,20 @@
         }
       }
     },
-    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisReadisCore\\LantisReadisCore.csproj": {
+    "F:\\Gits\\LantisReadis\\LantisReadisCore\\LantisReadisCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisReadisCore\\LantisReadisCore.csproj",
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisReadisCore\\LantisReadisCore.csproj",
         "projectName": "LantisReadisCore",
-        "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisReadisCore\\LantisReadisCore.csproj",
-        "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisReadisCore\\obj\\",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisReadisCore\\LantisReadisCore.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisReadisCore\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -465,23 +489,23 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\LantisEntitySystem.csproj"
+              "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj"
+              "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj"
+              "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj"
+              "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisNetwork\\LantisNetwork.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisNetwork\\LantisNetwork.csproj"
+              "F:\\Gits\\LantisReadis\\LantisNetwork\\LantisNetwork.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisNetwork\\LantisNetwork.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj"
+              "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
               }
             }
           }
@@ -514,17 +538,20 @@
         }
       }
     },
-    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisRedisExecute\\LantisRedisExecute.csproj": {
+    "F:\\Gits\\LantisReadis\\LantisRedisExecute\\LantisRedisExecute.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisRedisExecute\\LantisRedisExecute.csproj",
+        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisRedisExecute\\LantisRedisExecute.csproj",
         "projectName": "LantisRedisExecute",
-        "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisRedisExecute\\LantisRedisExecute.csproj",
-        "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisRedisExecute\\obj\\",
+        "projectPath": "F:\\Gits\\LantisReadis\\LantisRedisExecute\\LantisRedisExecute.csproj",
+        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
+        "outputPath": "F:\\Gits\\LantisReadis\\LantisRedisExecute\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -538,29 +565,29 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisDatabaseLinks\\LantisDatabaseLinks.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisDatabaseLinks\\LantisDatabaseLinks.csproj"
+              "F:\\Gits\\LantisReadis\\LantisDatabaseLinks\\LantisDatabaseLinks.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisDatabaseLinks\\LantisDatabaseLinks.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\LantisEntitySystem.csproj"
+              "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisExtend\\LantisExtend.csproj"
+              "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisExtend\\LantisExtend.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj"
+              "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj"
+              "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisNetwork\\LantisNetwork.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisNetwork\\LantisNetwork.csproj"
+              "F:\\Gits\\LantisReadis\\LantisNetwork\\LantisNetwork.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisNetwork\\LantisNetwork.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisPool\\LantisPool.csproj"
+              "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
               },
-              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisReadisCore\\LantisReadisCore.csproj": {
-                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisReadisCore\\LantisReadisCore.csproj"
+              "F:\\Gits\\LantisReadis\\LantisReadisCore\\LantisReadisCore.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisReadisCore\\LantisReadisCore.csproj"
               }
             }
           }
