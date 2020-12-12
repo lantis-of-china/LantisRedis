@@ -10,3 +10,11 @@ F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisLogger.pd
 F:\Gits\LantisReadis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.csproj.CopyComplete
 F:\Gits\LantisReadis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.dll
 F:\Gits\LantisReadis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.pdb
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisEntitySystem.dll
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisExtend.dll
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisLocker.dll
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisPool.dll
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisEntitySystem.pdb
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisExtend.pdb
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisLocker.pdb
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\LantisPool.pdb

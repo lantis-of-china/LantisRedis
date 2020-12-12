@@ -8,6 +8,7 @@ using System.Collections;
 using Lantis.Extend;
 using Lantis.Pool;
 using Lantis.Redis.Message;
+using System.Data;
 
 namespace Lantis.Redis
 {
@@ -16,7 +17,7 @@ namespace Lantis.Redis
     /// </summary>
     public class RedisCore
     {
-        private static LantisDictronaryList<Type,string> typeCollects;
+        private static LantisDictronaryList<Type, string> typeCollects;
 
         public static string GetTypeName(Type type)
         {
@@ -113,8 +114,8 @@ namespace Lantis.Redis
                 {
                     var field = fields[i];
                     var fieldDefine = poolHandle.NewObject();
-                    fieldDefine.fieldName = field.Name;
-                    fieldDefine.fieldType = SqlValueTypeByType.GetSqlType(field.FieldType);
+                    fieldDefine.fieldName = field.Name;                    
+                    fieldDefine.fieldType = GetTypeName(field.FieldType);
                     requestRedisCheck.tableInfos.Add(fieldDefine);
                 }
 
@@ -180,7 +181,7 @@ namespace Lantis.Redis
             var redisDataType = memoryRedisdata.GetType();
             var fieldsArray = redisDataType.GetFields();
             var tableName = redisDataType.Name;
-            var stringData = string.Format("{tableName:{0},data:{",tableName);
+            var stringData = string.Format("{tableName:{0},data:{", tableName);
 
             for (var i = 0; i < fieldsArray.Length; ++i)
             {
@@ -226,7 +227,7 @@ namespace Lantis.Redis
 
             for (var i = 0; i < redisSerializableData.fields.Count; ++i)
             {
-                var fieldItem = redisSerializableData.fields[i];                
+                var fieldItem = redisSerializableData.fields[i];
                 redisTableData.AddField(DataToRedisTableField(fieldItem));
             }
 
@@ -251,7 +252,7 @@ namespace Lantis.Redis
             {
                 var listType = redisSerializableField.fieldValue.GetType();
                 var genericType = listType.GetGenericArguments()[0];
-                
+
                 if (IsGeneralType(genericType.Name))
                 {
                     redisField.fieldValue = redisSerializableField.fieldValue;
@@ -301,7 +302,7 @@ namespace Lantis.Redis
         {
             var redisSerializableData = LantisPoolSystem.GetPool<RedisSerializableData>().NewObject();
 
-            redisTableData.GetFieldCollects().SafeWhile(delegate (string key, RedisTableField redisField) 
+            redisTableData.GetFieldCollects().SafeWhile(delegate (string key, RedisTableField redisField)
             {
                 var redisSerializableField = RedisTableFieldToSerializableField(redisField);
                 redisSerializableData.AddFieldData(redisSerializableField);
@@ -422,7 +423,7 @@ namespace Lantis.Redis
         /// <param name="databaseName"></param>
         /// <param name="externTableData"></param>
         /// <returns></returns>
-        public static RedisSerializableData ExternTableDataToRedisSerializData(string databaseName,object externTableData)
+        public static RedisSerializableData ExternTableDataToRedisSerializData(string databaseName, object externTableData)
         {
             var redisSerializData = LantisPoolSystem.GetPool<RedisSerializableData>().NewObject();
             var type = externTableData.GetType();
@@ -508,6 +509,123 @@ namespace Lantis.Redis
             }
 
             return redisSerializField;
+        }
+
+        public static string GetSelectTableString(string tableName)
+        {
+            string sqlSelect = $"SELECT * FROM {tableName}";
+
+            return sqlSelect;
+        }
+
+        public static string GetCreateTableString(string tableName, List<RedisTableFieldDefine> redisTableFieldDefines)
+        {
+            string sqlCreate = $"CREATE TABLE [dbo].[{tableName}]( ";
+
+            for (var j = 0; j < redisTableFieldDefines.Count; ++j)
+            {
+                var field = redisTableFieldDefines[j];
+
+                sqlCreate += $"[{field.fieldName}] {SqlValueTypeByType.GetSqlType(field.fieldType)} NOT NULL,";
+            }
+
+            sqlCreate += ")";
+
+            return sqlCreate;
+        }
+
+        public static string GetCheckTableString(string tableName)
+        {
+            return $"if object_id( '{tableName}') is not null select 1 else select 0";
+        }
+
+        public static void DataTableToMemory(RedisTable redisTable,DataTable dataTable)
+        {
+            if (dataTable != null && dataTable.Rows != null)
+            {
+                for (var i = 0; i < dataTable.Rows.Count; ++i)
+                {
+                    var oneDataRow = dataTable.Rows[i];
+                    var tableFields = redisTable.GetRedisTableFieldList();
+                    var oneData = LantisPoolSystem.GetPool<RedisTableData>().NewObject();
+
+                    for (var j = 0; j < tableFields.Count; ++j)
+                    {
+                        var fieldInfo = tableFields[j];
+                        SetDataRowToRedisTableData(fieldInfo, oneData, oneDataRow);
+                    }
+                }
+            }
+        }
+
+        public static RedisTableData SetDataRowToRedisTableData(RedisTableFieldDefine fieldDefine,RedisTableData redisTableData, DataRow dataRow)
+        {
+            var oneField = LantisPoolSystem.GetPool<RedisTableField>().NewObject();
+            redisTableData.AddField(oneField);
+            oneField.fieldName = fieldDefine.fieldName;
+            oneField.fieldType = fieldDefine.fieldType;
+            var type = fieldDefine.fieldType;
+
+            if (type == GetTypeName(typeof(Boolean)))
+            {
+                oneField.fieldValue = Boolean.Parse(dataRow[fieldDefine.fieldName].ToString());
+            }
+            else if (type == GetTypeName(typeof(Byte)))
+            {
+                oneField.fieldValue = Byte.Parse(dataRow[fieldDefine.fieldName].ToString());
+            }
+            else if (type == GetTypeName(typeof(SByte)))
+            {
+                oneField.fieldValue = SByte.Parse(dataRow[fieldDefine.fieldName].ToString());
+            }
+            else if (type == GetTypeName(typeof(Int16)))
+            {
+                oneField.fieldValue = Int16.Parse(dataRow[fieldDefine.fieldName].ToString());
+            }
+            else if (type == GetTypeName(typeof(UInt16)))
+            {
+                oneField.fieldValue = UInt16.Parse(dataRow[fieldDefine.fieldName].ToString());
+            }
+            else if (type == GetTypeName(typeof(Int32)))
+            {
+                oneField.fieldValue = Int32.Parse(dataRow[fieldDefine.fieldName].ToString());
+            }
+            else if (type == GetTypeName(typeof(UInt32)))
+            {
+                oneField.fieldValue = UInt32.Parse(dataRow[fieldDefine.fieldName].ToString());
+            }
+            else if (type == GetTypeName(typeof(Int64)))
+            {
+                oneField.fieldValue = Int64.Parse(dataRow[fieldDefine.fieldName].ToString());
+            }
+            else if (type == GetTypeName(typeof(UInt64)))
+            {
+                oneField.fieldValue = UInt64.Parse(dataRow[fieldDefine.fieldName].ToString());
+            }
+            else if (type == GetTypeName(typeof(Single)))
+            {
+                oneField.fieldValue = Single.Parse(dataRow[fieldDefine.fieldName].ToString());
+            }
+            else if (type == GetTypeName(typeof(Double)))
+            {
+                oneField.fieldValue = Double.Parse(dataRow[fieldDefine.fieldName].ToString());
+            }
+            else if (type == GetTypeName(typeof(Decimal)))
+            {
+                oneField.fieldValue = Decimal.Parse(dataRow[fieldDefine.fieldName].ToString());
+            }
+            else if (type == GetTypeName(typeof(String)))
+            {
+                oneField.fieldValue = dataRow[fieldDefine.fieldName].ToString();
+            }
+            else
+            {
+                var oneData = LantisPoolSystem.GetPool<RedisTableData>().NewObject();
+                DataToRedisTableData((byte[])dataRow[fieldDefine.fieldName], oneData);
+                oneField.fieldValue = oneData;
+            }
+
+            return redisTableData;
         }
     }
 }

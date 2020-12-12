@@ -27,6 +27,8 @@ namespace Lantis.ReadisOperation
             {
                 Logger.Error("socket connect finish");
                 MemoryReadisOperation.CheckTable();
+                var testData = new TestRedisDefineData();
+                MemoryReadisOperation.SetData(0,testData, null);
             },
             () =>
             {

@@ -37,6 +37,7 @@ namespace Lantis.DatabaseLinks
 
             SafeRun(delegate
             {
+                SqlFactorWarp.Init();
                 var sqlLink = paramsData[0] as string;
                 databaseCoreComponent = AddComponentEntity<DatabaseCoreComponents>(DatabaseCoreComponents.ParamCreate(sqlLink));
             });

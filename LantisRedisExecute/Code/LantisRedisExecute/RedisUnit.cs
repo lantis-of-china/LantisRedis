@@ -11,7 +11,7 @@ namespace Lantis.RedisExecute
 {
     public class RedisUnit :SafeLocker ,LantisPoolInterface
     {
-        private string databaseName;
+        public string databaseName;
         private static LantisDictronaryList<string, RedisTable> tableCollects;
 
         public void OnCreate()
@@ -60,6 +60,14 @@ namespace Lantis.RedisExecute
                 }
 
                 return null;
+            });
+        }
+
+        public void AddRedisTable(RedisTable redistable)
+        {
+            SafeRun(delegate
+            {
+                tableCollects.AddValue(redistable.tableName, redistable);
             });
         }
     }

@@ -8,7 +8,11 @@
     ".NETCoreApp,Version=v3.1": {
       "LantisDatabaseLinks/1.0.0": {
         "dependencies": {
+          "LantisEntitySystem": "1.0.0",
+          "LantisExtend": "1.0.0",
+          "LantisLocker": "1.0.0",
           "LantisLogger": "1.0.0",
+          "LantisPool": "1.0.0",
           "System.Data.SqlClient": "4.8.2"
         },
         "runtime": {
@@ -90,9 +94,42 @@
         }
       },
       "System.Security.Principal.Windows/4.7.0": {},
+      "LantisEntitySystem/1.0.0": {
+        "dependencies": {
+          "LantisExtend": "1.0.0",
+          "LantisLocker": "1.0.0",
+          "LantisLogger": "1.0.0",
+          "LantisPool": "1.0.0"
+        },
+        "runtime": {
+          "LantisEntitySystem.dll": {}
+        }
+      },
+      "LantisExtend/1.0.0": {
+        "dependencies": {
+          "LantisPool": "1.0.0"
+        },
+        "runtime": {
+          "LantisExtend.dll": {}
+        }
+      },
+      "LantisLocker/1.0.0": {
+        "runtime": {
+          "LantisLocker.dll": {}
+        }
+      },
       "LantisLogger/1.0.0": {
         "runtime": {
           "LantisLogger.dll": {}
+        }
+      },
+      "LantisPool/1.0.0": {
+        "dependencies": {
+          "LantisLocker": "1.0.0",
+          "LantisLogger": "1.0.0"
+        },
+        "runtime": {
+          "LantisPool.dll": {}
         }
       }
     }
@@ -166,7 +203,27 @@
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
     },
+    "LantisEntitySystem/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LantisExtend/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LantisLocker/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "LantisLogger/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LantisPool/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

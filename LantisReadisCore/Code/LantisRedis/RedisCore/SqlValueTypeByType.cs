@@ -8,30 +8,35 @@ namespace Lantis.Redis
 {
     public class SqlValueTypeByType
     {
-        public static Dictionary<Type, string> sqlTypeDictionary = new Dictionary<Type, string>
+        public static Dictionary<string, string> sqlTypeDictionary = new Dictionary<string, string>
         {
-            { typeof(Boolean),"BIT"},
-            { typeof(Byte),"TINYINT"},
-            { typeof(SByte),"TINYINT"},
-            { typeof(UInt16),"SMALLINT"},
-            { typeof(Int16),"SMALLINT"},
-            { typeof(UInt32),"INT"},
-            { typeof(Int32),"INT"},
-            { typeof(UInt64),"BIGINT"},
-            { typeof(Int64),"BIGINT"},
-            { typeof(Single),"FLOAT"},
-            { typeof(Double),"FLOAT"},
-            { typeof(String),"Text"},
+            { typeof(Boolean).Name,"BIT"},
+            { typeof(Byte).Name,"TINYINT"},
+            { typeof(SByte).Name,"TINYINT"},
+            { typeof(UInt16).Name,"SMALLINT"},
+            { typeof(Int16).Name,"SMALLINT"},
+            { typeof(UInt32).Name,"INT"},
+            { typeof(Int32).Name,"INT"},
+            { typeof(UInt64).Name,"BIGINT"},
+            { typeof(Int64).Name,"BIGINT"},
+            { typeof(Single).Name,"FLOAT"},
+            { typeof(Double).Name,"FLOAT"},
+            { typeof(String).Name,"Text"},
         };
 
         public static string GetSqlType(Type type)
+        {
+            return GetSqlType(type.Name);
+        }
+
+        public static string GetSqlType(string type)
         {
             if (sqlTypeDictionary.ContainsKey(type))
             {
                 return sqlTypeDictionary[type];
             }
 
-            return "Text";
+            return "VARBINARY(MAX)";
         }
     }
 

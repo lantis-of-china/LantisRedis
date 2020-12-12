@@ -32,7 +32,7 @@ namespace Lantis.RedisExecute.NetProcess
             try
             {
                 var requestMsg = RedisSerializable.DeSerialize<RequestRedisSet>(data);
-                var serializableData = RedisSerializable.BytesToSerializable(requestMsg.data);
+                Program.RedisMemoryBranch.SetMemory(requestMsg);
             }
             catch
             {

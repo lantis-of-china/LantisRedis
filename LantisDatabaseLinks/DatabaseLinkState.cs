@@ -26,8 +26,6 @@ namespace Lantis.DatabaseLinks
 
         public void OnPoolSpawn()
         {
-            throw new NotImplementedException();
-
             SafeRun(delegate
             {
                 connectString = string.Empty;
@@ -38,8 +36,6 @@ namespace Lantis.DatabaseLinks
 
         public void OnPoolDespawn()
         {
-            throw new NotImplementedException();
-
             SafeRun(delegate
             {
                 connectString = string.Empty;

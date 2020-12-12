@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Lantis.Pool;
 using Lantis.Redis;
 using Lantis.Redis.Message;
+using Lantis.EntityComponentSystem;
+using Lantis.Network;
 
 namespace Lantis.ReadisOperation
 {
@@ -84,7 +86,8 @@ namespace Lantis.ReadisOperation
         public static void SubmitRequestRedisCheck(RequestRedisCheckDatabase request, Action<object> finisCallBack)
         {
             var data = RedisSerializable.Serialize(request);
-            Program.NetBranchHandle.NetClientComponentHandle.SendMessage(MessageIdDefine.CheckDatabase, data);
+            LogicTrunkEntity.Instance.GetComponent<NetBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.CheckDatabase,data);
+            //Program.NetBranchHandle.NetClientComponentHandle.SendMessage(MessageIdDefine.CheckDatabase, data);
         }
 
         public static void SubmitRequestRedisSet(RequestRedisSet requestRedisSet,Action<object> finisCallBack)

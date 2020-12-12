@@ -9,9 +9,9 @@ using Lantis.Locker;
 
 namespace Lantis.Redis
 {
-    public class RedisTable : SafeLocker,LantisPoolInterface
+    public class RedisTable : SafeLocker, LantisPoolInterface
     {
-        private string tableName;
+        public string tableName;
         private LantisDictronaryList<string, RedisTableFieldDefine> redisFieldCollects;
         private LantisDictronaryList<string, RedisTableData> redisDataCollects;
 
@@ -91,6 +91,22 @@ namespace Lantis.Redis
                 }
 
                 Logger.Error($"the data is has in table:{tableName} by id:{id}");
+            });
+        }
+
+        public void AddFieldInfo(RedisTableFieldDefine redisTableFieldDefine)
+        {
+            SafeRun(delegate
+            {
+                redisFieldCollects.AddValue(redisTableFieldDefine.fieldName, redisTableFieldDefine);
+            });
+        }
+
+        public List<RedisTableFieldDefine> GetRedisTableFieldList()
+        {
+            return SafeRunFunction(delegate
+            {
+                return redisFieldCollects.ValueToList();
             });
         }
     }
