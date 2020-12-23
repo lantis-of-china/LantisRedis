@@ -16,6 +16,9 @@
         }
       },
       "LantisLocker/1.0.0": {
+        "dependencies": {
+          "LantisLogger": "1.0.0"
+        },
         "runtime": {
           "LantisLocker.dll": {}
         }

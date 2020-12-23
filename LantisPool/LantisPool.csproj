@@ -10,4 +10,8 @@
     <ProjectReference Include="..\LantisLogger\LantisLogger.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(TargetDir)$(TargetName).dll&quot; &quot;$(TargetDir)..\..\..\..\Dlls\$(TargetName).dll&quot;" />
+  </Target>
+
 </Project>

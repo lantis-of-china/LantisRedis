@@ -31,8 +31,8 @@ namespace Lantis.RedisExecute
             }
         }
 
-        private static NetBranch netBranch;
-        public static NetBranch NetBranch 
+        private static NetServerBranch netBranch;
+        public static NetServerBranch NetBranch 
         {
             get 
             {
@@ -54,11 +54,13 @@ namespace Lantis.RedisExecute
             databaseCommandBranch = LogicTrunkEntity.Instance.AddComponentEntity<DatabaseCommandBranch>();
             redisMemoryBranch = LogicTrunkEntity.Instance.AddComponentEntity<MemoryBranch>();
             databaseBranch = LogicTrunkEntity.Instance.AddComponentEntity<DatabaseBranch>(DatabaseBranch.ParamCreate("Data Source=140.143.94.127;User Id = loginsa;Password=lantis2019;Database=LantisRedis;Integrated Security = False;Connect Timeout = 30;Encrypt=False;TrustServerCertificate=False;"));
-            netBranch = LogicTrunkEntity.Instance.AddComponentEntity<NetBranch>(NetBranch.ParamCreate(
+            netBranch = LogicTrunkEntity.Instance.AddComponentEntity<NetServerBranch>(NetServerBranch.ParamCreate(
+            "127.0.0.1",
+            9980,
+            new string[] { "Lantis.RedisExecute.NetProcess" },
             ()=> 
             {
                 Logger.Log("server run sucess");
-
                 LogicTrunkEntity.Instance.AddComponentEntity<RedisExecuteBranch>();
             },
             ()=> 

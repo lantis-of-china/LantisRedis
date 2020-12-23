@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "LantisLocker/1.0.0": {
+        "dependencies": {
+          "LantisLogger": "1.0.0"
+        },
         "runtime": {
           "LantisLocker.dll": {}
+        }
+      },
+      "LantisLogger/1.0.0": {
+        "runtime": {
+          "LantisLogger.dll": {}
         }
       }
     }
   },
   "libraries": {
     "LantisLocker/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LantisLogger/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

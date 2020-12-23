@@ -1,0 +1,9 @@
+F:\Gits\LantisReadis\LitJson\bin\Debug\netcoreapp3.1\LitJson.deps.json
+F:\Gits\LantisReadis\LitJson\bin\Debug\netcoreapp3.1\LitJson.dll
+F:\Gits\LantisReadis\LitJson\bin\Debug\netcoreapp3.1\LitJson.pdb
+F:\Gits\LantisReadis\LitJson\obj\Debug\netcoreapp3.1\LitJson.AssemblyInfoInputs.cache
+F:\Gits\LantisReadis\LitJson\obj\Debug\netcoreapp3.1\LitJson.AssemblyInfo.cs
+F:\Gits\LantisReadis\LitJson\obj\Debug\netcoreapp3.1\LitJson.csproj.CoreCompileInputs.cache
+F:\Gits\LantisReadis\LitJson\obj\Debug\netcoreapp3.1\LitJson.dll
+F:\Gits\LantisReadis\LitJson\obj\Debug\netcoreapp3.1\LitJson.pdb
+F:\Gits\LantisReadis\LitJson\obj\Debug\netcoreapp3.1\LitJson.csprojAssemblyReference.cache

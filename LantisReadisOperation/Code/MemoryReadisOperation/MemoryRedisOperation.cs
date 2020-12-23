@@ -5,6 +5,7 @@ using Lantis.Redis;
 using Lantis.Redis.Message;
 using Lantis.EntityComponentSystem;
 using Lantis.Network;
+using Lantis.Extend;
 
 namespace Lantis.ReadisOperation
 {
@@ -14,6 +15,8 @@ namespace Lantis.ReadisOperation
         {
            typeof(TestRedisDataSleep3)
         };
+
+        private static IDSpawner idSpawner = new IDSpawner();
 
         public static void CheckTable()
         {
@@ -66,6 +69,18 @@ namespace Lantis.ReadisOperation
             SubmitRequestRedisGet(redisRequest, finisCallBack);            
         }
 
+        public static void SingleSelectData<T>(string fieldName,string operation,object value, Action<object> finisCallBack)
+        {
+            var redisRequest = LantisPoolSystem.GetPool<RequestRedisGet>().NewObject();
+            redisRequest.tableName = RedisCore.GetTypeName<T>();
+            var condition = LantisPoolSystem.GetPool<LantisRedisCondition>().NewObject();
+            redisRequest.conditionGroup.conditionList.Add(condition);
+            condition.fieldName = fieldName;
+            condition.operation = operation;
+            condition.fieldValue = RedisCore.GetStringValueObject(value);
+            SubmitRequestRedisGet(redisRequest, finisCallBack);
+        }
+
         /// <summary>
         /// get page datas with conditions
         /// </summary>
@@ -86,26 +101,31 @@ namespace Lantis.ReadisOperation
 
         public static void SubmitRequestRedisCheck(RequestRedisCheckDatabase request, Action<object> finisCallBack)
         {
+            request.requestId = idSpawner.GetId();
             var data = RedisSerializable.Serialize(request);
-            LogicTrunkEntity.Instance.GetComponent<NetBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.CheckDatabase,data);
-            //Program.NetBranchHandle.NetClientComponentHandle.SendMessage(MessageIdDefine.CheckDatabase, data);
+            LogicTrunkEntity.Instance.GetComponent<NetClientBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.CheckDatabase,data);
         }
 
-        public static void SubmitRequestRedisSet(RequestRedisSet requestRedisSet,Action<object> finisCallBack)
+        public static void SubmitRequestRedisSet(RequestRedisSet request, Action<object> finisCallBack)
         {
-            var data = RedisSerializable.Serialize(requestRedisSet);
-            LogicTrunkEntity.Instance.GetComponent<NetBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.SetData, data);
-            //Program.NetBranchHandle.NetClientComponentHandle.SendMessage(MessageIdDefine.SetData,data);
+            request.requestId = idSpawner.GetId();
+            NetCallbackSystem.AddNetCallback(request.requestId, finisCallBack);
+            var data = RedisSerializable.Serialize(request);
+            LogicTrunkEntity.Instance.GetComponent<NetClientBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.SetData, data);
         }
 
         public static void SubmitRequestRedisGet(RequestRedisGet request, Action<object> finisCallBack)
         {
+            request.requestId = idSpawner.GetId();
+            NetCallbackSystem.AddNetCallback(request.requestId, finisCallBack);
             var data = RedisSerializable.SerializableToBytes(request);
-            Program.NetBranchHandle.NetClientComponentHandle.SendMessage(MessageIdDefine.GetData, data);
+            LogicTrunkEntity.Instance.GetComponent<NetClientBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.GetData, data);
         }
 
-        public static void SubmitRequestRedisGetPage(RequestRedisGetPage requestRedisGetPage, Action<object> finishCallBack)
+        public static void SubmitRequestRedisGetPage(RequestRedisGetPage request, Action<object> finishCallBack)
         {
+            request.requestId = idSpawner.GetId();
+            NetCallbackSystem.AddNetCallback(request.requestId, finishCallBack);
         }
     }
 }

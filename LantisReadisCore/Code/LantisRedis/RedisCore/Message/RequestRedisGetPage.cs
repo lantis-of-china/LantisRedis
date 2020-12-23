@@ -10,6 +10,7 @@ namespace Lantis.Redis.Message
     [Serializable]
     public class RequestRedisGetPage : LantisPoolInterface
     {
+        public int requestId;
         public string tableName;
         public LantisRedisConditionGroup conditionGroup;
         public int everPageCount;

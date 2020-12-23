@@ -10,6 +10,7 @@ namespace Lantis.Redis.Message
     [Serializable]
     public class RequestRedisCheckDatabase : LantisPoolInterface
     {
+        public int requestId;
         public List<RedisCheckDatabase> redisTableFieldDefine;
 
         public RequestRedisCheckDatabase()

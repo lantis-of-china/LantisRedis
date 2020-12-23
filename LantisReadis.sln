@@ -5,23 +5,27 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LantisDatabaseLinks", "LantisDatabaseLinks\LantisDatabaseLinks.csproj", "{B1B9831D-4217-414B-A6BE-802EA9A16FDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisEntitySystem", "LantisEntitySystem\LantisEntitySystem.csproj", "{98F5B6E1-E202-49F5-892B-55D837E510EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LantisEntitySystem", "LantisEntitySystem\LantisEntitySystem.csproj", "{98F5B6E1-E202-49F5-892B-55D837E510EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisExtend", "LantisExtend\LantisExtend.csproj", "{C75E02D6-CB14-43B0-89AD-D98749C082E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LantisExtend", "LantisExtend\LantisExtend.csproj", "{C75E02D6-CB14-43B0-89AD-D98749C082E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisLocker", "LantisLocker\LantisLocker.csproj", "{1EC910A6-43C2-434E-8701-C6EA1FE6326E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LantisLocker", "LantisLocker\LantisLocker.csproj", "{1EC910A6-43C2-434E-8701-C6EA1FE6326E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisLogger", "LantisLogger\LantisLogger.csproj", "{3A82E5FE-622A-4D4E-8D6A-34341B192B8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LantisLogger", "LantisLogger\LantisLogger.csproj", "{3A82E5FE-622A-4D4E-8D6A-34341B192B8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisNetwork", "LantisNetwork\LantisNetwork.csproj", "{947E94BD-5553-4570-BEFB-8D98D6C0CB5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LantisNetwork", "LantisNetwork\LantisNetwork.csproj", "{947E94BD-5553-4570-BEFB-8D98D6C0CB5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisPool", "LantisPool\LantisPool.csproj", "{78598F6A-4089-48AB-BAC5-18CE94A39955}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LantisPool", "LantisPool\LantisPool.csproj", "{78598F6A-4089-48AB-BAC5-18CE94A39955}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisReadisCore", "LantisReadisCore\LantisReadisCore.csproj", "{F77B4CDF-A160-4B38-B51B-9B874C8C4251}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LantisReadisCore", "LantisReadisCore\LantisReadisCore.csproj", "{F77B4CDF-A160-4B38-B51B-9B874C8C4251}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisReadisOperation", "LantisReadisOperation\LantisReadisOperation.csproj", "{085A4CD2-4CFE-4531-AD0B-D0A26AABAB56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LantisReadisOperation", "LantisReadisOperation\LantisReadisOperation.csproj", "{085A4CD2-4CFE-4531-AD0B-D0A26AABAB56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LantisRedisExecute", "LantisRedisExecute\LantisRedisExecute.csproj", "{B8493C6D-2413-4C85-BC7F-9F006806D7CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LantisRedisExecute", "LantisRedisExecute\LantisRedisExecute.csproj", "{B8493C6D-2413-4C85-BC7F-9F006806D7CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LitJson", "LitJson\LitJson.csproj", "{B3B489A6-E003-4327-B5D7-0117733C815C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zlib", "Zlib\Zlib.csproj", "{90378129-455C-4580-9EBB-DF6CC57A255B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,14 @@ Global
 		{B8493C6D-2413-4C85-BC7F-9F006806D7CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8493C6D-2413-4C85-BC7F-9F006806D7CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8493C6D-2413-4C85-BC7F-9F006806D7CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3B489A6-E003-4327-B5D7-0117733C815C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B489A6-E003-4327-B5D7-0117733C815C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B489A6-E003-4327-B5D7-0117733C815C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B489A6-E003-4327-B5D7-0117733C815C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90378129-455C-4580-9EBB-DF6CC57A255B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90378129-455C-4580-9EBB-DF6CC57A255B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90378129-455C-4580-9EBB-DF6CC57A255B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90378129-455C-4580-9EBB-DF6CC57A255B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

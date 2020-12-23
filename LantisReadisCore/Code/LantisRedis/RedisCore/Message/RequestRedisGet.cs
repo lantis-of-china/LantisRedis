@@ -10,6 +10,7 @@ namespace Lantis.Redis.Message
     [Serializable]
     public class RequestRedisGet : LantisPoolInterface
     {
+        public int requestId;
         public string databaseName;
         public string tableName;
         public LantisRedisConditionGroup conditionGroup;

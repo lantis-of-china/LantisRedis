@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "LantisLogger/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/LantisLogger.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LantisLogger.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "LantisLogger/1.0.0": {
+      "type": "project",
+      "path": "../LantisLogger/LantisLogger.csproj",
+      "msbuildProject": "../LantisLogger/LantisLogger.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "LantisLogger >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Cherish\\.nuget\\packages\\": {},
@@ -37,7 +56,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+              "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

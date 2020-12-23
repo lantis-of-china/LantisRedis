@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -19,5 +19,9 @@
     <ProjectReference Include="..\LantisPool\LantisPool.csproj" />
     <ProjectReference Include="..\LantisReadisCore\LantisReadisCore.csproj" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(TargetDir)$(TargetName).dll&quot; &quot;$(TargetDir)..\..\..\..\Dlls\$(TargetName).dll&quot;" />
+  </Target>
 
 </Project>

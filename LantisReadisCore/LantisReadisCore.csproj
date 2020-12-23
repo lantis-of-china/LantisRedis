@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -16,8 +16,12 @@
 
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\Dlls\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(TargetDir)$(TargetName).dll&quot; &quot;$(TargetDir)..\..\..\..\Dlls\$(TargetName).dll&quot;" />
+  </Target>
 
 </Project>

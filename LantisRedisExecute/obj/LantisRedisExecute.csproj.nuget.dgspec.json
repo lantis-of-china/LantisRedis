@@ -240,7 +240,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+                "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
