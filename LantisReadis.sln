@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LitJson", "LitJson\LitJson.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zlib", "Zlib\Zlib.csproj", "{90378129-455C-4580-9EBB-DF6CC57A255B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryStream", "MemoryStream\MemoryStream.csproj", "{FC882C89-0BE5-43A8-9B43-D158EB8D1C69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{90378129-455C-4580-9EBB-DF6CC57A255B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90378129-455C-4580-9EBB-DF6CC57A255B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90378129-455C-4580-9EBB-DF6CC57A255B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC882C89-0BE5-43A8-9B43-D158EB8D1C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC882C89-0BE5-43A8-9B43-D158EB8D1C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC882C89-0BE5-43A8-9B43-D158EB8D1C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC882C89-0BE5-43A8-9B43-D158EB8D1C69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
