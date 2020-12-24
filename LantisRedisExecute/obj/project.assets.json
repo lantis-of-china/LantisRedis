@@ -248,6 +248,22 @@
         "runtime": {
           "bin/placeholder/LantisReadisCore.dll": {}
         }
+      },
+      "MemoryStream/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "LantisEntitySystem": "1.0.0",
+          "LantisExtend": "1.0.0",
+          "LantisLocker": "1.0.0",
+          "LantisPool": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MemoryStream.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MemoryStream.dll": {}
+        }
       }
     }
   },
@@ -601,6 +617,11 @@
       "type": "project",
       "path": "../LantisReadisCore/LantisReadisCore.csproj",
       "msbuildProject": "../LantisReadisCore/LantisReadisCore.csproj"
+    },
+    "MemoryStream/1.0.0": {
+      "type": "project",
+      "path": "../MemoryStream/MemoryStream.csproj",
+      "msbuildProject": "../MemoryStream/MemoryStream.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -612,7 +633,8 @@
       "LantisLogger >= 1.0.0",
       "LantisNetwork >= 1.0.0",
       "LantisPool >= 1.0.0",
-      "LantisReadisCore >= 1.0.0"
+      "LantisReadisCore >= 1.0.0",
+      "MemoryStream >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -669,6 +691,9 @@
             },
             "F:\\Gits\\LantisReadis\\LantisReadisCore\\LantisReadisCore.csproj": {
               "projectPath": "F:\\Gits\\LantisReadis\\LantisReadisCore\\LantisReadisCore.csproj"
+            },
+            "F:\\Gits\\LantisReadis\\MemoryStream\\MemoryStream.csproj": {
+              "projectPath": "F:\\Gits\\LantisReadis\\MemoryStream\\MemoryStream.csproj"
             }
           }
         }

@@ -8,6 +8,7 @@ using Lantis.Network;
 using System.Threading;
 using Lantis.EntityComponentSystem;
 using Lantis.DatabaseLinks;
+using System.Diagnostics;
 
 namespace Lantis.RedisExecute
 {
@@ -51,6 +52,7 @@ namespace Lantis.RedisExecute
 
         static void Main(string[] args)
         {
+            /*
             databaseCommandBranch = LogicTrunkEntity.Instance.AddComponentEntity<DatabaseCommandBranch>();
             redisMemoryBranch = LogicTrunkEntity.Instance.AddComponentEntity<MemoryBranch>();
             databaseBranch = LogicTrunkEntity.Instance.AddComponentEntity<DatabaseBranch>(DatabaseBranch.ParamCreate("Data Source=140.143.94.127;User Id = loginsa;Password=lantis2019;Database=LantisRedis;Integrated Security = False;Connect Timeout = 30;Encrypt=False;TrustServerCertificate=False;"));
@@ -67,7 +69,17 @@ namespace Lantis.RedisExecute
             {
                 Logger.Error("server run exception");
             }));
+            */
+            var tw = new Stopwatch();
+            tw.Start();
+            var entityStream = EntityComponentSystem.EntitySystem.CreateEntity<Lantis.IO.MemoryStream>();
 
+            for (var i = 0; i < 10000000; ++i)
+            {
+                entityStream.WriteByte(1);
+            }
+            tw.Stop();
+            var time = tw.ElapsedTicks;
             Console.ReadLine();
         }
     }

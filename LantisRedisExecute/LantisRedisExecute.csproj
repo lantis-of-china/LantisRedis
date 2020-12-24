@@ -18,6 +18,7 @@
     <ProjectReference Include="..\LantisNetwork\LantisNetwork.csproj" />
     <ProjectReference Include="..\LantisPool\LantisPool.csproj" />
     <ProjectReference Include="..\LantisReadisCore\LantisReadisCore.csproj" />
+    <ProjectReference Include="..\MemoryStream\MemoryStream.csproj" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

@@ -5,7 +5,7 @@ using System;
 
 namespace Lantis.IO
 {
-	public class MemoryStream : ComponentEntity,LantisPoolInterface
+	public class MemoryStream : Entity,LantisPoolInterface
 	{
 		private const int unitSize = 128;
 		private int position;
@@ -161,11 +161,21 @@ namespace Lantis.IO
 					{
 						var unitData = unitList[unitList.GetCount()];
 						unitData.WriteByte(index, data,data.Length);
-						writeSize = data.Length;
+						writeSize += data.Length;
+						hasSize -= data.Length;
 					}
 					else
 					{
+						var unitData = unitList[unitList.GetCount()];
+						unitData.WriteByte(index, data, hasSize);
+						writeSize += hasSize;
 
+						if (writeSize < data.Length)
+						{
+							GetNewUnit();
+						}
+
+						hasSize = allSize - (position + 1);
 					}
 				}
 			});
