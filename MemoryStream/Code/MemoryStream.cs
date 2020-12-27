@@ -31,7 +31,6 @@ namespace Lantis.IO
 				if (unitList != null)
 				{
 					Clear();
-
 					LantisPoolSystem.GetPool<LantisList<MemoryUnit>>().DisposeObject(unitList);
 					unitList = null;
 				}
@@ -128,23 +127,16 @@ namespace Lantis.IO
 			{
 				var index = position + 1;
 
-				if (index > position)
+				if (position >= (allSize - 1))
 				{
-					if (position >= allSize)
-					{
-						GetNewUnit();
-					}
+					GetNewUnit();
+				}
 
-					var unitIndex = index / unitSize;
-					var offset = index % unitSize;
-					var unitData = unitList[unitIndex];
-					unitData.WriteByte(offset, value);
-					position++;
-				}
-				else
-				{
-					throw new Exception("overflow");
-				}
+				var unitIndex = index / unitSize;
+				var offset = index % unitSize;
+				var unitData = unitList[unitIndex];
+				unitData.WriteByte(offset, value);
+				position++;
 			});
 		}
 
@@ -162,6 +154,7 @@ namespace Lantis.IO
 						var unitData = unitList[unitList.GetCount()];
 						unitData.WriteByte(index, data,data.Length);
 						writeSize += data.Length;
+						
 						hasSize -= data.Length;
 					}
 					else
