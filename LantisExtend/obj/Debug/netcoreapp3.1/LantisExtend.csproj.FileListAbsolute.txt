@@ -18,15 +18,3 @@ F:\Gits\LantisReadis\LantisExtend\obj\Debug\netcoreapp3.1\LantisExtend.csprojAss
 F:\Gits\LantisReadis\LantisExtend\obj\Debug\netcoreapp3.1\LantisExtend.AssemblyInfoInputs.cache
 F:\Gits\LantisReadis\LantisExtend\obj\Debug\netcoreapp3.1\LantisExtend.AssemblyInfo.cs
 F:\Gits\LantisReadis\LantisExtend\obj\Debug\netcoreapp3.1\LantisExtend.csproj.CoreCompileInputs.cache
-F:\Gits\LantisReadis\LantisExtend\bin\Debug\netcoreapp3.1\LantisExtend.deps.json
-F:\Gits\LantisReadis\LantisExtend\bin\Debug\netcoreapp3.1\LantisExtend.dll
-F:\Gits\LantisReadis\LantisExtend\bin\Debug\netcoreapp3.1\LantisExtend.pdb
-F:\Gits\LantisReadis\LantisExtend\bin\Debug\netcoreapp3.1\LantisLocker.dll
-F:\Gits\LantisReadis\LantisExtend\bin\Debug\netcoreapp3.1\LantisLogger.dll
-F:\Gits\LantisReadis\LantisExtend\bin\Debug\netcoreapp3.1\LantisPool.dll
-F:\Gits\LantisReadis\LantisExtend\bin\Debug\netcoreapp3.1\LantisPool.pdb
-F:\Gits\LantisReadis\LantisExtend\bin\Debug\netcoreapp3.1\LantisLocker.pdb
-F:\Gits\LantisReadis\LantisExtend\bin\Debug\netcoreapp3.1\LantisLogger.pdb
-F:\Gits\LantisReadis\LantisExtend\obj\Debug\netcoreapp3.1\LantisExtend.csproj.CopyComplete
-F:\Gits\LantisReadis\LantisExtend\obj\Debug\netcoreapp3.1\LantisExtend.dll
-F:\Gits\LantisReadis\LantisExtend\obj\Debug\netcoreapp3.1\LantisExtend.pdb

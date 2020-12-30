@@ -18,6 +18,13 @@ namespace Lantis.ReadisOperation
 
         private static IDSpawner idSpawner = new IDSpawner();
 
+        public static void ExecuteNonQuery(string sqlComd, Action<object> finishCall)
+        {
+            var request = LantisPoolSystem.GetPool<RequestRedisSqlCommand>().NewObject();
+            request.sqlCmd = sqlComd;
+            SubmitExecuteNonQuery(request, finishCall);
+        }
+
         public static void CheckTable()
         {
             var checkDb = LantisPoolSystem.GetPool<RequestRedisCheckDatabase>().NewObject();
@@ -97,6 +104,22 @@ namespace Lantis.ReadisOperation
             redisRequest.everPageCount = everyCount;
             redisRequest.page = page;
             SubmitRequestRedisGetPage(redisRequest, finisCallBack);
+        }
+
+        public static void SubmitExecuteNonQuery(RequestRedisSqlCommand request, Action<object> finishCall)
+        {
+            request.requestId = idSpawner.GetId();
+            request.executeType = 0;
+            var data = RedisSerializable.Serialize(request);
+            LogicTrunkEntity.Instance.GetComponent<NetClientBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.ExecuteCommand, data);
+        }
+
+        public static void SubmitExecuteData(RequestRedisSqlCommand request, Action<object> finishCall)
+        {
+            request.requestId = idSpawner.GetId();
+            request.executeType = 1;
+            var data = RedisSerializable.Serialize(request);
+            LogicTrunkEntity.Instance.GetComponent<NetClientBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.ExecuteCommand, data);
         }
 
         public static void SubmitRequestRedisCheck(RequestRedisCheckDatabase request, Action<object> finisCallBack)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Lantis.Network
 {
@@ -18,6 +19,13 @@ namespace Lantis.Network
 		/// 运行
 		/// </summary>
 		public static bool run;
+
+		public static NetUdpComponent udpComponent;
+
+		public static void BindUdpComponent(NetUdpComponent bindComponent)
+		{
+			udpComponent = bindComponent;
+		}
 
 		/// <summary>
 		/// 开始
@@ -206,7 +214,7 @@ namespace Lantis.Network
 		/// <param name="indexs">完成接收的Index</param>
 		public static void SendComplate(string ip, int port, long code, byte complate, List<int> indexs)
 		{
-			UdpSubmit.UdpSubmitComplate complateData = new UdpSubmit.UdpSubmitComplate();
+			var complateData = new UdpSubmitComplate();
 			complateData.parkGroupCode = code;
 			complateData.complate = complate;
 
@@ -216,7 +224,7 @@ namespace Lantis.Network
 			}
 
 			byte[] complateBuf = complateData.GetBytes();
-			UdpNetWork.Instance.SendMessageUdpCompalte(ip, port, complateBuf, 1);
+			udpComponent.SendMessageUdpCompalte(ip, port, complateBuf, 1);
 		}
 	}
 

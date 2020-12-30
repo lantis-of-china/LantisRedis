@@ -60,5 +60,10 @@ namespace Lantis.ReadisOperation
         {
             MemoryReadisOperation.SetData<T>(id, data,finishCall);
         }
+
+        public void ExecuteNonQuery(string sqlComd, Action<object> finishCall)
+        {
+            
+        }
     }
 }

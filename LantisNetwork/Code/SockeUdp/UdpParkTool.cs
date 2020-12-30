@@ -102,7 +102,6 @@ namespace Lantis.Network
 
 			if (sourceParkList.Count == 0)
 			{
-				DebugLoger.LogError("sourceParkList count 0");
 				return null;
 			}
 

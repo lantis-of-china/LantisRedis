@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Lantis.Network
 {
@@ -22,6 +23,13 @@ namespace Lantis.Network
 		/// 运行
 		/// </summary>
 		public static bool run;
+
+		public static NetUdpComponent udpComponent;
+
+		public static void BindUdpComponent(NetUdpComponent bindComponent)
+		{
+			udpComponent = bindComponent;
+		}
 
 		/// <summary>
 		/// 开始
@@ -56,7 +64,6 @@ namespace Lantis.Network
 		{
 			if (data == null || data.Count == 0)
 			{
-				DebugLoger.LogError("要记录的数据空");
 				return;
 			}
 
@@ -171,9 +178,9 @@ namespace Lantis.Network
 			{
 				UdpSubmitData udpParkList = needSendParkList[i];
 
-				if (UdpNetWork.HasInstance())
+				if (udpComponent != null)
 				{
-					UdpNetWork.Instance.SendParkList(udpParkList.parkList, udpParkList.ip, udpParkList.port);
+					udpComponent.SendParkList(udpParkList.parkList, udpParkList.ip, udpParkList.port);
 				}
 			}
 		}

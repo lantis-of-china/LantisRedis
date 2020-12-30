@@ -8,6 +8,8 @@ namespace Lantis.Network
 {
 	public class NetUdpComponent : ComponentEntity
 	{
+		private string ip;
+		private int port;
 		private Action<byte[], Socket, string, int> reciveMessageCall;
 		private Action sucessCall;
 		private Action exceptionCall;
@@ -25,8 +27,8 @@ namespace Lantis.Network
 
 			SafeRun(delegate
 			{
-				var ip = paramsData[0] as string;
-				var port = (int)paramsData[1];
+				ip = paramsData[0] as string;
+				port = (int)paramsData[1];
 				reciveMessageCall = (Action<byte[], Socket, string, int>)paramsData[2];
 				sucessCall = (Action)paramsData[3];
 				exceptionCall = (Action)paramsData[4];
@@ -53,6 +55,8 @@ namespace Lantis.Network
 
 				BindAddress();
 				OnSocketSuccess();
+				FrameUdpCenter.StartRun();
+				Start();
 			});
         }
 
@@ -81,7 +85,7 @@ namespace Lantis.Network
 		{
 			SafeRun(delegate
 			{
-				var ipPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Any, 10810);
+				var ipPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Parse(ip), port);
 
 				try
 				{
