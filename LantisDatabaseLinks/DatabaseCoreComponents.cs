@@ -11,7 +11,6 @@ using Lantis.Pool;
 
 namespace Lantis.DatabaseLinks
 {
-
 	public class DatabaseCoreComponents : ComponentEntity
 	{
 		public DatabaseLinksPool sqlLinkPool;
@@ -59,7 +58,7 @@ namespace Lantis.DatabaseLinks
             base.OnDestroy();
         }
 
-		public int ExecuteNonQuery(string sqlStr, params DbParameter[] parameters)
+		public int ExecuteNonQuery(string sqlStr, List<DbParameter> parameters = null)
 		{
 			return SafeRunFunction(delegate
 			{
@@ -70,9 +69,12 @@ namespace Lantis.DatabaseLinks
 				{
 					SqlCmd.CommandText = sqlStr;
 
-					foreach (DbParameter parameter in parameters)
+					if (parameters != null)
 					{
-						SqlCmd.Parameters.Add(parameter);
+						foreach (DbParameter parameter in parameters)
+						{
+							SqlCmd.Parameters.Add(parameter);
+						}
 					}
 
 					string st = SqlCmd.CommandText;
@@ -95,7 +97,7 @@ namespace Lantis.DatabaseLinks
 			});
 		}
 
-		public object ExecuteScalar(string sqlStr, params DbParameter[] parameters)
+		public object ExecuteScalar(string sqlStr, List<DbParameter> parameters = null)
 		{
 			return SafeRunFunction(delegate
 			{
@@ -106,9 +108,12 @@ namespace Lantis.DatabaseLinks
 				{
 					SqlCmd.CommandText = sqlStr;
 
-					foreach (DbParameter parameter in parameters)
+					if (parameters != null)
 					{
-						SqlCmd.Parameters.Add(parameter);
+						foreach (DbParameter parameter in parameters)
+						{
+							SqlCmd.Parameters.Add(parameter);
+						}
 					}
 
 					try
@@ -129,7 +134,7 @@ namespace Lantis.DatabaseLinks
 			});
 		}
 
-		public DataTable ExecuteDataTable(string sqlString, params DbParameter[] parameters)
+		public DataTable ExecuteDataTable(string sqlString, List<DbParameter> parameters = null)
 		{
 			return SafeRunFunction(delegate
 			{
@@ -141,9 +146,12 @@ namespace Lantis.DatabaseLinks
 					{
 						SqlCmd.CommandText = sqlString;
 
-						foreach (DbParameter parameter in parameters)
+						if (parameters != null)
 						{
-							SqlCmd.Parameters.Add(parameter);
+							foreach (DbParameter parameter in parameters)
+							{
+								SqlCmd.Parameters.Add(parameter);
+							}
 						}
 
 						DataSet dataSet = new DataSet();
@@ -167,7 +175,7 @@ namespace Lantis.DatabaseLinks
 			});
 		}
 
-		public DbDataReader ExecuteReader(string sqlStr, params DbParameter[] parameters)
+		public DbDataReader ExecuteReader(string sqlStr, List<DbParameter> parameters = null)
 		{
 			return SafeRunFunction(delegate
 			{
@@ -178,9 +186,12 @@ namespace Lantis.DatabaseLinks
 				{
 					SqlCmd.CommandText = sqlStr;
 
-					foreach (DbParameter parameter in parameters)
+					if (parameters != null)
 					{
-						SqlCmd.Parameters.Add(parameter);
+						foreach (DbParameter parameter in parameters)
+						{
+							SqlCmd.Parameters.Add(parameter);
+						}
 					}
 
 					sqlLinkPool.Despawn(sqlLink);

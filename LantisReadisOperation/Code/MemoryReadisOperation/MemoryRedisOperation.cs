@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Common;
 using System.Collections.Generic;
 using Lantis.Pool;
 using Lantis.Redis;
@@ -18,11 +19,35 @@ namespace Lantis.ReadisOperation
 
         private static IDSpawner idSpawner = new IDSpawner();
 
-        public static void ExecuteNonQuery(string sqlComd, Action<object> finishCall)
+        public static List<DbParameter> GetParameterList(params DbParameter[] dbParameters)
+		{
+            List<DbParameter> dbParameterList = null;
+
+            if (dbParameters != null)
+            {
+                dbParameterList = new List<DbParameter>();
+
+                foreach (var dbParameter in dbParameters)
+                {
+                    dbParameterList.Add(dbParameter);
+                }
+            }
+
+            return dbParameterList;
+        }
+
+        public static void ExecuteNonQuery(string sqlComd, Action<object> finishCall,params DbParameter[] dbParameters)
         {
             var request = LantisPoolSystem.GetPool<RequestRedisSqlCommand>().NewObject();
             request.sqlCmd = sqlComd;
-            SubmitExecuteNonQuery(request, finishCall);
+            SubmitExecuteNonQuery(request, finishCall, GetParameterList(dbParameters));
+        }
+
+        public static void ExecuteDataQuery(string sqlComd, Action<object> finishCall, params DbParameter[] dbParameters)
+        {
+            var request = LantisPoolSystem.GetPool<RequestRedisSqlCommand>().NewObject();
+            request.sqlCmd = sqlComd;
+            SubmitExecuteData(request, finishCall, GetParameterList(dbParameters));
         }
 
         public static void CheckTable()
@@ -106,18 +131,22 @@ namespace Lantis.ReadisOperation
             SubmitRequestRedisGetPage(redisRequest, finisCallBack);
         }
 
-        public static void SubmitExecuteNonQuery(RequestRedisSqlCommand request, Action<object> finishCall)
+        public static void SubmitExecuteNonQuery(RequestRedisSqlCommand request, Action<object> finishCallBack, List<DbParameter> parameterList = null)
         {
             request.requestId = idSpawner.GetId();
+            NetCallbackSystem.AddNetCallback(request.requestId, finishCallBack);
             request.executeType = 0;
+            request.dbParameterList = parameterList;
             var data = RedisSerializable.Serialize(request);
             LogicTrunkEntity.Instance.GetComponent<NetClientBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.ExecuteCommand, data);
         }
 
-        public static void SubmitExecuteData(RequestRedisSqlCommand request, Action<object> finishCall)
+        public static void SubmitExecuteData(RequestRedisSqlCommand request, Action<object> finishCallBack, List<DbParameter> parameterList = null)
         {
             request.requestId = idSpawner.GetId();
+            NetCallbackSystem.AddNetCallback(request.requestId, finishCallBack);
             request.executeType = 1;
+            request.dbParameterList = parameterList;
             var data = RedisSerializable.Serialize(request);
             LogicTrunkEntity.Instance.GetComponent<NetClientBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.ExecuteCommand, data);
         }
@@ -125,6 +154,7 @@ namespace Lantis.ReadisOperation
         public static void SubmitRequestRedisCheck(RequestRedisCheckDatabase request, Action<object> finisCallBack)
         {
             request.requestId = idSpawner.GetId();
+            NetCallbackSystem.AddNetCallback(request.requestId, finisCallBack);
             var data = RedisSerializable.Serialize(request);
             LogicTrunkEntity.Instance.GetComponent<NetClientBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.CheckDatabase,data);
         }

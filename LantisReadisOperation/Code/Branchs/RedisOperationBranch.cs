@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Common;
 using Lantis.Redis;
 using Lantis.Pool;
 using Lantis.EntityComponentSystem;
@@ -61,9 +62,14 @@ namespace Lantis.ReadisOperation
             MemoryReadisOperation.SetData<T>(id, data,finishCall);
         }
 
-        public void ExecuteNonQuery(string sqlComd, Action<object> finishCall)
+        public void ExecuteNonQuery(string sqlComd,Action<object> finishCall,params DbParameter[] parameters)
         {
-            
+            MemoryReadisOperation.ExecuteNonQuery(sqlComd, finishCall, parameters);
+        }
+
+        public void ExecuteDataQuery(string sqlComd, Action<object> finishCall, params DbParameter[] parameters)
+        {
+            MemoryReadisOperation.ExecuteDataQuery(sqlComd, finishCall, parameters);
         }
     }
 }
