@@ -11,7 +11,6 @@ C:\Users\lantis\Documents\LantisRedis\LantisNetwork\bin\Debug\netcoreapp3.1\Lant
 C:\Users\lantis\Documents\LantisRedis\LantisNetwork\bin\Debug\netcoreapp3.1\LantisLogger.pdb
 C:\Users\lantis\Documents\LantisRedis\LantisNetwork\bin\Debug\netcoreapp3.1\LantisPool.pdb
 C:\Users\lantis\Documents\LantisRedis\LantisNetwork\bin\Debug\netcoreapp3.1\LantisLocker.pdb
-C:\Users\lantis\Documents\LantisRedis\LantisNetwork\obj\Debug\netcoreapp3.1\LantisNetwork.csprojAssemblyReference.cache
 C:\Users\lantis\Documents\LantisRedis\LantisNetwork\obj\Debug\netcoreapp3.1\LantisNetwork.AssemblyInfoInputs.cache
 C:\Users\lantis\Documents\LantisRedis\LantisNetwork\obj\Debug\netcoreapp3.1\LantisNetwork.AssemblyInfo.cs
 C:\Users\lantis\Documents\LantisRedis\LantisNetwork\obj\Debug\netcoreapp3.1\LantisNetwork.csproj.CoreCompileInputs.cache
@@ -21,3 +20,4 @@ C:\Users\lantis\Documents\LantisRedis\LantisNetwork\obj\Debug\netcoreapp3.1\Lant
 F:\Gits\LantisReadis\LantisNetwork\obj\Debug\netcoreapp3.1\LantisNetwork.AssemblyInfoInputs.cache
 F:\Gits\LantisReadis\LantisNetwork\obj\Debug\netcoreapp3.1\LantisNetwork.AssemblyInfo.cs
 F:\Gits\LantisReadis\LantisNetwork\obj\Debug\netcoreapp3.1\LantisNetwork.csproj.CoreCompileInputs.cache
+C:\Users\lantis\Documents\LantisRedis\LantisNetwork\obj\Debug\netcoreapp3.1\LantisNetwork.csprojAssemblyReference.cache

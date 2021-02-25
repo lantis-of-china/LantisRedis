@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Gits\\LantisReadis\\Zlib\\Zlib.csproj": {}
+    "C:\\Users\\lantis\\Documents\\LantisRedis\\Zlib\\Zlib.csproj": {}
   },
   "projects": {
-    "F:\\Gits\\LantisReadis\\Zlib\\Zlib.csproj": {
+    "C:\\Users\\lantis\\Documents\\LantisRedis\\Zlib\\Zlib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Gits\\LantisReadis\\Zlib\\Zlib.csproj",
+        "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\Zlib\\Zlib.csproj",
         "projectName": "Zlib",
-        "projectPath": "F:\\Gits\\LantisReadis\\Zlib\\Zlib.csproj",
-        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
-        "outputPath": "F:\\Gits\\LantisReadis\\Zlib\\obj\\",
+        "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\Zlib\\Zlib.csproj",
+        "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\Zlib\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

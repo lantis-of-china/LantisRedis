@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LantisDatabaseLinks\LantisDatabaseLinks.csproj" />
     <ProjectReference Include="..\LantisEntitySystem\LantisEntitySystem.csproj" />
     <ProjectReference Include="..\LantisExtend\LantisExtend.csproj" />

@@ -7,3 +7,11 @@ F:\Gits\LantisReadis\LitJson\obj\Debug\netcoreapp3.1\LitJson.csproj.CoreCompileI
 F:\Gits\LantisReadis\LitJson\obj\Debug\netcoreapp3.1\LitJson.dll
 F:\Gits\LantisReadis\LitJson\obj\Debug\netcoreapp3.1\LitJson.pdb
 F:\Gits\LantisReadis\LitJson\obj\Debug\netcoreapp3.1\LitJson.csprojAssemblyReference.cache
+C:\Users\lantis\Documents\LantisRedis\LitJson\bin\Debug\netcoreapp3.1\LitJson.deps.json
+C:\Users\lantis\Documents\LantisRedis\LitJson\bin\Debug\netcoreapp3.1\LitJson.dll
+C:\Users\lantis\Documents\LantisRedis\LitJson\bin\Debug\netcoreapp3.1\LitJson.pdb
+C:\Users\lantis\Documents\LantisRedis\LitJson\obj\Debug\netcoreapp3.1\LitJson.AssemblyInfoInputs.cache
+C:\Users\lantis\Documents\LantisRedis\LitJson\obj\Debug\netcoreapp3.1\LitJson.AssemblyInfo.cs
+C:\Users\lantis\Documents\LantisRedis\LitJson\obj\Debug\netcoreapp3.1\LitJson.csproj.CoreCompileInputs.cache
+C:\Users\lantis\Documents\LantisRedis\LitJson\obj\Debug\netcoreapp3.1\LitJson.dll
+C:\Users\lantis\Documents\LantisRedis\LitJson\obj\Debug\netcoreapp3.1\LitJson.pdb

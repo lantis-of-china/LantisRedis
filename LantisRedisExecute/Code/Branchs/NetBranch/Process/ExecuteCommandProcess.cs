@@ -35,11 +35,11 @@ namespace Lantis.RedisExecute.NetProcess
 
                 if (requestMsg.executeType == 0)
                 {
-                    var count = Program.DatabaseBranch.DatabaseCoreComponent.ExecuteNonQuery(requestMsg.sqlCmd);
+                    var count = Program.DatabaseBranch.DatabaseCoreComponent.ExecuteNonQuery(requestMsg.sqlCmd, requestMsg.dbParameterList);
                 }
                 else if (requestMsg.executeType == 1)
                 {
-                    var dataTable = Program.DatabaseBranch.DatabaseCoreComponent.ExecuteDataTable(requestMsg.sqlCmd);
+                    var dataTable = Program.DatabaseBranch.DatabaseCoreComponent.ExecuteDataTable(requestMsg.sqlCmd, requestMsg.dbParameterList);
                 }
             }
             catch(Exception e)

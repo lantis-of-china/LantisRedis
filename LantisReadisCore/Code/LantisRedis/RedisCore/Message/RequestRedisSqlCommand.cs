@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lantis.Pool;
+using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace Lantis.Redis.Message
 {
@@ -13,6 +15,7 @@ namespace Lantis.Redis.Message
         public int requestId;
         public string sqlCmd;
         public byte executeType;
+        public List<SqlParameter> dbParameterList = new List<SqlParameter>();
 
         public void OnCreate()
         {

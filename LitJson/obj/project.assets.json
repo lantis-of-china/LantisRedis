@@ -8,23 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Cherish\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\lantis\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Gits\\LantisReadis\\LitJson\\LitJson.csproj",
+      "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\LitJson\\LitJson.csproj",
       "projectName": "LitJson",
-      "projectPath": "F:\\Gits\\LantisReadis\\LitJson\\LitJson.csproj",
-      "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
-      "outputPath": "F:\\Gits\\LantisReadis\\LitJson\\obj\\",
+      "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LitJson\\LitJson.csproj",
+      "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LitJson\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

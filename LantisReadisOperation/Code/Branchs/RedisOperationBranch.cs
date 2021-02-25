@@ -10,6 +10,7 @@ using Lantis.EntityComponentSystem;
 using System.Threading;
 using Lantis.Network;
 using Lantis.Redis.Message;
+using System.Data.SqlClient;
 
 namespace Lantis.ReadisOperation
 {
@@ -62,12 +63,12 @@ namespace Lantis.ReadisOperation
             MemoryReadisOperation.SetData<T>(id, data,finishCall);
         }
 
-        public void ExecuteNonQuery(string sqlComd,Action<object> finishCall,params DbParameter[] parameters)
+        public void ExecuteNonQuery(string sqlComd,Action<object> finishCall,params SqlParameter[] parameters)
         {
             MemoryReadisOperation.ExecuteNonQuery(sqlComd, finishCall, parameters);
         }
 
-        public void ExecuteDataQuery(string sqlComd, Action<object> finishCall, params DbParameter[] parameters)
+        public void ExecuteDataQuery(string sqlComd, Action<object> finishCall, params SqlParameter[] parameters)
         {
             MemoryReadisOperation.ExecuteDataQuery(sqlComd, finishCall, parameters);
         }
