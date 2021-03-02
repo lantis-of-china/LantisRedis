@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {}
+    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj": {}
   },
   "projects": {
-    "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj": {
+    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj",
+        "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj",
         "projectName": "LantisLocker",
-        "projectPath": "F:\\Gits\\LantisReadis\\LantisLocker\\LantisLocker.csproj",
-        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
-        "outputPath": "F:\\Gits\\LantisReadis\\LantisLocker\\obj\\",
+        "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\LantisLocker.csproj",
+        "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLocker\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -31,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
-                "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
+              "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj": {
+                "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj"
               }
             }
           }
@@ -65,20 +62,17 @@
         }
       }
     },
-    "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+    "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj",
+        "projectUniqueName": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj",
         "projectName": "LantisLogger",
-        "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj",
-        "packagesPath": "C:\\Users\\Cherish\\.nuget\\packages\\",
-        "outputPath": "F:\\Gits\\LantisReadis\\LantisLogger\\obj\\",
+        "projectPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj",
+        "packagesPath": "C:\\Users\\lantis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Cherish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

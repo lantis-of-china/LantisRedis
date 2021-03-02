@@ -74,3 +74,5 @@ C:\Users\lantis\Documents\LantisRedis\LantisRedisExecute\obj\Debug\netcoreapp3.1
 C:\Users\lantis\Documents\LantisRedis\LantisRedisExecute\obj\Debug\netcoreapp3.1\LantisRedisExecute.genruntimeconfig.cache
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\MemoryStream.dll
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\MemoryStream.pdb
+C:\Users\lantis\Documents\LantisRedis\LantisRedisExecute\bin\Debug\netcoreapp3.1\MemoryStream.dll
+C:\Users\lantis\Documents\LantisRedis\LantisRedisExecute\bin\Debug\netcoreapp3.1\MemoryStream.pdb

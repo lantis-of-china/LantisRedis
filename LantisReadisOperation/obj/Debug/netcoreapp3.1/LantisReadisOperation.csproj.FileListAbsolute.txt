@@ -1,15 +1,6 @@
-C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisOperation.exe
 C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisOperation.deps.json
-C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisOperation.runtimeconfig.json
-C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisOperation.runtimeconfig.dev.json
 C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisOperation.dll
 C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisOperation.pdb
-C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
-C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
-C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
-C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisDatabaseLinks.dll
 C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisEntitySystem.dll
 C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisExtend.dll
@@ -34,7 +25,6 @@ C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\obj\Debug\netcoreapp
 C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.csproj.CopyComplete
 C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.dll
 C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.pdb
-C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.genruntimeconfig.cache
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.AssemblyInfoInputs.cache
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.AssemblyInfo.cs
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.csproj.CoreCompileInputs.cache

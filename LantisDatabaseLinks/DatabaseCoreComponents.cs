@@ -58,7 +58,7 @@ namespace Lantis.DatabaseLinks
             base.OnDestroy();
         }
 
-		public int ExecuteNonQuery(string sqlStr, List<DbParameter> parameters = null)
+		public int ExecuteNonQuery(string sqlStr, List<SqlParameter> parameters = null)
 		{
 			return SafeRunFunction(delegate
 			{
@@ -134,7 +134,7 @@ namespace Lantis.DatabaseLinks
 			});
 		}
 
-		public DataTable ExecuteDataTable(string sqlString, List<DbParameter> parameters = null)
+		public DataTable ExecuteDataTable(string sqlString, List<SqlParameter> parameters = null)
 		{
 			return SafeRunFunction(delegate
 			{

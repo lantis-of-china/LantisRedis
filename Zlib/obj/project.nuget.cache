@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xY262Hkqom7aWuwE9pBlWhby93uWuDABrWLGF7JRqhYjB6AVhFbBeMVrvA8RMv/aLsCGTmaBnxf6W1HnEqSHcg==",
+  "dgSpecHash": "z2POHLEYGsIwl4TnXJCo4xuaOlQ0BvXS2O5k272k4ozOkts15Gmzt3lCCPIz8WrHE11NHUdBXA6dX5fJmpSwDQ==",
   "success": true,
-  "projectFilePath": "F:\\Gits\\LantisReadis\\Zlib\\Zlib.csproj",
+  "projectFilePath": "C:\\Users\\lantis\\Documents\\LantisRedis\\Zlib\\Zlib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

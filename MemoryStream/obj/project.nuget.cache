@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s/Wb8TQ404NwwuryZwOXwV5+BKF+9bAz095daKyjficO0Wea7EzfvnjgS8XCBAiky8bsK5u4npMhnEvlUbrznQ==",
+  "dgSpecHash": "6rLjMa8vSyQ9RrIwk211JJ4wflK59O0fUSI5hqjLw85qoijCt1cgBFjY03uqCMdxB1ilL5Dtcfo8Yl0MoAAR2g==",
   "success": true,
-  "projectFilePath": "F:\\Gits\\LantisReadis\\MemoryStream\\MemoryStream.csproj",
+  "projectFilePath": "C:\\Users\\lantis\\Documents\\LantisRedis\\MemoryStream\\MemoryStream.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

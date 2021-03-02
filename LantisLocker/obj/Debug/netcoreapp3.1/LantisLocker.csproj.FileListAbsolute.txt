@@ -18,3 +18,7 @@ F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.csproj.Co
 F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.csproj.CopyComplete
 F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.dll
 F:\Gits\LantisReadis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.pdb
+C:\Users\lantis\Documents\LantisRedis\LantisLocker\bin\Debug\netcoreapp3.1\LantisLogger.dll
+C:\Users\lantis\Documents\LantisRedis\LantisLocker\bin\Debug\netcoreapp3.1\LantisLogger.pdb
+C:\Users\lantis\Documents\LantisRedis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.csprojAssemblyReference.cache
+C:\Users\lantis\Documents\LantisRedis\LantisLocker\obj\Debug\netcoreapp3.1\LantisLocker.csproj.CopyComplete
