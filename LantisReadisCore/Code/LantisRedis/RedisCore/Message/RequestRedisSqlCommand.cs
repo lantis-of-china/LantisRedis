@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Common;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace Lantis.Redis.Message
         public int requestId;
         public string sqlCmd;
         public byte executeType;
+        public List<DbParameter> dbParameterList;
 
         public void OnCreate()
         {
