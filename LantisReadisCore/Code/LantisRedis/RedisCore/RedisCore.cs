@@ -860,5 +860,19 @@ namespace Lantis.Redis
                 return $"'{Convert.ToBase64String(bytes)}'";
             }
         }
+
+        public static void DataTableToRedisTableData(DataTable dataTable)
+        {
+            for (var i = 0; i < dataTable.Rows.Count; ++i)
+            {
+                var dr = dataTable.Rows[i];
+                DataRowCollectToData(dr);
+            }
+        }
+
+        public static void DataRowCollectToData(DataRow dr)
+        {
+            
+        }
     }
 }

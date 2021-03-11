@@ -32,10 +32,15 @@ namespace Lantis.RedisExecute.NetProcess
             try
             {
                 var requestMsg = RedisSerializable.DeSerialize<RequestRedisSqlCommand>(data);
+                var responseMsg = Pool.LantisPoolSystem.GetPool<ResponseRedisSqlCommand>().CreateObject();
+                responseMsg.requestId = requestMsg.requestId;
+                responseMsg.result = 1;
+                responseMsg.count = 0;
 
                 if (requestMsg.executeType == 0)
                 {
                     var count = Program.DatabaseBranch.DatabaseCoreComponent.ExecuteNonQuery(requestMsg.sqlCmd, requestMsg.dbParameterList);
+                    responseMsg.count = count;
                 }
                 else if (requestMsg.executeType == 1)
                 {
