@@ -169,7 +169,8 @@
           "LantisLocker": "1.0.0",
           "LantisLogger": "1.0.0",
           "LantisNetwork": "1.0.0",
-          "LantisPool": "1.0.0"
+          "LantisPool": "1.0.0",
+          "System.Data.SqlClient": "4.8.2"
         },
         "runtime": {
           "LantisReadisCore.dll": {}

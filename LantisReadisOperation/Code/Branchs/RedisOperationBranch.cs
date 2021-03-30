@@ -11,6 +11,7 @@ using System.Threading;
 using Lantis.Network;
 using Lantis.Redis.Message;
 using System.Data.SqlClient;
+using System.Reflection;
 
 namespace Lantis.ReadisOperation
 {
@@ -45,7 +46,8 @@ namespace Lantis.ReadisOperation
             () =>
             {
                 Logger.Error("socket exception");
-            }));
+            }, 
+            Assembly.GetExecutingAssembly()));
         }
 
         public void CheckTable(RequestRedisCheckDatabase request,Action<object> finishCall)

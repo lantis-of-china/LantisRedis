@@ -80,6 +80,7 @@ namespace Lantis.Network
                     if (messageDriver != null)
                     {
                         reciveMessageCall = messageDriver.OnReciveMessage;
+                        sendMessageDataGetCall = messageDriver.OnGetSenderMessage;
                     }
                     else
                     {

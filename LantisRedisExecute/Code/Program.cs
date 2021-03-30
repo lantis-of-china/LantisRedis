@@ -9,6 +9,7 @@ using System.Threading;
 using Lantis.EntityComponentSystem;
 using Lantis.DatabaseLinks;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace Lantis.RedisExecute
 {
@@ -67,7 +68,8 @@ namespace Lantis.RedisExecute
             ()=> 
             {
                 Logger.Error("server run exception");
-            }));
+            },
+            Assembly.GetExecutingAssembly()));
         }
     }
 }

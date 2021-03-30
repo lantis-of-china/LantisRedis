@@ -44,9 +44,9 @@ namespace Lantis.Network
             base.OnPoolDespawn();
         }
 
-        public static object[] ParamCreate(string ip, int port, string[] processNamespace, Action serverSucess, Action serverException)
+        public static object[] ParamCreate(string ip, int port, string[] processNamespace, Action serverSucess, Action serverException, Assembly processAssembly)
         {
-            return new object[] { ip,port,processNamespace, serverSucess, serverException };
+            return new object[] { ip,port,processNamespace, serverSucess, serverException, processAssembly };
         }
 
         public override void OnAwake(params object[] paramsData)
@@ -60,7 +60,8 @@ namespace Lantis.Network
                 processNameSpace = paramsData[2] as string[];
                 serverSucess = paramsData[3] as Action;
                 serverException = paramsData[4] as Action;
-                netMessageDriverComponent = AddComponentEntity<NetMessageDriverComponents>(NetMessageDriverComponents.ParamCreate(Assembly.GetExecutingAssembly(),processNameSpace));
+                var assembly = paramsData[5] as Assembly;
+                netMessageDriverComponent = AddComponentEntity<NetMessageDriverComponents>(NetMessageDriverComponents.ParamCreate(assembly,processNameSpace));
                 netServerComponent = AddComponentEntity<NetServerComponents>(NetServerComponents.ParamCreate(ip, port, null, null, OnServerSucess,OnServerException));
             });
         }
