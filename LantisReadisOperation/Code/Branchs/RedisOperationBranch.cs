@@ -26,33 +26,30 @@ namespace Lantis.ReadisOperation
             }
         }
 
+        public static object[] ParamCreate(string ip, int port,Action successCall,Action failedCall)
+        {
+            return new object[] { ip, port, successCall, failedCall };
+        }
+
         public override void OnAwake(params object[] paramsData)
         {
             base.OnAwake(paramsData);
-
+            var ip = paramsData[0] as string;
+            var port = (int)paramsData[1];
+            var successCall = paramsData[2] as Action;
+            var failedCall = paramsData[3] as Action;
             netBranch = LogicTrunkEntity.Instance.AddComponentEntity<NetClientBranch>(NetClientBranch.ParamCreate(
-            "127.0.0.1",
-            9980,
+            ip,
+            port,
             new string[] { "Lantis.ReadisOperation.NetProcess" },
-            () =>
-            {
-                Logger.Error("socket connect finish");
-                MemoryReadisOperation.CheckTable();
-                Thread.Sleep(1000);
-                var testData = new TestRedisDataSleep3();
-                testData.id = "12";
-                MemoryReadisOperation.SetData(testData.id, testData, null);
-            },
-            () =>
-            {
-                Logger.Error("socket exception");
-            }, 
+            successCall,
+            failedCall, 
             Assembly.GetExecutingAssembly()));
         }
 
-        public void CheckTable(RequestRedisCheckDatabase request,Action<object> finishCall)
+        public void CheckTable(List<Type> tableTypeList,Action<object> finishCall)
         {
-            MemoryReadisOperation.SubmitRequestRedisCheck(request, finishCall);
+            MemoryReadisOperation.CheckTable(tableTypeList, finishCall);
         }
 
         public void GetData<T>(int id, Action<object> finishCall) where T : RedisBase

@@ -6,7 +6,7 @@ using System.Text;
 namespace Lantis.Redis.Message
 {
 	[Serializable]
-	public class ResponseRedisCheck : LantisPoolInterface
+	public class ResponseRedisCheckDatabase : LantisPoolInterface
 	{
 		public int requestId;
 		public byte result;

@@ -24,7 +24,6 @@ namespace Lantis.Network
         {
             base.OnDestroy();
 
-
             SafeRun(delegate
             {
                 waitState = true;

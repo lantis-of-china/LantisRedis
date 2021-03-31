@@ -34,5 +34,18 @@ namespace Lantis.ReadisOperation
                 return null;
             }
         }
+
+        public static void CallAndRemoveById(int id,object data)
+        {
+            lock (lockHander)
+            {
+                var netCall = GetRemoveNetCallback(id);
+
+                if (netCall != null)
+                {
+                    netCall(data);
+                }
+            }
+        }
     }
 }

@@ -13,11 +13,6 @@ namespace Lantis.ReadisOperation
 {
     public static class MemoryReadisOperation
     {
-        private static List<Type> tableList = new List<Type>
-        {
-           typeof(TestRedisDataSleep3)
-        };
-
         private static IDSpawner idSpawner = new IDSpawner();
 
         public static List<SqlParameter> GetParameterList(params SqlParameter[] dbParameters)
@@ -51,17 +46,17 @@ namespace Lantis.ReadisOperation
             SubmitExecuteData(request, finishCall, GetParameterList(dbParameters));
         }
 
-        public static void CheckTable()
+        public static void CheckTable(List<Type> types,Action<object> finishCall)
         {
             var checkDb = LantisPoolSystem.GetPool<RequestRedisCheckDatabase>().NewObject();
 
-            for (var i = 0; i < tableList.Count; ++i)
+            for (var i = 0; i < types.Count; ++i)
             {
-                var type = tableList[i];
+                var type = types[i];
                 checkDb.redisTableFieldDefine.Add(RedisCore.GetTypeField(type));
             }
 
-            SubmitRequestRedisCheck(checkDb,null);
+            SubmitRequestRedisCheck(checkDb, finishCall);
             LantisPoolSystem.GetPool<RequestRedisCheckDatabase>().DisposeObject(checkDb);
         }
 

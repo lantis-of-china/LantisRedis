@@ -51,11 +51,21 @@ namespace Lantis.RedisExecute
             }
         }
 
+        private static ThreadWaiterBranch threadWaiterBranch;
+        public static ThreadWaiterBranch ThreadWaiterBranch
+        {
+            get 
+            {
+                return threadWaiterBranch;
+            }
+        }
+
         static void Main(string[] args)
-        {            
+        {
+            threadWaiterBranch = LogicTrunkEntity.Instance.AddComponentEntity<ThreadWaiterBranch>();
             databaseCommandBranch = LogicTrunkEntity.Instance.AddComponentEntity<DatabaseCommandBranch>();
             redisMemoryBranch = LogicTrunkEntity.Instance.AddComponentEntity<MemoryBranch>();
-            databaseBranch = LogicTrunkEntity.Instance.AddComponentEntity<DatabaseBranch>(DatabaseBranch.ParamCreate("Data Source=140.143.94.127;User Id = loginsa;Password=lantis2019;Database=LantisRedis;Integrated Security = False;Connect Timeout = 30;Encrypt=False;TrustServerCertificate=False;"));
+            databaseBranch = LogicTrunkEntity.Instance.AddComponentEntity<DatabaseBranch>(DatabaseBranch.ParamCreate("Data Source=47.93.216.176;User Id = sa;Password=Lantis2021lantis.;Database=LantisRedisDatabase;Integrated Security = False;Connect Timeout = 30;Encrypt=False;TrustServerCertificate=False;"));
             netBranch = LogicTrunkEntity.Instance.AddComponentEntity<NetServerBranch>(NetServerBranch.ParamCreate(
             "127.0.0.1",
             9980,
@@ -70,6 +80,9 @@ namespace Lantis.RedisExecute
                 Logger.Error("server run exception");
             },
             Assembly.GetExecutingAssembly()));
+
+            var threadWaiter = ThreadWaiterBranch.GetThreadWaiter();
+            ThreadWaiterBranch.RunWaiter(threadWaiter);
         }
     }
 }

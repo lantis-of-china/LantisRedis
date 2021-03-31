@@ -15,4 +15,3 @@ F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.csproj.Co
 F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.dll
 F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.pdb
 C:\Users\lantis\Documents\LantisRedis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.csprojAssemblyReference.cache
-F:\Gits\LantisReadis\LantisLogger\obj\Debug\netcoreapp3.1\LantisLogger.csprojAssemblyReference.cache

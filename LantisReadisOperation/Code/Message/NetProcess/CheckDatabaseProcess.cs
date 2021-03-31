@@ -6,10 +6,10 @@ using Lantis.ReadisOperation;
 using System.Net.Sockets;
 using Lantis.Redis;
 using Lantis.Network;
+using Lantis.Redis.Message;
 
-namespace WordProcess
+namespace Lantis.ReadisOperation.NetProcess
 {
-    //处理方法类 必须继承ProcessBase
     /// <summary>
     /// 玩家注册账号
     /// </summary>
@@ -17,7 +17,7 @@ namespace WordProcess
     {
         public CheckDatabaseProcess()
         {
-            ID = (int)MessageIdDefine.CheckDatabase;
+            ID = (int)MessageIdDefine.CheckDatabaseBack;
         }
 
         public static MessageProcess _Instance;
@@ -31,11 +31,12 @@ namespace WordProcess
             return _Instance;
         }
 
-        public override void Process(byte[] DateBuf, Socket NetSocket, string ip, int port)
+        public override void Process(byte[] data, Socket NetSocket, string ip, int port)
         {
             try
             {
-                //var requestMsg = RedisSerializable.DeSerialize<RequestRedisGet>(data);
+                var requestMsg = RedisSerializable.DeSerialize<ResponseRedisCheckDatabase>(data);
+                NetCallbackSystem.CallAndRemoveById(requestMsg.requestId,requestMsg);
             }
             catch
             {
