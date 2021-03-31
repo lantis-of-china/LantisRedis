@@ -102,6 +102,14 @@ namespace Lantis.ReadisOperation
             SubmitRequestRedisGet(redisRequest, finisCallBack);            
         }
 
+        /// <summary>
+        /// select data from by value equla
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="fieldName"></param>
+        /// <param name="operation"></param>
+        /// <param name="value"></param>
+        /// <param name="finisCallBack"></param>
         public static void SingleSelectData<T>(string fieldName,string operation,object value, Action<object> finisCallBack)
         {
             var redisRequest = LantisPoolSystem.GetPool<RequestRedisGet>().NewObject();
@@ -132,6 +140,12 @@ namespace Lantis.ReadisOperation
             SubmitRequestRedisGetPage(redisRequest, finisCallBack);
         }
 
+        /// <summary>
+        /// submit execute non query to the redis
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="finishCallBack"></param>
+        /// <param name="parameterList"></param>
         public static void SubmitExecuteNonQuery(RequestRedisSqlCommand request, Action<object> finishCallBack, List<SqlParameter> parameterList = null)
         {
             request.requestId = idSpawner.GetId();
@@ -142,6 +156,12 @@ namespace Lantis.ReadisOperation
             LogicTrunkEntity.Instance.GetComponent<NetClientBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.ExecuteCommand, data);
         }
 
+        /// <summary>
+        /// submit execute command to the redis
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="finishCallBack"></param>
+        /// <param name="parameterList"></param>
         public static void SubmitExecuteData(RequestRedisSqlCommand request, Action<object> finishCallBack, List<SqlParameter> parameterList = null)
         {
             request.requestId = idSpawner.GetId();

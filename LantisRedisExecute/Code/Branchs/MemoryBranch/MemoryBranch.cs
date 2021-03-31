@@ -92,5 +92,42 @@ namespace Lantis.RedisExecute
                 }
             });
         }
+
+        public RedisTableData GetMemory(RequestRedisGet requestMsg)
+        {
+            return SafeRunFunction<RedisTableData>(delegate
+            {
+                var unit = redisMemoryComponent.GetUnit(requestMsg.databaseName);
+
+                if (unit != null)
+                {
+                    var table = unit.GetRedisTable(requestMsg.tableName);
+
+                    if (table != null)
+                    {
+                        var redisTableData = table.GetData(requestMsg.conditionGroup);
+
+                        if (redisTableData != null)
+                        {
+                            return redisTableData;
+                        }
+                        else
+                        {
+                            var sqlCommand = RedisCore.GetSelectDataCommand(table.tableName,requestMsg.conditionGroup);
+                            Logger.Log(sqlCommand);
+                            var dataTable = Program.DatabaseBranch.DatabaseCoreComponent.ExecuteDataTable(sqlCommand);
+
+                            if (dataTable != null && dataTable.Rows.Count > 0)
+                            {
+                                var data = RedisCore.DataTableToRedisTableData(table.GetRedisFieldCollects(), dataTable);
+                                table.AddDataById(data.)
+                            }
+                        }                            
+                    }
+                }
+
+                return null;
+            });
+        }
     }
 }

@@ -15,6 +15,11 @@ namespace Lantis.Redis
         private LantisDictronaryList<string, RedisTableFieldDefine> redisFieldCollects;
         private LantisDictronaryList<string, RedisTableData> redisDataCollects;
 
+        public LantisDictronaryList<string, RedisTableFieldDefine> GetRedisFieldCollects()
+        {
+            return redisFieldCollects;
+        }
+
         public RedisTable()
         {
         }

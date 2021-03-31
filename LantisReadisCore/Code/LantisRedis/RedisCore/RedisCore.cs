@@ -557,6 +557,25 @@ namespace Lantis.Redis
             return $"if object_id('{tableName}','u') is not null select 1 else select 0";
         }
 
+        public static string GetSelectDataCommand(string tableName, LantisRedisConditionGroup conditionGroup)
+        {
+            string sqlString = $"SELECT * FROM { tableName } WHERE ";
+
+            for (var i = 0; i < conditionGroup.conditionList.Count; ++i)
+            {
+                var condition = conditionGroup.conditionList[i];
+
+                if (i != 0)
+                {
+                    sqlString += "AND";
+                }
+
+                sqlString += $"{condition.fieldName} {condition.operation} {condition.fieldValue}";
+            }
+
+            return sqlString;
+        }
+
         public static string GetUpdataCommand(string tableName, RedisTableData redisTableData, LantisRedisConditionGroup conditionGroup)
         {
             var fieldList = redisTableData.GetFieldCollects().ValueToList();
@@ -861,18 +880,26 @@ namespace Lantis.Redis
             }
         }
 
-        public static void DataTableToRedisTableData(DataTable dataTable)
+        public static RedisTableData DataTableToRedisTableData(LantisDictronaryList<string, RedisTableFieldDefine> redisTableDefineList,DataTable dataTable)
         {
-            for (var i = 0; i < dataTable.Rows.Count; ++i)
+            var rowData = dataTable.Rows[0];
+            var redisTableKeys = redisTableDefineList.KeyToList();
+            var redisTableData = LantisPoolSystem.GetPool<RedisTableData>().NewObject();
+
+            for (var i = 0; i < redisTableKeys.Count; ++i)
             {
-                var dr = dataTable.Rows[i];
-                DataRowCollectToData(dr);
+                var fieldName = redisTableKeys[i];
+                redisTableData = DataRowCollectToData(redisTableDefineList[fieldName], rowData, redisTableData);
             }
+
+            return redisTableData;
         }
 
-        public static void DataRowCollectToData(DataRow dr)
+        public static RedisTableData DataRowCollectToData(RedisTableFieldDefine fieldDefine,DataRow dr, RedisTableData redisTableData)
         {
-            
+            redisTableData = SetDataRowToRedisTableData(fieldDefine, redisTableData, dr);
+
+            return redisTableData;
         }
     }
 }
