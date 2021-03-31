@@ -135,5 +135,21 @@ namespace Lantis.RedisExecute
                 return null;
             });
         }
+
+        public RedisTable GetTable(string databaseName, string tableName)
+        {
+            return SafeRunFunction<RedisTable>(delegate
+            {
+                var unit = redisMemoryComponent.GetUnit(databaseName);
+
+                if (unit != null)
+                {
+                    var table = unit.GetRedisTable(tableName);
+                    return table;
+                }
+
+                return null;
+            });
+        }
     }
 }

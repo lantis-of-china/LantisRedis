@@ -47,7 +47,21 @@ namespace Lantis.RedisExecute.NetProcess
                 else if (requestMsg.executeType == 1)
                 {
                     var dataTable = Program.DatabaseBranch.DatabaseCoreComponent.ExecuteDataTable(requestMsg.sqlCmd, requestMsg.dbParameterList);
+                    var redisTable = Program.RedisMemoryBranch.GetTable(requestMsg.databaseName, requestMsg.tableName);
+
+                    if (redisTable != null)
+                    {
+                        var redisTableData = RedisCore.DataTableToRedisTableData(redisTable.GetRedisFieldCollects(), dataTable);
+                        var redisSerializableData = RedisCore.RedisTableDataToRedisSerializableData(redisTableData);
+                        responseMsg.redisSerializableData = redisSerializableData;
+                    }
+                    else
+                    {
+                        responseMsg.result = 0;
+                    }
                 }
+
+                Program.NetBranch.NetServerComponent.SendMessage(MessageIdDefine.ExecuteCommandBack, RedisSerializable.SerializableToBytes(responseMsg), socket);
             }
             catch (Exception e)
             {

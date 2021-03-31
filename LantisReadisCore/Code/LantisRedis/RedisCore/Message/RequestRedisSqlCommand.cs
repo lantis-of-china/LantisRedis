@@ -13,6 +13,8 @@ namespace Lantis.Redis.Message
     public class RequestRedisSqlCommand : LantisPoolInterface
     {
         public int requestId;
+        public string databaseName;
+        public string tableName;
         public string sqlCmd;
         public byte executeType;
         public List<SqlParameter> dbParameterList = new List<SqlParameter>();

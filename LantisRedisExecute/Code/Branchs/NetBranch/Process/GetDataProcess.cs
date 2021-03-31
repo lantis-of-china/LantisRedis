@@ -40,8 +40,7 @@ namespace Lantis.RedisExecute.NetProcess
                 reponseMsg = LantisPoolSystem.GetPool<ResponseRedisGet>().CreateObject();
                 reponseMsg.requestId = requestMsg.requestId;
                 reponseMsg.result = 1;
-
-
+                Program.NetBranch.NetServerComponent.SendMessage(MessageIdDefine.GetDataBack, RedisSerializable.SerializableToBytes(reponseMsg),socket);
             }
             catch
             {
