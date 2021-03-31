@@ -29,10 +29,12 @@ namespace Lantis.RedisExecute.NetProcess
 
         public override void Process(byte[] data,Socket socket, string ip, int port)
         {
+            ResponseRedisSqlCommand responseMsg = null;
+
             try
             {
                 var requestMsg = RedisSerializable.DeSerialize<RequestRedisSqlCommand>(data);
-                var responseMsg = Pool.LantisPoolSystem.GetPool<ResponseRedisSqlCommand>().CreateObject();
+                responseMsg = Pool.LantisPoolSystem.GetPool<ResponseRedisSqlCommand>().CreateObject();
                 responseMsg.requestId = requestMsg.requestId;
                 responseMsg.result = 1;
                 responseMsg.count = 0;
@@ -47,11 +49,18 @@ namespace Lantis.RedisExecute.NetProcess
                     var dataTable = Program.DatabaseBranch.DatabaseCoreComponent.ExecuteDataTable(requestMsg.sqlCmd, requestMsg.dbParameterList);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Logger.Error($"request get exception!{e.ToString()}");
                 return;
-            }           
+            }
+            finally 
+            {
+                if (responseMsg != null)
+                {
+                    Pool.LantisPoolSystem.GetPool<ResponseRedisSqlCommand>().DisposeObject(responseMsg);
+                }
+            }
         }
     }
 }

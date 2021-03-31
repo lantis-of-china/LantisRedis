@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using Lantis.Redis;
 using Lantis.Redis.Message;
+using Lantis.Pool;
 
 namespace Lantis.RedisExecute.NetProcess
 {
@@ -29,16 +30,31 @@ namespace Lantis.RedisExecute.NetProcess
 
         public override void Process(byte[] data,Socket socket, string ip, int port)
         {
+            ResponseRedisGet reponseMsg = null;
+
             try
             {
                 var requestMsg = RedisSerializable.DeSerialize<RequestRedisGet>(data);
-                Program.RedisMemoryBranch
+                var redisTableData = Program.RedisMemoryBranch.GetMemory(requestMsg);
+                var serializableData = RedisCore.RedisTableDataToRedisSerializableData(redisTableData);
+                reponseMsg = LantisPoolSystem.GetPool<ResponseRedisGet>().CreateObject();
+                reponseMsg.requestId = requestMsg.requestId;
+                reponseMsg.result = 1;
+
+
             }
             catch
             {
                 Logger.Error("request get exception!");
                 return;
-            }           
+            }
+            finally 
+            {
+                if (reponseMsg != null)
+                {
+                    LantisPoolSystem.GetPool<ResponseRedisGet>().DisposeObject(reponseMsg);
+                }
+            }
         }
     }
 }

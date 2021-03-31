@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0uiUCUAzk+KEslk7SEN1WuFI4XRWbhT4o/o8w8LM5ENzB/oMhV6Pqk3TEcmVtDe99oiqUf3H82bpBU0cyGE+mQ==",
+  "dgSpecHash": "8SicDhH44jCMJfEdw9FbpuvTxKUw4/G6bvca8cNyEeESjBLW3mPQojhikbCtqpWolvCCfUGALPJfkx8wiGTnlg==",
   "success": true,
-  "projectFilePath": "F:\\Gits\\LantisReadis\\LantisEntitySystem\\LantisEntitySystem.csproj",
+  "projectFilePath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisEntitySystem\\LantisEntitySystem.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

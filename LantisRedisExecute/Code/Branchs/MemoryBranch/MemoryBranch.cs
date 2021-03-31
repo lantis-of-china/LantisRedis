@@ -120,7 +120,13 @@ namespace Lantis.RedisExecute
                             if (dataTable != null && dataTable.Rows.Count > 0)
                             {
                                 var data = RedisCore.DataTableToRedisTableData(table.GetRedisFieldCollects(), dataTable);
-                                table.AddDataById(data.)
+                                var redisField = data.GetFieldObject("id");
+
+                                if (redisField != null)
+                                {
+                                    table.AddDataById(redisField.fieldValue.ToString(), data);
+                                    return data;
+                                }                                
                             }
                         }                            
                     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J8xSxwXJg9PLaRywFn1IBOjI4aXIVhz6pyBZHwxR1sVjsGzDGZHbhV2yGkrWC2d5nBPaiKKIGD6FMqgaiyG+nw==",
+  "dgSpecHash": "Sjrb3wMj1pCf4zJ37aiiVB2lRzpGA2yUtrx41UgekKr7F2qjGWM1ue6M2cohVBkXW+Qf8WwSVK29NyuIAmwjBg==",
   "success": true,
-  "projectFilePath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj",
+  "projectFilePath": "C:\\Users\\lantis\\Documents\\LantisRedis\\LantisLogger\\LantisLogger.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
