@@ -43,8 +43,8 @@ namespace Lantis.ReadisOperation
             port,
             new string[] { "Lantis.ReadisOperation.NetProcess" },
             successCall,
-            failedCall, 
-            Assembly.GetExecutingAssembly()));
+            failedCall,
+            Assembly.GetAssembly(typeof(RedisOperationBranch))));            
         }
 
         public void CheckTable(List<Type> tableTypeList,Action<object> finishCall)
