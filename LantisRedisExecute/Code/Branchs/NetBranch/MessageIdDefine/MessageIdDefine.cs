@@ -16,5 +16,7 @@ namespace Lantis.RedisExecute
         public const int GetDataBack        = 1000005;
         public const int ExecuteCommand     = 1000006;
         public const int ExecuteCommandBack = 1000007;
+        public const int UpdateRedis        = 1000008;
+        public const int UpdateRedisBack    = 1000009;
     }
 }

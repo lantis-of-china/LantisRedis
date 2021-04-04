@@ -9,7 +9,7 @@ namespace Lantis.Redis
 		public const string Equal = "=";
 		public const string Less = "<";
 		public const string Than = ">";
-		public const string EqualAndThan = "=>";
+		public const string EqualAndThan = ">=";
 		public const string EqualAndLess = "<=";
 	}
 }

@@ -1,11 +1,3 @@
-F:\Gits\LantisReadis\Zlib\bin\Debug\netcoreapp3.1\Zlib.deps.json
-F:\Gits\LantisReadis\Zlib\bin\Debug\netcoreapp3.1\Zlib.dll
-F:\Gits\LantisReadis\Zlib\bin\Debug\netcoreapp3.1\Zlib.pdb
-F:\Gits\LantisReadis\Zlib\obj\Debug\netcoreapp3.1\Zlib.AssemblyInfoInputs.cache
-F:\Gits\LantisReadis\Zlib\obj\Debug\netcoreapp3.1\Zlib.AssemblyInfo.cs
-F:\Gits\LantisReadis\Zlib\obj\Debug\netcoreapp3.1\Zlib.csproj.CoreCompileInputs.cache
-F:\Gits\LantisReadis\Zlib\obj\Debug\netcoreapp3.1\Zlib.dll
-F:\Gits\LantisReadis\Zlib\obj\Debug\netcoreapp3.1\Zlib.pdb
 C:\Users\lantis\Documents\LantisRedis\Zlib\bin\Debug\netcoreapp3.1\Zlib.deps.json
 C:\Users\lantis\Documents\LantisRedis\Zlib\bin\Debug\netcoreapp3.1\Zlib.dll
 C:\Users\lantis\Documents\LantisRedis\Zlib\bin\Debug\netcoreapp3.1\Zlib.pdb
@@ -15,4 +7,12 @@ C:\Users\lantis\Documents\LantisRedis\Zlib\obj\Debug\netcoreapp3.1\Zlib.csproj.C
 C:\Users\lantis\Documents\LantisRedis\Zlib\obj\Debug\netcoreapp3.1\Zlib.dll
 C:\Users\lantis\Documents\LantisRedis\Zlib\obj\Debug\netcoreapp3.1\Zlib.pdb
 C:\Users\lantis\Documents\LantisRedis\Zlib\obj\Debug\netcoreapp3.1\Zlib.csprojAssemblyReference.cache
+F:\Gits\LantisReadis\Zlib\bin\Debug\netcoreapp3.1\Zlib.deps.json
+F:\Gits\LantisReadis\Zlib\bin\Debug\netcoreapp3.1\Zlib.dll
+F:\Gits\LantisReadis\Zlib\bin\Debug\netcoreapp3.1\Zlib.pdb
 F:\Gits\LantisReadis\Zlib\obj\Debug\netcoreapp3.1\Zlib.csprojAssemblyReference.cache
+F:\Gits\LantisReadis\Zlib\obj\Debug\netcoreapp3.1\Zlib.AssemblyInfoInputs.cache
+F:\Gits\LantisReadis\Zlib\obj\Debug\netcoreapp3.1\Zlib.AssemblyInfo.cs
+F:\Gits\LantisReadis\Zlib\obj\Debug\netcoreapp3.1\Zlib.csproj.CoreCompileInputs.cache
+F:\Gits\LantisReadis\Zlib\obj\Debug\netcoreapp3.1\Zlib.dll
+F:\Gits\LantisReadis\Zlib\obj\Debug\netcoreapp3.1\Zlib.pdb

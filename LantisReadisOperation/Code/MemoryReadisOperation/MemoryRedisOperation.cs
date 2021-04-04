@@ -74,10 +74,27 @@ namespace Lantis.ReadisOperation
             redisRequest.data = CompressEncryption.CompressEncryptionData(dataSerializeble);
             var condition = LantisPoolSystem.GetPool<LantisRedisCondition>().NewObject();
             redisRequest.conditionGroup.conditionList.Add(condition);
-            condition.fieldName = "id";
-            condition.operation = "=";
+            condition.fieldName = RedisConst.id;
+            condition.operation = RedisConditionOperationType.Equal;
             condition.fieldValue = RedisCore.GetStringValueObject(id);
             SubmitRequestRedisSet(redisRequest, finisCallBack);
+            LantisPoolSystem.GetPool<RequestRedisSet>().DisposeObject(redisRequest);
+        }
+
+        public static void UpdateData<T>(Dictionary<string,object> updateDatas,LantisRedisCondition[] conditionArray, Action<object> finisCallBack) where T : RedisBase
+        {
+            var redisRequest = LantisPoolSystem.GetPool<RequestRedisUpdate>().NewObject();
+            redisRequest.databaseName = RedisCore.GetDatabaseName<T>();
+            redisRequest.tableName = RedisCore.GetTypeName<T>();
+
+            for (var i = 0; i < conditionArray.Length; ++i)
+            {
+                redisRequest.conditionGroup.conditionList.Add(conditionArray[i]);
+            }
+
+            redisRequest.data = updateDatas;
+            SubmitRequestRedisUpdate(redisRequest, finisCallBack);
+            LantisPoolSystem.GetPool<RequestRedisUpdate>().DisposeObject(redisRequest);
         }
 
         /// <summary>
@@ -93,10 +110,11 @@ namespace Lantis.ReadisOperation
             redisRequest.tableName = RedisCore.GetTypeName<T>();
             var condition = LantisPoolSystem.GetPool<LantisRedisCondition>().NewObject();
             redisRequest.conditionGroup.conditionList.Add(condition);
-            condition.fieldName = "id";
-            condition.operation = "=";
+            condition.fieldName = RedisConst.id;
+            condition.operation = RedisConditionOperationType.Equal;
             condition.fieldValue = RedisCore.GetStringValueObject(id);
-            SubmitRequestRedisGet(redisRequest, finisCallBack);            
+            SubmitRequestRedisGet(redisRequest, finisCallBack);
+            LantisPoolSystem.GetPool<RequestRedisGet>().DisposeObject(redisRequest);
         }
 
         /// <summary>
@@ -118,6 +136,7 @@ namespace Lantis.ReadisOperation
             condition.operation = operation;
             condition.fieldValue = RedisCore.GetStringValueObject(value);
             SubmitRequestRedisGet(redisRequest, finisCallBack);
+            LantisPoolSystem.GetPool<RequestRedisGet>().DisposeObject(redisRequest);
         }
 
         /// <summary>
@@ -136,6 +155,7 @@ namespace Lantis.ReadisOperation
             var condition = LantisPoolSystem.GetPool<LantisRedisCondition>().NewObject();
             redisRequest.conditionGroup = conditionGroup;
             SubmitRequestRedisGet(redisRequest, finisCallBack);
+            LantisPoolSystem.GetPool<RequestRedisGet>().DisposeObject(redisRequest);
         }
 
         /// <summary>
@@ -154,6 +174,7 @@ namespace Lantis.ReadisOperation
             redisRequest.everPageCount = everyCount;
             redisRequest.page = page;
             SubmitRequestRedisGetPage(redisRequest, finisCallBack);
+            LantisPoolSystem.GetPool<RequestRedisGetPage>().DisposeObject(redisRequest);
         }
 
         /// <summary>
@@ -202,6 +223,14 @@ namespace Lantis.ReadisOperation
             NetCallbackSystem.AddNetCallback(request.requestId, finisCallBack);
             var data = RedisSerializable.Serialize(request);
             LogicTrunkEntity.Instance.GetComponent<NetClientBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.SetData, data);
+        }
+
+        public static void SubmitRequestRedisUpdate(RequestRedisUpdate request, Action<object> finisCallBack)
+        {
+            request.requestId = idSpawner.GetId();
+            NetCallbackSystem.AddNetCallback(request.requestId, finisCallBack);
+            var data = RedisSerializable.Serialize(request);
+            LogicTrunkEntity.Instance.GetComponent<NetClientBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.UpdateRedis, data);
         }
 
         public static void SubmitRequestRedisGet(RequestRedisGet request, Action<object> finisCallBack)

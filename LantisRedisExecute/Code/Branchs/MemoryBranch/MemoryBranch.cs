@@ -138,6 +138,30 @@ namespace Lantis.RedisExecute
             });
         }
 
+        public void UpdateMemory(RequestRedisUpdate requestMsg)
+        {
+            SafeRun(delegate
+            {
+                var unit = redisMemoryComponent.GetUnit(requestMsg.databaseName);
+
+                if (unit != null)
+                {
+                    var table = unit.GetRedisTable(requestMsg.tableName);
+
+                    if (table != null)
+                    {
+                        var sqlCommand = table.UpdateData(requestMsg.conditionGroup, requestMsg.data);
+                        Logger.Log(sqlCommand);
+
+                        if (!string.IsNullOrEmpty(sqlCommand))
+                        {
+                            LogicTrunkEntity.Instance.GetComponent<DatabaseCommandBranch>().AddCommand(sqlCommand);
+                        }
+                    }
+                }
+            });
+        }
+
         public RedisTable GetTable(string databaseName, string tableName)
         {
             return SafeRunFunction<RedisTable>(delegate
@@ -147,6 +171,7 @@ namespace Lantis.RedisExecute
                 if (unit != null)
                 {
                     var table = unit.GetRedisTable(tableName);
+
                     return table;
                 }
 

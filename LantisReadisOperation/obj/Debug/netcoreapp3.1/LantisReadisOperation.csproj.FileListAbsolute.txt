@@ -25,10 +25,6 @@ C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\obj\Debug\netcoreapp
 C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.csproj.CopyComplete
 C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.dll
 C:\Users\lantis\Documents\LantisRedis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.pdb
-F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.AssemblyInfoInputs.cache
-F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.AssemblyInfo.cs
-F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.csproj.CoreCompileInputs.cache
-F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.csprojAssemblyReference.cache
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisOperation.deps.json
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisOperation.dll
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisOperation.pdb
@@ -40,6 +36,7 @@ F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisLogger.
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisNetwork.dll
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisPool.dll
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisCore.dll
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\Zlib.dll
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisDatabaseLinks.pdb
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisEntitySystem.pdb
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisExtend.pdb
@@ -48,8 +45,11 @@ F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisLogger.
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisNetwork.pdb
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisPool.pdb
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisCore.pdb
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\Zlib.pdb
+F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.csprojAssemblyReference.cache
+F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.AssemblyInfoInputs.cache
+F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.AssemblyInfo.cs
+F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.csproj.CoreCompileInputs.cache
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.csproj.CopyComplete
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.dll
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.pdb
-F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\Zlib.dll
-F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\Zlib.pdb

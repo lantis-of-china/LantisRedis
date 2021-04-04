@@ -186,5 +186,48 @@ namespace Lantis.Redis
                 return command;
             });
         }
+
+        public string UpdateData(LantisRedisConditionGroup redisConditions, Dictionary<string,object> data)
+        {
+            return SafeRunFunction(delegate
+            {
+                RedisTableData findData = null;
+
+                redisDataCollects.SafeWhileBreak((fieldName, redistableData) =>
+                {
+                    if (RedisCore.RedisTableDataCondition(redistableData, redisConditions))
+                    {
+                        findData = redistableData;
+
+                        return false;
+                    }
+
+                    return true;
+                });
+
+                if (findData != null)
+                {
+                    foreach (var kv in data)
+                    {
+                        var fieldName = kv.Key;
+                        var fieldValue = kv.Value;
+                        var redisDataField = findData.GetFieldObject(fieldName);
+
+                        if (redisDataField != null)
+                        {
+                            redisDataField.fieldValue = fieldValue;
+                        }
+                    }
+
+                    var command = RedisCore.GetUpdataCommandFromFields(tableName, data, redisConditions);
+
+                    return command;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            });
+        }
     }
 }

@@ -62,6 +62,11 @@ namespace Lantis.ReadisOperation
             MemoryReadisOperation.SetData<T>(id, data,finishCall);
         }
 
+        public void UpdateData<T>(Dictionary<string, object> updateDatas, LantisRedisCondition[] conditionArray, Action<object> finisCallBack) where T : RedisBase
+        {
+            MemoryReadisOperation.UpdateData<T>(updateDatas, conditionArray, finisCallBack);
+        }
+
         public void SingleSelectData<T>(string fieldName, string operation, object value, Action<object> finishCall)
         {
             MemoryReadisOperation.SingleSelectData<T>(fieldName, operation, value, finishCall);

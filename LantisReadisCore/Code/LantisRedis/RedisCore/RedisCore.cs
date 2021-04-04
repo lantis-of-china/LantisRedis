@@ -652,6 +652,55 @@ namespace Lantis.Redis
             return sqlString;
         }
 
+        public static string GetUpdataCommandFromFields(string tableName, Dictionary<string,object> fieldsMap, LantisRedisConditionGroup conditionGroup)
+        {
+            string sqlString = "";
+            string fields = "";
+            var istart = 0;
+
+            foreach (var kv in fieldsMap)
+            {
+                var fieldName = kv.Key;
+                var fieldValue = kv.Value;
+                var value = GetSingleValue(RedisCore.GetTypeName(fieldValue.GetType()), fieldValue);
+
+                if (istart != 0)
+                {
+                    fields += ",";
+                }
+
+                fields += $"{fieldName} = {value}";
+
+                istart++;
+            }
+
+            string whereString = "";
+
+            for (var i = 0; i < conditionGroup.conditionList.Count; ++i)
+            {
+                var condition = conditionGroup.conditionList[i];
+
+                if (i != 0)
+                {
+                    whereString += "AND";
+                }
+
+                whereString += $"{condition.fieldName} {condition.operation} {condition.fieldValue}";
+            }
+
+
+            if (string.IsNullOrEmpty(whereString))
+            {
+                sqlString = $"UPDATE {tableName} SET {fields}";
+            }
+            else
+            {
+                sqlString = $"UPDATE {tableName} SET {fields} WHERE {whereString}";
+            }
+
+            return sqlString;
+        }
+
         public static string GetInsertCommand(string tableName,RedisTableData redisTableData)
         {
             var fieldList = redisTableData.GetFieldCollects().ValueToList();
@@ -930,6 +979,471 @@ namespace Lantis.Redis
             redisTableData = SetDataRowToRedisTableData(fieldDefine, redisTableData, dr);
 
             return redisTableData;
+        }
+
+        public static bool RedisTableDataCondition(RedisTableData redisTableData,LantisRedisConditionGroup redisConditionGroup)
+        {
+            for (var i = 0; i < redisConditionGroup.conditionList.Count; ++i)
+            {
+                var condition = redisConditionGroup.conditionList[i];
+                var value = redisTableData.GetFieldObject(condition.fieldName);
+
+                if (value == null)
+                {
+                    return false;
+                }
+
+                if (!ValueOperation(value.fieldType, value.fieldValue, condition.fieldValue, condition.operation))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool ValueOperation(string fieldType, object value1, string value2, string operation)
+        {
+            if (IsStringType(fieldType))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if (value1.ToString().Equals(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (fieldType == GetTypeName(typeof(Boolean)))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if ((Boolean)value1 == Boolean.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (fieldType == GetTypeName(typeof(Byte)))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if ((Byte)value1 == Byte.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Less)
+                {
+                    if ((Byte)value1 < Byte.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Than)
+                {
+                    if ((Byte)value1 > Byte.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndLess)
+                {
+                    if ((Byte)value1 <= Byte.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndThan)
+                {
+                    if ((Byte)value1 >= Byte.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (fieldType == GetTypeName(typeof(SByte)))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if ((SByte)value1 == SByte.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Less)
+                {
+                    if ((SByte)value1 < SByte.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Than)
+                {
+                    if ((SByte)value1 > SByte.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndLess)
+                {
+                    if ((SByte)value1 <= SByte.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndThan)
+                {
+                    if ((SByte)value1 >= SByte.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (fieldType == GetTypeName(typeof(Int16)))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if ((Int16)value1 == Int16.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Less)
+                {
+                    if ((Int16)value1 < Int16.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Than)
+                {
+                    if ((Int16)value1 > Int16.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndLess)
+                {
+                    if ((Int16)value1 <= Int16.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndThan)
+                {
+                    if ((Int16)value1 >= Int16.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (fieldType == GetTypeName(typeof(UInt16)))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if ((UInt16)value1 == UInt16.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Less)
+                {
+                    if ((UInt16)value1 < UInt16.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Than)
+                {
+                    if ((UInt16)value1 > UInt16.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndLess)
+                {
+                    if ((UInt16)value1 <= UInt16.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndThan)
+                {
+                    if ((UInt16)value1 >= UInt16.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (fieldType == GetTypeName(typeof(Int32)))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if ((Int32)value1 == Int32.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Less)
+                {
+                    if ((Int32)value1 < Int32.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Than)
+                {
+                    if ((Int32)value1 > Int32.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndLess)
+                {
+                    if ((Int32)value1 <= Int32.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndThan)
+                {
+                    if ((Int32)value1 >= Int32.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (fieldType == GetTypeName(typeof(UInt32)))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if ((UInt32)value1 == UInt32.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Less)
+                {
+                    if ((UInt32)value1 < UInt32.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Than)
+                {
+                    if ((UInt32)value1 > UInt32.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndLess)
+                {
+                    if ((UInt32)value1 <= UInt32.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndThan)
+                {
+                    if ((UInt32)value1 >= UInt32.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (fieldType == GetTypeName(typeof(Int64)))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if ((Int64)value1 == Int64.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Less)
+                {
+                    if ((Int64)value1 < Int64.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Than)
+                {
+                    if ((Int64)value1 > Int64.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndLess)
+                {
+                    if ((Int64)value1 <= Int64.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndThan)
+                {
+                    if ((Int64)value1 >= Int64.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (fieldType == GetTypeName(typeof(UInt64)))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if ((UInt64)value1 == UInt64.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Less)
+                {
+                    if ((UInt64)value1 < UInt64.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Than)
+                {
+                    if ((UInt64)value1 > UInt64.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndLess)
+                {
+                    if ((UInt64)value1 <= UInt64.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndThan)
+                {
+                    if ((UInt64)value1 >= UInt64.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (fieldType == GetTypeName(typeof(Single)))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if ((Single)value1 == Single.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Less)
+                {
+                    if ((Single)value1 < Single.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Than)
+                {
+                    if ((Single)value1 > Single.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndLess)
+                {
+                    if ((Single)value1 <= Single.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndThan)
+                {
+                    if ((Single)value1 >= Single.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (fieldType == GetTypeName(typeof(Double)))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if ((Double)value1 == Double.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Less)
+                {
+                    if ((Double)value1 < Double.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Than)
+                {
+                    if ((Double)value1 > Double.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndLess)
+                {
+                    if ((Double)value1 <= Double.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndThan)
+                {
+                    if ((Double)value1 >= Double.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (fieldType == GetTypeName(typeof(Decimal)))
+            {
+                if (operation == RedisConditionOperationType.Equal)
+                {
+                    if ((Decimal)value1 == Decimal.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Less)
+                {
+                    if ((Decimal)value1 < Decimal.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.Than)
+                {
+                    if ((Decimal)value1 > Decimal.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndLess)
+                {
+                    if ((Decimal)value1 <= Decimal.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+                else if (operation == RedisConditionOperationType.EqualAndThan)
+                {
+                    if ((Decimal)value1 >= Decimal.Parse(value2))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }
