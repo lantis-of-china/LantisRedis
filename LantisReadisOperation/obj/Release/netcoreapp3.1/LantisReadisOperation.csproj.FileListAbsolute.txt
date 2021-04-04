@@ -9,7 +9,6 @@ F:\Gits\LantisReadis\LantisReadisOperation\bin\Release\netcoreapp3.1\LantisLogge
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Release\netcoreapp3.1\LantisNetwork.dll
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Release\netcoreapp3.1\LantisPool.dll
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Release\netcoreapp3.1\LantisReadisCore.dll
-F:\Gits\LantisReadis\LantisReadisOperation\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Release\netcoreapp3.1\LantisDatabaseLinks.pdb
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Release\netcoreapp3.1\LantisEntitySystem.pdb
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Release\netcoreapp3.1\LantisExtend.pdb

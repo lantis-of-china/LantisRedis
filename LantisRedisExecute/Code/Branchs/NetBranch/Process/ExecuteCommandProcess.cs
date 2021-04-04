@@ -34,7 +34,7 @@ namespace Lantis.RedisExecute.NetProcess
             try
             {
                 var requestMsg = RedisSerializable.DeSerialize<RequestRedisSqlCommand>(data);
-                responseMsg = Pool.LantisPoolSystem.GetPool<ResponseRedisSqlCommand>().CreateObject();
+                responseMsg = Pool.LantisPoolSystem.GetPool<ResponseRedisSqlCommand>().NewObject();
                 responseMsg.requestId = requestMsg.requestId;
                 responseMsg.result = 1;
                 responseMsg.count = 0;
@@ -61,7 +61,7 @@ namespace Lantis.RedisExecute.NetProcess
                     }
                 }
 
-                Program.NetBranch.NetServerComponent.SendMessage(MessageIdDefine.ExecuteCommandBack, RedisSerializable.SerializableToBytes(responseMsg), socket);
+                Program.NetBranch.NetServerComponent.SendMessage(MessageIdDefine.ExecuteCommandBack, RedisSerializable.Serialize(responseMsg), socket);
             }
             catch (Exception e)
             {

@@ -36,16 +36,22 @@ namespace Lantis.RedisExecute.NetProcess
             {
                 var requestMsg = RedisSerializable.DeSerialize<RequestRedisGet>(data);
                 var redisTableData = Program.RedisMemoryBranch.GetMemory(requestMsg);
-                var serializableData = RedisCore.RedisTableDataToRedisSerializableData(redisTableData);
-                reponseMsg = LantisPoolSystem.GetPool<ResponseRedisGet>().CreateObject();
+                reponseMsg = LantisPoolSystem.GetPool<ResponseRedisGet>().NewObject();
+                reponseMsg.result = 0;
+
+                if (redisTableData != null)
+                {
+                    var serializableData = RedisCore.RedisTableDataToRedisSerializableData(redisTableData);
+                    reponseMsg.redisSerializableData = serializableData;
+                    reponseMsg.result = 1;
+                }
+
                 reponseMsg.requestId = requestMsg.requestId;
-                reponseMsg.result = 1;
-                Program.NetBranch.NetServerComponent.SendMessage(MessageIdDefine.GetDataBack, RedisSerializable.SerializableToBytes(reponseMsg),socket);
+                Program.NetBranch.NetServerComponent.SendMessage(MessageIdDefine.GetDataBack, RedisSerializable.Serialize(reponseMsg),socket);
             }
-            catch
+            catch(Exception e)
             {
                 Logger.Error("request get exception!");
-                return;
             }
             finally 
             {

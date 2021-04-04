@@ -43,5 +43,42 @@ namespace Lantis.Redis
         {
             fields.Add(fieldData);
         }
+
+        public object GetFieldData(string fieldName)
+        {
+            for (var i = 0; i < fields.Count; ++i)
+            {
+                if (fields[i].fieldName == fieldName)
+                {
+                    return fields[i].fieldValue;
+                }
+            }
+
+            return null;
+        }
+
+        public void SetFieldData(string fieldName, object value)
+        {
+            for (var i = 0; i < fields.Count; ++i)
+            {
+                if (fields[i].fieldName == fieldName)
+                {
+                    fields[i].fieldValue = value;
+                }
+            }
+        }
+
+        public object this[string fieldName]
+        {
+            get 
+            {
+                return GetFieldData(fieldName);
+            }
+
+            set
+            {
+                SetFieldData(fieldName, value);
+            }
+        }
     }
 }

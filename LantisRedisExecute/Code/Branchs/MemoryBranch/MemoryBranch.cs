@@ -4,6 +4,7 @@ using System.Text;
 using Lantis.EntityComponentSystem;
 using Lantis.Redis.Message;
 using Lantis.Redis;
+using Lantis.Extend;
 
 namespace Lantis.RedisExecute
 {
@@ -84,7 +85,8 @@ namespace Lantis.RedisExecute
 
                     if (table != null)
                     {
-                        var serializableData = RedisSerializable.BytesToSerializable(requestMsg.data);
+                        var dataBase64System = CompressEncryption.UnCompressDecompressData(requestMsg.data);
+                        var serializableData = RedisSerializable.BytesToSerializable(dataBase64System);
                         var sqlCommand = table.SetData(requestMsg.conditionGroup, serializableData);
                         Logger.Log(sqlCommand);
                         LogicTrunkEntity.Instance.GetComponent<DatabaseCommandBranch>().AddCommand(sqlCommand);

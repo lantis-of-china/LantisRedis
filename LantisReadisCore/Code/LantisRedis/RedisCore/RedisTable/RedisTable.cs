@@ -166,7 +166,8 @@ namespace Lantis.Redis
             {
                 string command = "";
                 var newTableData = RedisCore.RedisSerializableToRedisTableData(data);
-                var id = newTableData.GetFieldObject(RedisConst.id).fieldValue as string;
+                var tableField = newTableData.GetFieldObject(RedisConst.id);
+                var id = tableField.fieldValue.ToString();
                 var tableData = GetDataById(id);
 
                 if (tableData == null)

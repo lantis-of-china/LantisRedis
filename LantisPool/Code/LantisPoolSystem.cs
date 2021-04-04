@@ -14,6 +14,7 @@ namespace Lantis.Pool
         public static LantisPool<T> GetPool<T>() where T : LantisPoolInterface,new()
         {
             var type = typeof(T);
+            LantisPool<T> lantisPool = null;
 
             lock (lockObject)
             {
@@ -21,12 +22,8 @@ namespace Lantis.Pool
                 {
                     return poolMap[type] as LantisPool<T>;
                 }
-            }
 
-            var lantisPool = new LantisPool<T>();
-
-            lock (lockObject)
-            {
+                lantisPool = new LantisPool<T>();
                 poolMap.Add(type, lantisPool);
             }
 

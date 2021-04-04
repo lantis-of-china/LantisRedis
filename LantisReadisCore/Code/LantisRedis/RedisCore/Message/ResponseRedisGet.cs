@@ -26,7 +26,7 @@ namespace Lantis.Redis.Message
 
 		void LantisPoolInterface.OnPoolSpawn()
 		{
-			redisSerializableData = LantisPoolSystem.GetPool<RedisSerializableData>().CreateObject();
+			redisSerializableData = LantisPoolSystem.GetPool<RedisSerializableData>().NewObject();
 		}
 	}
 }

@@ -70,7 +70,8 @@ namespace Lantis.ReadisOperation
             var redisRequest = LantisPoolSystem.GetPool<RequestRedisSet>().NewObject();
             redisRequest.databaseName = RedisCore.GetDatabaseNameFromData(data);
             redisRequest.tableName = RedisCore.GetMemoryRedisDataTypeName(data);
-            redisRequest.data = RedisSerializable.SerializableToBytes(data);
+            var dataSerializeble = RedisSerializable.SerializableToBytes(data);
+            redisRequest.data = CompressEncryption.CompressEncryptionData(dataSerializeble);
             var condition = LantisPoolSystem.GetPool<LantisRedisCondition>().NewObject();
             redisRequest.conditionGroup.conditionList.Add(condition);
             condition.fieldName = "id";
@@ -88,6 +89,7 @@ namespace Lantis.ReadisOperation
         public static void GetData<T>(object id, Action<object> finisCallBack) where T : RedisBase
         {
             var redisRequest = LantisPoolSystem.GetPool<RequestRedisGet>().NewObject();
+            redisRequest.databaseName = RedisCore.GetDatabaseName<T>();
             redisRequest.tableName = RedisCore.GetTypeName<T>();
             var condition = LantisPoolSystem.GetPool<LantisRedisCondition>().NewObject();
             redisRequest.conditionGroup.conditionList.Add(condition);
@@ -108,12 +110,31 @@ namespace Lantis.ReadisOperation
         public static void SingleSelectData<T>(string fieldName,string operation,object value, Action<object> finisCallBack)
         {
             var redisRequest = LantisPoolSystem.GetPool<RequestRedisGet>().NewObject();
+            redisRequest.databaseName = RedisCore.GetDatabaseName<T>();
             redisRequest.tableName = RedisCore.GetTypeName<T>();
             var condition = LantisPoolSystem.GetPool<LantisRedisCondition>().NewObject();
             redisRequest.conditionGroup.conditionList.Add(condition);
             condition.fieldName = fieldName;
             condition.operation = operation;
             condition.fieldValue = RedisCore.GetStringValueObject(value);
+            SubmitRequestRedisGet(redisRequest, finisCallBack);
+        }
+
+        /// <summary>
+        /// select data from by conditions
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="fieldName"></param>
+        /// <param name="operation"></param>
+        /// <param name="value"></param>
+        /// <param name="finisCallBack"></param>
+        public static void SelectGetData<T>(LantisRedisConditionGroup conditionGroup, Action<object> finisCallBack)
+        {
+            var redisRequest = LantisPoolSystem.GetPool<RequestRedisGet>().NewObject();
+            redisRequest.databaseName = RedisCore.GetDatabaseName<T>();
+            redisRequest.tableName = RedisCore.GetTypeName<T>();
+            var condition = LantisPoolSystem.GetPool<LantisRedisCondition>().NewObject();
+            redisRequest.conditionGroup = conditionGroup;
             SubmitRequestRedisGet(redisRequest, finisCallBack);
         }
 
@@ -187,7 +208,7 @@ namespace Lantis.ReadisOperation
         {
             request.requestId = idSpawner.GetId();
             NetCallbackSystem.AddNetCallback(request.requestId, finisCallBack);
-            var data = RedisSerializable.SerializableToBytes(request);
+            var data = RedisSerializable.Serialize(request);
             LogicTrunkEntity.Instance.GetComponent<NetClientBranch>().GetComponent<NetClientComponents>().SendMessage(MessageIdDefine.GetData, data);
         }
 
@@ -195,6 +216,30 @@ namespace Lantis.ReadisOperation
         {
             request.requestId = idSpawner.GetId();
             NetCallbackSystem.AddNetCallback(request.requestId, finishCallBack);
+        }
+
+        public static LantisRedisCondition SpawnCondition(string fieldName,string operation,object value)
+        {
+            var condition = LantisPoolSystem.GetPool<LantisRedisCondition>().NewObject();
+            condition.fieldName = fieldName;
+            condition.operation = operation;
+
+            try
+            {
+                condition.fieldValue = RedisCore.GetStringValueObject(value);
+            }
+            catch(Exception e)
+            {
+                Logger.Error(e.ToString());
+            }
+
+            return condition;
+        }
+
+        public static RedisTableData SerializableToRedisTableData(RedisSerializableData serializableData)
+        {
+            var redisTableData = LantisPoolSystem.GetPool<RedisTableData>().NewObject();
+            return RedisCore.SerializableToRedisTableData(serializableData, redisTableData);
         }
     }
 }

@@ -38,3 +38,5 @@ C:\Users\lantis\Documents\LantisRedis\LantisDatabaseLinks\obj\Debug\netcoreapp3.
 C:\Users\lantis\Documents\LantisRedis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.csproj.CopyComplete
 C:\Users\lantis\Documents\LantisRedis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.dll
 C:\Users\lantis\Documents\LantisRedis\LantisDatabaseLinks\obj\Debug\netcoreapp3.1\LantisDatabaseLinks.pdb
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\Zlib.dll
+F:\Gits\LantisReadis\LantisDatabaseLinks\bin\Debug\netcoreapp3.1\Zlib.pdb

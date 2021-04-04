@@ -40,7 +40,6 @@ F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisLogger.
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisNetwork.dll
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisPool.dll
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisCore.dll
-F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisDatabaseLinks.pdb
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisEntitySystem.pdb
 F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisExtend.pdb
@@ -52,3 +51,5 @@ F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\LantisReadisC
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.csproj.CopyComplete
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.dll
 F:\Gits\LantisReadis\LantisReadisOperation\obj\Debug\netcoreapp3.1\LantisReadisOperation.pdb
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\Zlib.dll
+F:\Gits\LantisReadis\LantisReadisOperation\bin\Debug\netcoreapp3.1\Zlib.pdb

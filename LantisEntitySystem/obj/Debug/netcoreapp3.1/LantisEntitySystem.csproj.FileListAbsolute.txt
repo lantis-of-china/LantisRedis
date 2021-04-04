@@ -34,3 +34,5 @@ F:\Gits\LantisReadis\LantisEntitySystem\obj\Debug\netcoreapp3.1\LantisEntitySyst
 F:\Gits\LantisReadis\LantisEntitySystem\obj\Debug\netcoreapp3.1\LantisEntitySystem.csproj.CopyComplete
 F:\Gits\LantisReadis\LantisEntitySystem\obj\Debug\netcoreapp3.1\LantisEntitySystem.dll
 F:\Gits\LantisReadis\LantisEntitySystem\obj\Debug\netcoreapp3.1\LantisEntitySystem.pdb
+F:\Gits\LantisReadis\LantisEntitySystem\bin\Debug\netcoreapp3.1\Zlib.dll
+F:\Gits\LantisReadis\LantisEntitySystem\bin\Debug\netcoreapp3.1\Zlib.pdb

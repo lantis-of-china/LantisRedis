@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v3.1": {
       "LantisExtend/1.0.0": {
         "dependencies": {
-          "LantisPool": "1.0.0"
+          "LantisLogger": "1.0.0",
+          "LantisPool": "1.0.0",
+          "Zlib": "1.0.0"
         },
         "runtime": {
           "LantisExtend.dll": {}
@@ -35,6 +37,11 @@
         "runtime": {
           "LantisPool.dll": {}
         }
+      },
+      "Zlib/1.0.0": {
+        "runtime": {
+          "Zlib.dll": {}
+        }
       }
     }
   },
@@ -55,6 +62,11 @@
       "sha512": ""
     },
     "LantisPool/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Zlib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

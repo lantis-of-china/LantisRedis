@@ -8,7 +8,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Lantis.Redis;
 using Lantis.Pool;
 
-
 namespace Lantis.Redis
 {
     public class RedisSerializable
@@ -20,7 +19,14 @@ namespace Lantis.Redis
             using (MemoryStream ms = new MemoryStream())
             {
                 BinaryFormatter b = new BinaryFormatter();
-                b.Serialize(ms, data);
+                try
+                {
+                    b.Serialize(ms, data);
+                }
+                catch (Exception e)
+                {
+                    Logger.Log(e.ToString());
+                }
                 ms.Position = 0;
                 bytes = new byte[ms.Length];
                 ms.Read(bytes, 0, bytes.Length);
@@ -31,11 +37,13 @@ namespace Lantis.Redis
         public static T DeSerialize<T>(byte[] bytes)
         {
             T target = default(T);
+
             using (MemoryStream ms = new MemoryStream(bytes))
             {
                 BinaryFormatter b = new BinaryFormatter();
-                target = (T)b.Deserialize(ms);
+                target = (T)b.Deserialize(ms); ;
             }
+
             return target;
         }
 

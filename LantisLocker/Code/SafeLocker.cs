@@ -9,7 +9,7 @@ namespace Lantis.Locker
     [Serializable]
     public class SafeLocker
     {
-        private const bool safeRun = true;
+        private const bool safeRun = false;
         private object lockHandle = new object();
 
         public void SafeRun(Action action)

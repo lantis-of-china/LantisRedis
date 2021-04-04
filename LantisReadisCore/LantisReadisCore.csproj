@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
@@ -16,12 +17,6 @@
     <ProjectReference Include="..\LantisLogger\LantisLogger.csproj" />
     <ProjectReference Include="..\LantisNetwork\LantisNetwork.csproj" />
     <ProjectReference Include="..\LantisPool\LantisPool.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\Dlls\Newtonsoft.Json.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

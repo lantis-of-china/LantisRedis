@@ -28,6 +28,7 @@ namespace Lantis.ReadisOperation
                 if (dictionaryData.HasKey(id))
                 {
                     var callFunback = dictionaryData[id];
+                    dictionaryData.RemoveKey(id);
                     return callFunback;
                 }
 

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Lantis.ReadisOperation;
 using System.Net.Sockets;
-using Lantis.Redis;
 using Lantis.Network;
+using Lantis.Redis;
+using Lantis.ReadisOperation;
 using Lantis.Redis.Message;
 
 namespace Lantis.ReadisOperation.NetProcess

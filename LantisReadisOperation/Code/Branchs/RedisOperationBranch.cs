@@ -62,6 +62,16 @@ namespace Lantis.ReadisOperation
             MemoryReadisOperation.SetData<T>(id, data,finishCall);
         }
 
+        public void SingleSelectData<T>(string fieldName, string operation, object value, Action<object> finishCall)
+        {
+            MemoryReadisOperation.SingleSelectData<T>(fieldName, operation, value, finishCall);
+        }
+
+        public void SelectGetData<T>(LantisRedisConditionGroup conditionGroup, Action<object> finishCall)
+        {
+            MemoryReadisOperation.SelectGetData<T>(conditionGroup, finishCall);
+        }
+
         public void ExecuteNonQuery(string sqlComd,Action<object> finishCall,params SqlParameter[] parameters)
         {
             MemoryReadisOperation.ExecuteNonQuery(sqlComd, finishCall, parameters);
@@ -70,6 +80,16 @@ namespace Lantis.ReadisOperation
         public void ExecuteDataQuery(string sqlComd, Action<object> finishCall, params SqlParameter[] parameters)
         {
             MemoryReadisOperation.ExecuteDataQuery(sqlComd, finishCall, parameters);
+        }
+
+        public LantisRedisCondition SpawnCondition(string fieldName, string operation, object value)
+        {
+            return MemoryReadisOperation.SpawnCondition(fieldName, operation, value);
+        }
+
+        public RedisTableData SerializableToRedisTableData(RedisSerializableData serializableData)
+        {
+            return MemoryReadisOperation.SerializableToRedisTableData(serializableData);  
         }
     }
 }

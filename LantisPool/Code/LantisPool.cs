@@ -29,7 +29,7 @@ namespace Lantis.Pool
             this.releseCount = releseCount;
         }
 
-        public T CreateObject()
+        private T CreateObject()
         {
             var newObject = new T();
 

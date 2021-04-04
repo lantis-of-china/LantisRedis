@@ -22,7 +22,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "LantisPool": "1.0.0"
+          "LantisLogger": "1.0.0",
+          "LantisPool": "1.0.0",
+          "Zlib": "1.0.0"
         },
         "compile": {
           "bin/placeholder/LantisExtend.dll": {}
@@ -67,6 +69,16 @@
         "runtime": {
           "bin/placeholder/LantisPool.dll": {}
         }
+      },
+      "Zlib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Zlib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Zlib.dll": {}
+        }
       }
     }
   },
@@ -95,6 +107,11 @@
       "type": "project",
       "path": "../LantisPool/LantisPool.csproj",
       "msbuildProject": "../LantisPool/LantisPool.csproj"
+    },
+    "Zlib/1.0.0": {
+      "type": "project",
+      "path": "../Zlib/Zlib.csproj",
+      "msbuildProject": "../Zlib/Zlib.csproj"
     }
   },
   "projectFileDependencyGroups": {

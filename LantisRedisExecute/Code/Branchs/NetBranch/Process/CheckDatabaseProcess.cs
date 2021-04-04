@@ -36,10 +36,10 @@ namespace Lantis.RedisExecute.NetProcess
             {
                 var requestMsg = RedisSerializable.DeSerialize<RequestRedisCheckDatabase>(data);
                 Program.RedisMemoryBranch.CheckMemory(requestMsg);
-                responseMsg = LantisPoolSystem.GetPool<ResponseRedisCheckDatabase>().CreateObject();
+                responseMsg = LantisPoolSystem.GetPool<ResponseRedisCheckDatabase>().NewObject();
                 responseMsg.requestId = requestMsg.requestId;
                 responseMsg.result = 1;
-                Program.NetBranch.NetServerComponent.SendMessage(MessageIdDefine.CheckDatabaseBack, RedisSerializable.SerializableToBytes(responseMsg), socket);
+                Program.NetBranch.NetServerComponent.SendMessage(MessageIdDefine.CheckDatabaseBack, RedisSerializable.Serialize(responseMsg), socket);
             }
             catch (Exception e)
             {

@@ -9,7 +9,7 @@ using Lantis.Extend;
 using Lantis.Pool;
 using Lantis.Redis.Message;
 using System.Data;
-using System.Text;
+using Newtonsoft.Json;
 
 namespace Lantis.Redis
 {
@@ -168,7 +168,7 @@ namespace Lantis.Redis
             }
             else
             {
-                resultString = $"'{ Newtonsoft.Json.JsonConvert.SerializeObject(value) }'";
+                resultString = $"'{ JsonConvert.SerializeObject(value) }'";
             }
 
             return resultString;
@@ -231,12 +231,24 @@ namespace Lantis.Redis
         public static void DataToRedisTableData(byte[] data, RedisTableData redisTableData)
         {
             var redisSerializable = RedisSerializable.BytesToSerializable(data);
+            SerializableToRedisTableData(redisSerializable, redisTableData);
+        }
 
+        /// <summary>
+        /// redis serializable to redis table data
+        /// </summary>
+        /// <param name="redisSerializable"></param>
+        /// <param name="redisTableData"></param>
+        /// <returns></returns>
+        public static RedisTableData SerializableToRedisTableData(RedisSerializableData redisSerializable, RedisTableData redisTableData)
+        {
             for (var i = 0; i < redisSerializable.fields.Count; ++i)
             {
                 var fieldItem = redisSerializable.fields[i];
                 redisTableData.AddField(DataToRedisTableField(fieldItem));
             }
+
+            return redisTableData;
         }
 
         public static RedisTableData RedisSerializableToRedisTableData(RedisSerializableData redisSerializableData)
@@ -436,6 +448,24 @@ namespace Lantis.Redis
         }
 
         /// <summary>
+        /// get database name
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static string GetDatabaseName<T>()
+        {
+            var type = typeof(T);
+            var attribyte = type.GetCustomAttribute<RedisTableDefineAttribute>();
+
+            if (attribyte != null)
+            {
+                return attribyte.GetDatabaseName();
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
         /// extern database translate to redis serializ data struct
         /// </summary>
         /// <param name="databaseName"></param>
@@ -570,7 +600,7 @@ namespace Lantis.Redis
                     sqlString += "AND";
                 }
 
-                sqlString += $"{condition.fieldName} {condition.operation} {condition.fieldValue}";
+                sqlString += $" {condition.fieldName} {condition.operation} {condition.fieldValue}";
             }
 
             return sqlString;
@@ -690,7 +720,7 @@ namespace Lantis.Redis
                     }
 
                     var fieldObject = oneData.GetFieldObject(RedisConst.id);
-                    redisTable.AddDataById(fieldObject.fieldValue as string, oneData);
+                    redisTable.AddDataById(fieldObject.fieldValue.ToString(), oneData);
                 }
             }
         }

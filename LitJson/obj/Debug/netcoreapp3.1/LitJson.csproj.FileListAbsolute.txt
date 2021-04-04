@@ -14,4 +14,3 @@ C:\Users\lantis\Documents\LantisRedis\LitJson\obj\Debug\netcoreapp3.1\LitJson.As
 C:\Users\lantis\Documents\LantisRedis\LitJson\obj\Debug\netcoreapp3.1\LitJson.csproj.CoreCompileInputs.cache
 C:\Users\lantis\Documents\LantisRedis\LitJson\obj\Debug\netcoreapp3.1\LitJson.dll
 C:\Users\lantis\Documents\LantisRedis\LitJson\obj\Debug\netcoreapp3.1\LitJson.pdb
-F:\Gits\LantisReadis\LitJson\obj\Debug\netcoreapp3.1\LitJson.csprojAssemblyReference.cache

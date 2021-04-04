@@ -116,7 +116,7 @@ namespace Lantis.Network
 
 				//if (reciveStream != null)
 				//{
-					int needRecive = (int)messageLength - (int)reciveStream.Length;
+					int needRecive = (int)messageLength - (int)reciveStream.Position;
 
 					if (needRecive >= msgBufer.Length)
 					{
@@ -159,7 +159,7 @@ namespace Lantis.Network
                     {
                     }
 
-                    reciveStream.Seek(0, SeekOrigin.Begin);  
+                    reciveStream.Seek(0, SeekOrigin.Begin);
                     messageLength = System.BitConverter.ToInt32(lengthBuf, 0);
                     BeginReciveMsgBody(null);
                 }

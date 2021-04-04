@@ -38,3 +38,5 @@ C:\Users\lantis\Documents\LantisRedis\MemoryStream\obj\Debug\netcoreapp3.1\Memor
 C:\Users\lantis\Documents\LantisRedis\MemoryStream\obj\Debug\netcoreapp3.1\MemoryStream.csproj.CopyComplete
 C:\Users\lantis\Documents\LantisRedis\MemoryStream\obj\Debug\netcoreapp3.1\MemoryStream.dll
 C:\Users\lantis\Documents\LantisRedis\MemoryStream\obj\Debug\netcoreapp3.1\MemoryStream.pdb
+F:\Gits\LantisReadis\MemoryStream\bin\Debug\netcoreapp3.1\Zlib.dll
+F:\Gits\LantisReadis\MemoryStream\bin\Debug\netcoreapp3.1\Zlib.pdb

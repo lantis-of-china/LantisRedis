@@ -79,7 +79,8 @@ namespace Lantis.RedisExecute
                                         redisTable.AddDataById(operationCondition.fieldValue, redisTableData);
                                     }
 
-                                    redisTableData.FieldDataFromString(requestData.data);
+                                    var data64 = CompressEncryption.UnCompressDecompressData(requestData.data);
+                                    redisTableData.FieldDataFromString(data64);
                                 }
                                 else
                                 {

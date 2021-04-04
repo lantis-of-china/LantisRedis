@@ -38,6 +38,16 @@
         "runtime": {
           "bin/placeholder/LantisPool.dll": {}
         }
+      },
+      "Zlib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Zlib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Zlib.dll": {}
+        }
       }
     }
   },
@@ -56,11 +66,18 @@
       "type": "project",
       "path": "../LantisPool/LantisPool.csproj",
       "msbuildProject": "../LantisPool/LantisPool.csproj"
+    },
+    "Zlib/1.0.0": {
+      "type": "project",
+      "path": "../Zlib/Zlib.csproj",
+      "msbuildProject": "../Zlib/Zlib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "LantisPool >= 1.0.0"
+      "LantisLogger >= 1.0.0",
+      "LantisPool >= 1.0.0",
+      "Zlib >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -94,8 +111,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj": {
+              "projectPath": "F:\\Gits\\LantisReadis\\LantisLogger\\LantisLogger.csproj"
+            },
             "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj": {
               "projectPath": "F:\\Gits\\LantisReadis\\LantisPool\\LantisPool.csproj"
+            },
+            "F:\\Gits\\LantisReadis\\Zlib\\Zlib.csproj": {
+              "projectPath": "F:\\Gits\\LantisReadis\\Zlib\\Zlib.csproj"
             }
           }
         }

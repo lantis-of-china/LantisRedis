@@ -5,8 +5,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
   <ItemGroup>
+    <ProjectReference Include="..\LantisLogger\LantisLogger.csproj" />
     <ProjectReference Include="..\LantisPool\LantisPool.csproj" />
+    <ProjectReference Include="..\Zlib\Zlib.csproj" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
