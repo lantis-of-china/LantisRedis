@@ -92,5 +92,14 @@ namespace Lantis.Redis
                 RedisCore.DataToRedisTableData(data, this);
             });
         }
+
+        public void FieldDataFromSeriizable(RedisSerializableData data)
+        {
+            SafeRun(delegate
+            {
+                ClearFields();
+                RedisCore.RedisSerializableToRedisTableData(data, this);
+            });            
+        }
     }
 }

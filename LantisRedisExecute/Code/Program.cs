@@ -67,7 +67,7 @@ namespace Lantis.RedisExecute
             redisMemoryBranch = LogicTrunkEntity.Instance.AddComponentEntity<MemoryBranch>();
             databaseBranch = LogicTrunkEntity.Instance.AddComponentEntity<DatabaseBranch>(DatabaseBranch.ParamCreate("Data Source=47.93.216.176;User Id = sa;Password=Lantis2021lantis.;Database=LantisRedisDatabase;Integrated Security = False;Connect Timeout = 30;Encrypt=False;TrustServerCertificate=False;"));
             netBranch = LogicTrunkEntity.Instance.AddComponentEntity<NetServerBranch>(NetServerBranch.ParamCreate(
-            "127.0.0.1",
+            "0.0.0.0",
             9980,
             new string[] { "Lantis.RedisExecute.NetProcess" },
             ()=> 

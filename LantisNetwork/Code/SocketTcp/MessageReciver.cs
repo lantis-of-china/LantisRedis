@@ -160,6 +160,9 @@ namespace Lantis.Network
                     }
 
                     reciveStream.Seek(0, SeekOrigin.Begin);
+                    reciveStream.Seek(0, SeekOrigin.Current);
+                    reciveStream.Seek(0, SeekOrigin.End);
+                    reciveStream.SetLength(0);
                     messageLength = System.BitConverter.ToInt32(lengthBuf, 0);
                     BeginReciveMsgBody(null);
                 }

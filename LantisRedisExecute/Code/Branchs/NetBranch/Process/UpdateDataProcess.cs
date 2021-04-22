@@ -35,6 +35,7 @@ namespace Lantis.RedisExecute.NetProcess
             try
             {
                 var requestMsg = RedisSerializable.DeSerialize<RequestRedisUpdate>(data);
+                Logger.Log($"update database:{requestMsg.databaseName} tablename:{requestMsg.tableName}");
                 Program.RedisMemoryBranch.UpdateMemory(requestMsg);
                 responseMsg = LantisPoolSystem.GetPool<ResponseRedisUpdate>().NewObject();
                 responseMsg.requestId = requestMsg.requestId;

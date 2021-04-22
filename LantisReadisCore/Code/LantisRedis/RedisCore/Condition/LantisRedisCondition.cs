@@ -16,9 +16,9 @@ namespace Lantis.Redis
 
         public void OnCreate()
         {
-            fieldName = string.Empty;
-            operation = string.Empty;
-            fieldValue = string.Empty;
+            fieldName = "";
+            operation = "";
+            fieldValue = "";
         }
 
         public void OnPoolSpawn()
@@ -27,16 +27,16 @@ namespace Lantis.Redis
 
         public void OnPoolDespawn()
         {
-            fieldName = string.Empty;
-            operation = string.Empty;
-            fieldValue = string.Empty;
+            fieldName = "";
+            operation = "";
+            fieldValue = "";
         }
 
         public void OnDestroy()
         {
-            fieldName = null;
-            operation = null;
-            fieldValue = null;
+            fieldName = "";
+            operation = "";
+            fieldValue = "";
         }
     }
 }

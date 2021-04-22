@@ -235,6 +235,16 @@ namespace Lantis.Redis
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="redisSerializableData"></param>
+        /// <param name="redisTableData"></param>
+        public static void RedisSerializableToRedisTableData(RedisSerializableData redisSerializableData, RedisTableData redisTableData)
+        {
+            SerializableToRedisTableData(redisSerializableData, redisTableData);
+        }
+
+        /// <summary>
         /// redis serializable to redis table data
         /// </summary>
         /// <param name="redisSerializable"></param>

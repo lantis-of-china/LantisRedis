@@ -55,7 +55,7 @@ namespace Lantis.RedisExecute
         {
             SafeRun(delegate 
             {
-                if (requestData.data != null && requestData.data.Length > 0)
+                if (requestData.data != null)
                 {
                     if (!string.IsNullOrEmpty(requestData.databaseName) && !string.IsNullOrEmpty(requestData.tableName))
                     {
@@ -79,8 +79,7 @@ namespace Lantis.RedisExecute
                                         redisTable.AddDataById(operationCondition.fieldValue, redisTableData);
                                     }
 
-                                    var data64 = CompressEncryption.UnCompressDecompressData(requestData.data);
-                                    redisTableData.FieldDataFromString(data64);
+                                    redisTableData.FieldDataFromSeriizable(requestData.data);
                                 }
                                 else
                                 {

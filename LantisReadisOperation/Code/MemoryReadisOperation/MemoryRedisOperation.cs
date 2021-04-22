@@ -70,8 +70,9 @@ namespace Lantis.ReadisOperation
             var redisRequest = LantisPoolSystem.GetPool<RequestRedisSet>().NewObject();
             redisRequest.databaseName = RedisCore.GetDatabaseNameFromData(data);
             redisRequest.tableName = RedisCore.GetMemoryRedisDataTypeName(data);
-            var dataSerializeble = RedisSerializable.SerializableToBytes(data);
-            redisRequest.data = CompressEncryption.CompressEncryptionData(dataSerializeble);
+           
+           // var dataSerializeble = RedisSerializable.SerializableToBytes(data);
+            redisRequest.data = RedisSerializable.SerializableToRedisSerializableData(data);
             var condition = LantisPoolSystem.GetPool<LantisRedisCondition>().NewObject();
             redisRequest.conditionGroup.conditionList.Add(condition);
             condition.fieldName = RedisConst.id;
@@ -219,6 +220,7 @@ namespace Lantis.ReadisOperation
 
         public static void SubmitRequestRedisSet(RequestRedisSet request, Action<object> finisCallBack)
         {
+            Logger.Log($"setdata database:{request.databaseName} table:{request.tableName}");
             request.requestId = idSpawner.GetId();
             NetCallbackSystem.AddNetCallback(request.requestId, finisCallBack);
             var data = RedisSerializable.Serialize(request);

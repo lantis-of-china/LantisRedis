@@ -11,15 +11,15 @@ namespace Lantis.Redis.Message
     public class RequestRedisSet : LantisPoolInterface
     {
         public int requestId;
-        public string databaseName;
-        public string tableName;
+        public string databaseName = "";
+        public string tableName = "";
         public LantisRedisConditionGroup conditionGroup;
-        public byte[] data;
+        public RedisSerializableData data;
 
         public void OnCreate()
         {
-            databaseName = string.Empty;
-            tableName = string.Empty;
+            databaseName = "";
+            tableName = "";
             data = null;
         }
 
@@ -30,17 +30,23 @@ namespace Lantis.Redis.Message
 
         public void OnPoolDespawn()
         {
-            databaseName = string.Empty;
-            tableName = string.Empty;
-            data = null;
+            databaseName = "";
+            tableName = "";
+
+            if (data != null)
+            {
+                LantisPoolSystem.GetPool<RedisSerializableData>().DisposeObject(data);
+                data = null;
+            }
+
             LantisPoolSystem.GetPool<LantisRedisConditionGroup>().DisposeObject(conditionGroup);
             conditionGroup = null;
         }
 
         public void OnDestroy()
         {
-            databaseName = null;
-            tableName = null;
+            databaseName = "";
+            tableName = "";
             data = null;
             conditionGroup = null;
         }

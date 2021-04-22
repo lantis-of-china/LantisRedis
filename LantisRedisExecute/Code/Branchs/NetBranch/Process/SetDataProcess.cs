@@ -35,6 +35,7 @@ namespace Lantis.RedisExecute.NetProcess
             try
             {
                 var requestMsg = RedisSerializable.DeSerialize<RequestRedisSet>(data);
+                Logger.Log($"setdata database:{requestMsg.databaseName} tablename:{requestMsg.tableName}");
                 Program.RedisMemoryBranch.SetMemory(requestMsg);
                 responseMsg = LantisPoolSystem.GetPool<ResponseRedisSet>().NewObject();
                 responseMsg.requestId = requestMsg.requestId;

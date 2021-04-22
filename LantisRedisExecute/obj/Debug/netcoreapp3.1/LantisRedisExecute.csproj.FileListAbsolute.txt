@@ -47,7 +47,6 @@ F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\LantisRedisExecu
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\LantisRedisExecute.runtimeconfig.dev.json
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\LantisRedisExecute.dll
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\LantisRedisExecute.pdb
-F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
@@ -71,10 +70,11 @@ F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\LantisLocker.pdb
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\LantisLogger.pdb
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\LantisNetwork.pdb
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\LantisPool.pdb
-F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\LantisReadisCore.pdb
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\MemoryStream.pdb
 F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\Zlib.pdb
 F:\Gits\LantisReadis\LantisRedisExecute\obj\Debug\netcoreapp3.1\LantisRedisExecute.csproj.CopyComplete
 F:\Gits\LantisReadis\LantisRedisExecute\obj\Debug\netcoreapp3.1\LantisRedisExecute.dll
 F:\Gits\LantisReadis\LantisRedisExecute\obj\Debug\netcoreapp3.1\LantisRedisExecute.pdb
 F:\Gits\LantisReadis\LantisRedisExecute\obj\Debug\netcoreapp3.1\LantisRedisExecute.genruntimeconfig.cache
+F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+F:\Gits\LantisReadis\LantisRedisExecute\bin\Debug\netcoreapp3.1\LantisReadisCore.pdb

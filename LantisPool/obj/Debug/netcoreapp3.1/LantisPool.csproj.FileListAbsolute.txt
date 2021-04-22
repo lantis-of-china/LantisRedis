@@ -19,10 +19,10 @@ F:\Gits\LantisReadis\LantisPool\bin\Debug\netcoreapp3.1\LantisLocker.dll
 F:\Gits\LantisReadis\LantisPool\bin\Debug\netcoreapp3.1\LantisLogger.dll
 F:\Gits\LantisReadis\LantisPool\bin\Debug\netcoreapp3.1\LantisLocker.pdb
 F:\Gits\LantisReadis\LantisPool\bin\Debug\netcoreapp3.1\LantisLogger.pdb
-F:\Gits\LantisReadis\LantisPool\obj\Debug\netcoreapp3.1\LantisPool.csprojAssemblyReference.cache
 F:\Gits\LantisReadis\LantisPool\obj\Debug\netcoreapp3.1\LantisPool.AssemblyInfoInputs.cache
 F:\Gits\LantisReadis\LantisPool\obj\Debug\netcoreapp3.1\LantisPool.AssemblyInfo.cs
 F:\Gits\LantisReadis\LantisPool\obj\Debug\netcoreapp3.1\LantisPool.csproj.CoreCompileInputs.cache
 F:\Gits\LantisReadis\LantisPool\obj\Debug\netcoreapp3.1\LantisPool.csproj.CopyComplete
 F:\Gits\LantisReadis\LantisPool\obj\Debug\netcoreapp3.1\LantisPool.dll
 F:\Gits\LantisReadis\LantisPool\obj\Debug\netcoreapp3.1\LantisPool.pdb
+F:\Gits\LantisReadis\LantisPool\obj\Debug\netcoreapp3.1\LantisPool.csprojAssemblyReference.cache

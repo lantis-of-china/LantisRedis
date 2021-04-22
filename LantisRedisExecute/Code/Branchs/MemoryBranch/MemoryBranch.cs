@@ -85,8 +85,7 @@ namespace Lantis.RedisExecute
 
                     if (table != null)
                     {
-                        var dataBase64System = CompressEncryption.UnCompressDecompressData(requestMsg.data);
-                        var serializableData = RedisSerializable.BytesToSerializable(dataBase64System);
+                        var serializableData = requestMsg.data;
                         var sqlCommand = table.SetData(requestMsg.conditionGroup, serializableData);
                         Logger.Log(sqlCommand);
                         LogicTrunkEntity.Instance.GetComponent<DatabaseCommandBranch>().AddCommand(sqlCommand);

@@ -41,7 +41,8 @@ namespace Lantis.Redis
             using (MemoryStream ms = new MemoryStream(bytes))
             {
                 BinaryFormatter b = new BinaryFormatter();
-                target = (T)b.Deserialize(ms); ;
+                ms.Seek(0, SeekOrigin.Begin);
+                target = (T)b.Deserialize(ms);
             }
 
             return target;
@@ -81,6 +82,15 @@ namespace Lantis.Redis
         public static RedisSerializableData BytesToSerializable(byte[] datas)
         {
             return DeSerialize<RedisSerializableData>(datas);
+        }
+
+        public static RedisSerializableData SerializableToRedisSerializableData(object tableData)
+        {
+            var type = tableData.GetType();
+            RedisTableDefineAttribute redisAttribute = FindRedisTableDefineAttribute(tableData);
+            var redisSerializData = RedisCore.ExternTableDataToRedisSerializData(redisAttribute == null ? string.Empty : redisAttribute.GetDatabaseName(), tableData);
+
+            return redisSerializData;
         }
     }
 }
